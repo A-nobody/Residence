@@ -9,7 +9,11 @@
                <!-- 上边部分 -->
                <div class="task_top_n">
                  <p>{{task}}</p>
+<<<<<<< HEAD
                  <p>{{finsh}}:{{process}}</p>
+=======
+                 <p>{{finsh}}: <span>{{process}}</span></p>
+>>>>>>> nttbranch
                   <!-- 查看任务 -->
                   <span class="view_task_n">{{viewtask}}</span>
                </div>
@@ -20,6 +24,20 @@
                </div>
            </div>
            <!-- 蓝色背景块 -->
+<<<<<<< HEAD
+=======
+
+           <!-- 装修流程，避坑指南 -->
+           <div class="process_n">
+                <div class="process_left">
+
+                </div>
+                <div class="process_right">
+
+                </div>
+           </div>
+
+>>>>>>> nttbranch
         </div>
         <!-- 灰色背景块 -->
     </div>
@@ -35,7 +53,11 @@ export default {
             process:"0/117",
             viewtask:"查看任务",
             renovation:"我的装修信息",
+<<<<<<< HEAD
             icon:"&#xe660;"
+=======
+            icon:"&#xe646;"
+>>>>>>> nttbranch
         }
     }
 }
@@ -109,6 +131,7 @@ export default {
       color: #F6F5F5;
       font-size: .23rem;
       margin: .37rem 0 0 .41rem;
+<<<<<<< HEAD
       /* float: left; */
    }
    /* .task_bottom_n span:nth-of-type(2){
@@ -116,4 +139,25 @@ export default {
        width: .3rem;
        height: .3rem;
    } */
+=======
+   }
+/* 灰色---装修流程，装修避坑 */
+   .process_n{
+       width: 100%;
+       height: 1.36rem;
+       margin-top:0.4rem;
+   }
+   .process_left,.process_right{
+      width:3.34rem;
+      height:1.36rem;
+      float: left;
+      background:#EEF5F6;
+      border-radius: .06rem;
+   }
+   .process_left{
+       margin-right:.02rem;
+   }
+
+
+>>>>>>> nttbranch
 </style>
