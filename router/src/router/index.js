@@ -6,6 +6,7 @@ import Release from '@/components/releases'
 import Style from '@/components/styless'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
+import Shop from '@/components/shop'
 Vue.use(Router)
 
 export default new Router({
@@ -65,6 +66,17 @@ export default new Router({
       meta: {
         //tab栏
         flag: true,
+        //路由守卫
+        requireAuth: true
+      }
+    },
+    {
+      path: '/shop',
+      name: 'shop',
+      component: Shop,
+      meta: {
+        //tab栏
+        flag: false,
         //路由守卫
         requireAuth: true
       }

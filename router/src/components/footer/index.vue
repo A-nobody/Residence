@@ -3,7 +3,7 @@
         <ul>
             <li v-for="(item,index) in navs">
                 <router-link :to="item.name" @click="handleFhover($event,index)">
-                    <i>  </i>
+                    <i></i>
                     <span>{{item.title}}</span>
                 </router-link>
             </li>
