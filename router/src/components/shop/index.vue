@@ -1,18 +1,17 @@
 <template>
-    <div>
-		<Shophome/>
+    <div id="shop">
+		 <router-view/>
     </div>
 </template>
 
 <script>
-import Shophome from "./components/shophome.vue";
 export default {
-    components:{
-    	Shophome
-    }
 }
 </script>
 
-<style>
-
+<style scoped>
+	#shop{
+		width: 100%;
+		height: 100%;
+	}
 </style>
