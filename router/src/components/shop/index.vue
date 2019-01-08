@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Shophome from "./components/shophome.vue";
+import Shophome from "@/components/shop"
 export default {
     components:{
     	Shophome

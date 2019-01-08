@@ -7,6 +7,9 @@ import Style from '@/components/styless'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
 import Shop from '@/components/shop'
+import Register from '@/components/register'
+import Login from '@/components/login'
+
 Vue.use(Router)
 
 export default new Router({
@@ -14,6 +17,24 @@ export default new Router({
     {
       path: '/',
       redirect: '/home'
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: Register,
+        meta: {
+          flag: false,
+          requireAuth: true
+        }
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login,
+        meta: {
+          flag: false,
+          requireAuth: true
+        }
     },
     {
       path: '/home',
