@@ -4,13 +4,14 @@ import router from './router'
 import "./common/css/reset.css"
 import "./common/css/iconfont/iconfont.css"
 import "./common/js/flexble"
-import oBserver from "./common/js/observer";
-Vue.prototype.Observer = oBserver;
+import store from "./store";
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
