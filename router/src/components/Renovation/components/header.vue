@@ -20,6 +20,17 @@
                </div>
            </div>
            <!-- 蓝色背景块 -->
+
+           <!-- 装修流程，避坑指南 -->
+           <div class="process_n">
+                <div class="process_left">
+
+                </div>
+                <div class="process_right">
+
+                </div>
+           </div>
+
         </div>
         <!-- 灰色背景块 -->
     </div>
