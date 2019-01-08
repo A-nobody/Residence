@@ -47,7 +47,7 @@
 }
 .reg-top-right div:nth-child(1){
     height: 100%;
-    line-height: .21rem;
+    line-height: .15rem;
     font-size: .22rem;
     letter-spacing: .02rem;
     font-family: PingFang-SC-Regular;

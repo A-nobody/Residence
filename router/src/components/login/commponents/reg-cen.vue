@@ -3,7 +3,7 @@
         <component :is="com_h"></component>
         <div class="reg-query">遇到问题?</div>
         <div class="reg-reg">
-            登录
+            <router-link to="/home">登录</router-link>
         </div>
         <div class="reg-warn">
             注册绘居账号
@@ -53,7 +53,10 @@ import Active_com1 from "./logreg.vue"
     border-radius:5px;
     text-align: center;
     line-height: .95rem;
-    font-size:.3rem;
+   
+}
+.reg-reg a{
+     font-size:.3rem;
     font-family:PingFang-SC-Regular;
     font-weight:400;
     color:rgba(255,255,255,1);
