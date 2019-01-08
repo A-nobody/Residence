@@ -5,10 +5,6 @@ import "./common/css/reset.css"
 import "./common/css/iconfont/iconfont.css"
 import "./common/js/flexble"
 import store from "./store";
-<<<<<<< HEAD
-=======
-
->>>>>>> heng
 import observer from './common/js/observer'
 import './common/css/animate.min.css'
 Vue.config.productionTip = false
