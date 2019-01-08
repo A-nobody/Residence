@@ -1,9 +1,7 @@
 <template>
     <div class="main">
-        <!-- 装修必看 -->
-        <div class="mustlook_n">
-            <!-- <p>装修必看</p> -->
-
+        <div class="renovation_look">
+            <p> 装修必看</p>
         </div>
     </div>
 </template>
@@ -15,7 +13,15 @@ export default {
 </script>
 
 <style scoped>
- .mustlook_n{
-     
- }
+   .main{
+       width: 100%;
+       height:auto;
+       padding: 0 .4rem;
+       margin-top: .47rem;
+   }
+   .renovation_look p{
+      font-size: .33rem;
+      font-weight: bold;
+      color: #131313;
+   }
 </style>

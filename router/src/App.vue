@@ -17,5 +17,6 @@ export default {
 
 <style >
 #app {
+  height: auto;
 }
 </style>

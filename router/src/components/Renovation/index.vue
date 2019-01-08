@@ -18,5 +18,8 @@ export default {
 </script>
 
 <style>
-
+   div{
+       width: 100%;
+       height: auto;
+   }
 </style>
