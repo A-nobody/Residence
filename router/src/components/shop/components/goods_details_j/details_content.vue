@@ -24,6 +24,7 @@ export default {};
 
 
 <style lang="scss" scoped>
+
 @mixin font {
   font-size: .26rem;
   font-family: PingFang-SC-Regular;
@@ -34,8 +35,7 @@ export default {};
   height: 2.16rem;
   background: rgba(255, 255, 255, 1);
   position: relative;
-  display: block;
-  float: left;
+  margin-bottom: .1rem;
   .content_price_j {
     .content_price_sign {
       width: 0.21rem;
@@ -52,7 +52,6 @@ export default {};
       font-size: 0.4rem;
       font-family: PingFang-SC-Regular;
       color: rgba(127, 208, 163, 1);
-      line-height: 0.7rem;
     }
   }
   .content_price_old {
@@ -69,17 +68,18 @@ export default {};
   }
   .content_price_title {
     width: 4.73rem;
-    height: .70rem;
+    height: .60rem;
     font-size: .28rem;
     font-family: PingFang-SC-Regular;
     font-weight: bold;
-    color: rgba(50, 50, 50, 1);
-    line-height: .70rem;
+    color:#323232;
+    line-height: .60rem;
      margin-left: 0.39rem;
   }
   .content_price_details{
       @include font;
       font-size: .22rem;
+      height:.21rem;
       span:nth-child(1){
           margin-left: 0.39rem;
       }

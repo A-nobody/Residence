@@ -15,7 +15,7 @@
     </div> -->
     <div class="img_num_j">
       <span>1</span>
-      /
+           /
       <span>5</span>
     </div>
     <div class="img_j"></div>
@@ -25,7 +25,11 @@
 // import { Swiper } from "swiper"; 
 // import Vuex from 'vuex';
 export default {
-    
+    data() {
+      return {
+        img_num_j:[1,2,3,4,5]
+      }
+    },
 };
 </script>
 <style lang="scss" scoped>
@@ -38,11 +42,15 @@ export default {
     background: pink;
   }
   .back_j {
+    width:.6rem;
+    height: .6rem;
     position: absolute;
     top: 0.54rem;
     left: 0.4rem;
   }
   .shoppingcar_j {
+    width:.6rem;
+    height: .6rem;
     position: absolute;
     top: 0.54rem;
     left: 6.5rem;
