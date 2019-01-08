@@ -6,6 +6,8 @@
         <Details-classify-com/>
         <Details-tostore-com/>
         <Details-bottom-com/>
+        <Details-color-com/>
+        <Details-parameter-com/>
     </div>
 </template>
 <script>
@@ -14,6 +16,8 @@ import Details_content from './details_content'
 import Details_classify from './details_classify'
 import Details_tostore from './details_tostore'
 import Details_bottom from './details_bottom'
+import Details_color from  './details_color'
+import Details_parameter from  './details_parameter'
 export default {
     components:{
         'Details-img-com':Details_img,
@@ -21,6 +25,8 @@ export default {
         'Details-classify-com':Details_classify,
         'Details-tostore-com':Details_tostore,
         'Details-bottom-com':Details_bottom,
+        'Details-color-com':Details_color,
+        'Details-parameter-com':Details_parameter,
         
     }
 }

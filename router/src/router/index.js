@@ -6,7 +6,7 @@ import Release from '@/components/releases'
 import Style from '@/components/styless'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
-import Shop from '@/components/shop'
+import Shopdetails from '@/components/shop/components/goods_details_j'
 import Shophome from '@/components/shop/components/shophome'
 import Checkstand from '@/components/shop/components/checkstand'
 
@@ -74,9 +74,9 @@ const router = new Router({
       }
     },
     {
-      path: '/shop',
-      name: 'shop',
-      component: Shop,
+      path: '/shop/goodsdetails',
+      name: 'Shopdetails',
+      component: Shopdetails,
       meta: {
         //tab栏
         flag: false,
