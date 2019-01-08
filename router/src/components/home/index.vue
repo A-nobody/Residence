@@ -1,12 +1,16 @@
 <template>
     <div>
-            home
+        <HearderW/>
+
     </div>
 </template>
 
 <script>
+import HearderW from "./components/HearderW.vue"
 export default {
-    
+    components:{
+        "HearderW": HearderW,
+    }
 }
 </script>
 

@@ -1,18 +1,15 @@
 <template>
-    <div>
-		<Shophome/>
+    <div id="shop">
+		 <router-view/>
     </div>
 </template>
 
 <script>
-import Shophome from "@/components/shop"
 export default {
     components:{
-    	Shophome
     }
 }
 </script>
 
 <style>
-
 </style>

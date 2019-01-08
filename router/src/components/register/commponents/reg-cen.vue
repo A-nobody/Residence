@@ -18,7 +18,7 @@
         </div>
         <div class="reg-query">遇到问题?</div>
         <div class="reg-reg">
-            注册
+            <router-link to="/login">注册</router-link>
         </div>
         <div class="reg-warn">
             通过账号密码登录
@@ -53,6 +53,12 @@
     text-align: center;
     line-height: .95rem;
     font-size:.3rem;
+    font-family:PingFang-SC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+}
+.reg-reg a{
+     font-size:.3rem;
     font-family:PingFang-SC-Regular;
     font-weight:400;
     color:rgba(255,255,255,1);

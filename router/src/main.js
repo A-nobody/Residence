@@ -2,7 +2,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import "./common/css/reset.css"
+import "./common/css/iconfont/iconfont.css"
 import "./common/js/flexble"
+import store from "./store";
+
 import observer from './common/js/observer'
 Vue.config.productionTip = false
 
@@ -11,5 +14,6 @@ Vue.prototype.observer = observer
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
