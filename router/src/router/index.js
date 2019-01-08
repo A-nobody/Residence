@@ -9,6 +9,7 @@ import Err from '@/components/error/error.vue'
 import Shop from '@/components/shop'
 import Shophome from '@/components/shop/components/shophome'
 import Checkstand from '@/components/shop/components/checkstand'
+import Confirm from '@/components/shop/components/confirmorder'
 
 Vue.use(Router)
 
@@ -99,6 +100,17 @@ const router = new Router({
       path: '/shop/checkstand',
       name: 'checkstand',
       component: Checkstand,
+      meta: {
+        //tab栏
+        flag: false,
+        //路由守卫
+        requireAuth: true
+      }
+    },
+    {
+      path: '/shop/confirm',
+      name: 'confirm',
+      component: Confirm,
       meta: {
         //tab栏
         flag: false,

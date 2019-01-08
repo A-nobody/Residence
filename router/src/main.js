@@ -5,6 +5,9 @@ import "./common/css/reset.css"
 import "./common/js/flexble"
 import store from "./store";
 
+import Observer from "@/common/js/observer.js";
+Vue.prototype.Observer = Observer;
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

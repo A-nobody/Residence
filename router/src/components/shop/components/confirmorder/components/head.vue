@@ -1,6 +1,6 @@
 <template>
 	<div class="head" :style="note">
-		<span>收银台</span>
+		<span>确认订单</span>
 	</div>
 </template>
 
@@ -18,6 +18,7 @@
 		}
 	}
 </script>
+
 <style scoped>
 	.head{
 		height: .88rem;
@@ -29,6 +30,5 @@
 		font-size: .3rem;
 		font-weight:bold;
 		background-color: #fff;
-		border: 0.01rem solid #E9E9E9;
 	}
 </style>
