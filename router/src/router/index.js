@@ -7,9 +7,12 @@ import Style from '@/components/styless'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
 import Shop from '@/components/shop'
+import Shophome from '@/components/shop/components/shophome'
+import Checkstand from '@/components/shop/components/checkstand'
+
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -82,9 +85,33 @@ export default new Router({
       }
     },
     {
+      path: '/shop/shophome',
+      name: 'shophome',
+      component: Shophome,
+      meta: {
+        //tab栏
+        flag: false,
+        //路由守卫
+        requireAuth: true
+      }
+    },
+    {
+      path: '/shop/checkstand',
+      name: 'checkstand',
+      component: Checkstand,
+      meta: {
+        //tab栏
+        flag: false,
+        //路由守卫
+        requireAuth: true
+      }
+    },
+    {
       path:'**',
       component:Err
     }
     
   ]
 })
+
+export default router;
