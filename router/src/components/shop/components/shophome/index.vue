@@ -40,6 +40,7 @@
 		width: 100%;
 		height: 100%;
 		color: #323232;
+		font-weight: bold;
 	}
 	.shopstatic_g{
 		position: fixed;
