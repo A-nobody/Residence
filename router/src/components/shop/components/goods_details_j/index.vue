@@ -38,7 +38,7 @@ export default {
     position: relative;
 }
 @mixin top_j{
-    height:.44rem;
+    height:.4rem;
     width:100%;
     position: absolute;
     top: 0;

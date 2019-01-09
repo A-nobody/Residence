@@ -7,9 +7,13 @@ import "./common/js/flexble"
 import store from "./store";
 import observer from './common/js/observer'
 import './common/css/animate.min.css'
+<<<<<<< HEAD
 Vue.config.productionTip = false
+=======
+>>>>>>> jin
 
-Vue.prototype.observer = observer
+Vue.prototype.Observer = observer;
+Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
