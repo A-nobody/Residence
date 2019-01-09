@@ -6,12 +6,10 @@
 
 <script>
 export default {
+    components:{
+    }
 }
 </script>
 
-<style scoped>
-	#shop{
-		width: 100%;
-		height: 100%;
-	}
+<style>
 </style>

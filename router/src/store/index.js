@@ -1,12 +1,13 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import Checkstand from "./checkstand";
+import Vue from 'vue'
+import Vuex from 'vuex'
+import mine from './mine'
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-    modules:{
-        Checkstand
-    }
+  modules: {
+  	Checkstand,
+    mine
+  }
 })
 
-export default store;
+export default store
