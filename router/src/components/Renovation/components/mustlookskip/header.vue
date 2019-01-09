@@ -44,7 +44,6 @@ export default {
    created(){
       let title=this.$route.query.title.looktitle;
       this.title=title;
-      console.log(this.title)
    }
 }
 </script>
