@@ -9,6 +9,7 @@ import Err from '@/components/error/error.vue'
 import Shop from '@/components/shop'
 import Shophome from '@/components/shop/components/shophome'
 import Checkstand from '@/components/shop/components/checkstand'
+import Detail from '@/components/Renovation/components/mustlookskip/details'
 
 Vue.use(Router)
 
@@ -105,6 +106,11 @@ const router = new Router({
         //路由守卫
         requireAuth: true
       }
+    },
+    {
+      path:"/renovation/details",
+      component:Detail,
+      name:"details",
     },
     {
       path:'**',

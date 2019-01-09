@@ -20,6 +20,7 @@
                    <span>{{item.looktitle}}</span>
                 </li>
             </ul>
+            
         </div>
     </div>
 </template>
@@ -110,8 +111,9 @@ export default {
     /* 找设计师 */
     .footer_design{
         width: 100%;
-        height: 2.1rem;
+        height: 2.0rem;
         padding: 0 .1rem;
+        margin-top:.29rem;
     }
     .footer_design ul{
         width: 100%;
@@ -141,11 +143,24 @@ export default {
        display: flex;
        justify-content: space-around;
    }
-   .footerquality ul li{
-       line-height: .8rem;
-   }
+ 
    .footerquality ul li img{
        float: left;
        vertical-align: middle;
+   }
+   .footerquality>ul>li>img{
+       width: .18rem;
+       height: .18rem;
+       margin: .24rem .06rem 0 0 ;
+   }
+   .footerquality>ul>li>span{
+       font-size: .18rem;
+       color: #757575;
+       float: left;
+       margin-top:.24rem ;
+   }
+   .blank{
+       width: 6.7rem;
+       height: .98rem;
    }
 </style>

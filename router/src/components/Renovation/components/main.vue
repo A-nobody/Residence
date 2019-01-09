@@ -4,12 +4,14 @@
         <div class="renovation_look">
             <p class="look_title">装修必看</p>
             <ul>
-                <!-- <router-link> -->
-                    <li v-for="(item,index) in mustlook">
+                <li v-for="(item,index) in mustlook">
+                    <router-link :to="{name:'details',query:{id:index,title:item}}">
+                    
                         <p>{{item.looktitle}}</p>
                         <img :src="item.lookimg">
-                    </li>
-                <!-- </router-link> -->
+                 
+                    </router-link> 
+                </li>
             </ul>
         </div>
         <!-- 空间 -->
@@ -17,18 +19,23 @@
            <p class="look_title">空间</p>
            <ul>
               <li v-for="(item,index) in space">
-                  <p>{{item.looktitle}}</p>
-                  <img :src="item.lookimg">
+                   <router-link :to="{name:'details',query:{id:index,title:item}}">
+                        <p>{{item.looktitle}}</p>
+                        <img :src="item.lookimg">
+                  </router-link> 
               </li>
            </ul>
         </div>
         <!-- 大家都在看 -->
         <div class="alllook">
+
            <p class="look_title">大家都在看</p>
           <ul>
               <li v-for="(item,index) in alllook">
-                  <p>{{item.looktitle}}</p>
-                  <img :src="item.lookimg">
+                   <router-link :to="{name:'details',query:{id:index,title:item}}">
+                        <p>{{item.looktitle}}</p>
+                        <img :src="item.lookimg">
+                  </router-link> 
               </li>
           </ul>
         </div>
@@ -130,14 +137,14 @@ export default{
        background:#F5F0EA;
        border-radius: .06rem;
    }
-   .space>ul>li>p,
-   .alllook>ul>li>p{
+   .space>ul>li>a>p,
+   .alllook>ul>li>a>p{
        font-size: .18rem;
        color: #CDBC7F;
        margin: .18rem 0 .23rem .19rem;
    }
-   .space>ul>li>img,
-   .alllook>ul>li>img{
+   .space>ul>li>a>img,
+   .alllook>ul>li>a>img{
        height:.75rem;
        margin-left:.37rem ;
    }

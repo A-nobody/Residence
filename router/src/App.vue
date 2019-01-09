@@ -12,7 +12,7 @@ export default {
     "Footer-com":Footer
   },
   created(){
-  	// this.footshow = this.$route.meta.flag;
+  	this.footshow = this.$route.meta.flag;
   },
   data(){
   	return{
@@ -21,7 +21,7 @@ export default {
   },
   watch:{
   	"$route"(to,from){
-  		// this.footshow = this.$route.meta.flag;
+  		this.footshow = this.$route.meta.flag;
   	}
   }
 }

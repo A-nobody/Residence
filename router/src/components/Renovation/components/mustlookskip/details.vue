@@ -1,6 +1,8 @@
 <template>
     <div>
-        
+        <header-com/>
+        <main-com/>
+        <footer-com/>
     </div>
 </template>
 
@@ -13,7 +15,8 @@ export default {
        "header-com":header,
        "main-com":main,
        "footer-com":footer
-   } 
+   } ,
+   
 }
 </script>
 
