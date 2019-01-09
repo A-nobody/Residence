@@ -1,45 +1,29 @@
-
-
-
-let EventList = {
-   //key:[]
-}
-
-
-const $on = (EventName,cb)=>{
-
-    if(!(EventList[EventName])){
-
-        EventList[EventName] = [];
+let list = {};
+const $on = (eventName,fn)=>{
+    if(!list[eventName]){
+        list[eventName]=[];
     }
-    EventList[EventName].push(cb);
+    list[eventName].push(fn)
 }
-
-
-const $emit = (EeventName,params)=>{
-    if(!EventList[EeventName])return;
-
-    let EventLists = EventList[EeventName];
-    EventLists.map((cb)=>{
-        params?cb(params):cb();
-    })
+const $emit = (eventName,data)=>{
+    if(list[eventName]){
+        list[eventName].map((fn)=>{
+            fn(data)
+        })
+    }
 }
-
-const $off = (EventName,callback)=>{
-   if(EventList[EventName]){
-       let EventListsOff = EventList[EventName];
-       if(callback){
-            EventList[EventName] =  EventListsOff.filter((cb)=>{
-                return cb != callback;
+const $off = (eventName,fn)=>{
+    if(list[eventName]){
+        if(fn){
+            list[eventName] = list[eventName].filter((fn1)=>{
+                return fn1!=fn
             })
-       }else{
-            EventList[EventName].length = 0;
-       }
-   }
+        }else{
+            list[eventName].length=0
+        }
+    }
 }
-
-
-export default {
+export default{
     $on,
     $emit,
     $off
