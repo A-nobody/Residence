@@ -12,6 +12,7 @@ import Err from '@/components/error/error.vue'
 import Shopdetails from '@/components/shop/components/goods_details_j'
 import Shophome from '@/components/shop/components/shophome'
 import Checkstand from '@/components/shop/components/checkstand'
+import Confirm from '@/components/shop/components/confirmorder'
 import Register from '@/components/register'
 import Login from '@/components/login'
 
@@ -150,6 +151,17 @@ const router = new Router({
       path: '/shop/checkstand',
       name: 'checkstand',
       component: Checkstand,
+      meta: {
+        //tab栏
+        flag: false,
+        //路由守卫
+        requireAuth: true
+      }
+    },
+    {
+      path: '/shop/confirm',
+      name: 'confirm',
+      component: Confirm,
       meta: {
         //tab栏
         flag: false,

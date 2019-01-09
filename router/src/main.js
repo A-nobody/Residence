@@ -7,8 +7,12 @@ import "./common/js/flexble"
 import oBserver from "./common/js/observer";
 import store from "./store";
 <<<<<<< HEAD
+<<<<<<< HEAD
 Vue.prototype.Observer = oBserver;
 =======
+=======
+
+>>>>>>> master
 import observer from './common/js/observer'
 import './common/css/animate.min.css'
 >>>>>>> master
