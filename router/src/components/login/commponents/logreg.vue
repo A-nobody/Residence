@@ -8,9 +8,12 @@
                <input type="text" placeholder="请输入手机号码">
             </div>
         </div>
-        <div class="reg-center d1">
+        <div class="reg-center ">
+            <div class="reg-center-left d1">
+                 密码:
+            </div>
                <div class="reg-center-right">
-                   <input type="text" placeholder="请输入密码">
+                   <input type="password" maxlength="12" placeholder="请输入密码">
                </div>
                
         </div>
@@ -91,7 +94,7 @@
 .reg-center-right>input{
     height: 100%;
     width: 100%;
-    line-height: 1.12rem;
+    line-height: .6rem;
     outline: none;
     border: none;
     font-size: .3rem;

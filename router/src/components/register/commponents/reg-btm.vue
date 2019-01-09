@@ -1,9 +1,9 @@
 <template>
     <div class="reg-box">
         <div class="reg-img">
-            <img src="../../../../static/img/注册_slices/icon_wx.png" alt="">
-            <img src="../../../../static/img/注册_slices/icon-zc-wb.png" alt="">
-            <img src="../../../../static/img/注册_slices/icon-zc-qq.png" alt="">
+            <div><img src="../../../../static/img/注册_slices/icon_wx.png" alt=""></div>
+            <div><img src="../../../../static/img/注册_slices/icon-zc-wb.png" alt=""></div>
+            <div><img src="../../../../static/img/注册_slices/icon-zc-qq.png" alt=""></div>
         </div>
         <div class="reg-font">
             <p>登录代表你同意</p><span>《绘居用户协议》</span>
@@ -39,14 +39,17 @@
 }
 .reg-img{
     display: flex;
+    height: .6rem;
     justify-content: space-between;
-    
-    font-size:22px;
-    font-family:PingFang-SC-Regular;
-    font-weight:400;
-    color:rgba(121,121,121,1);
-    line-height:20px;
-
+    align-items: center;
+}
+.reg-img div{
+    height: .45rem;
+    width: .5rem
+}
+.reg-img div img{
+    height: 100%;
+    width: 100%
 }
 .reg-font{
     

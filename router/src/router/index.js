@@ -11,6 +11,7 @@ import Shophome from '@/components/shop/components/shophome'
 import Checkstand from '@/components/shop/components/checkstand'
 import Register from '@/components/register'
 import Login from '@/components/login'
+import Welcome from '@/components/welcome'
 
 Vue.use(Router)
 
@@ -19,6 +20,15 @@ const router = new Router({
     {
       path: '/',
       redirect: '/register'
+    },
+    {
+        path: '/welcome',
+        name: 'welcome',
+        component: Welcome,
+        meta: {
+          flag: false,
+          requireAuth: true
+        }
     },
     {
         path: '/register',

@@ -3,10 +3,10 @@
         <component :is="com_h"></component>
         <div class="reg-query">遇到问题?</div>
         <div class="reg-reg">
-            <router-link to="/home">登录</router-link>
+            <router-link to="/welcome">登录</router-link>
         </div>
         <div class="reg-warn">
-            注册绘居账号
+            <router-link to="/register">注册绘居账号</router-link>
         </div>
       
     </div>
@@ -34,6 +34,9 @@ import Active_com1 from "./logreg.vue"
 </script>
 
 <style scoped>
+.reg-warn>a{
+     color:#666
+}
 .reg-warn{
     width:1.94rem;
     height:.23rem;
@@ -41,7 +44,7 @@ import Active_com1 from "./logreg.vue"
     text-align: center;
     font-family:PingFang-SC-Regular;
     font-weight:400;
-    color:rgba(0,0,0,1);
+   
     line-height:.2rem;
     margin: 0 auto;
 }
@@ -51,12 +54,15 @@ import Active_com1 from "./logreg.vue"
     height:.95rem;
     background:rgba(127,208,163,1);
     border-radius:5px;
-    text-align: center;
-    line-height: .95rem;
-   
+    font-size:.3rem;
 }
 .reg-reg a{
-     font-size:.3rem;
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: .95rem;
+    font-size:.3rem;
+    text-align: center;
     font-family:PingFang-SC-Regular;
     font-weight:400;
     color:rgba(255,255,255,1);
@@ -119,7 +125,7 @@ import Active_com1 from "./logreg.vue"
     border-radius:.1rem;
     text-align: center;
     line-height: .6rem;
-    font-size:22px;
+    font-size:.22rem;
     font-family:PingFang-SC-Regular;
     font-weight:400;
     color:rgba(255,255,255,1);
