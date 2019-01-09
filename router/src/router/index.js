@@ -10,7 +10,8 @@ import Style from '@/components/styless'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
 
-import Shop from '@/components/shop'
+import Shopdetails from '@/components/shop/components/goods_details_j'
+
 import Shophome from '@/components/shop/components/shophome'
 import Checkstand from '@/components/shop/components/checkstand'
 import Confirm from '@/components/shop/components/confirmorder'
@@ -18,6 +19,7 @@ import Viewphoto from '@/components/shop/components/viewphoto_g'
 
 import Register from '@/components/register'
 import Login from '@/components/login'
+import Welcome from '@/components/welcome'
 
 Vue.use(Router)
 
@@ -26,6 +28,15 @@ const router = new Router({
     {
       path: '/',
       redirect: '/register'
+    },
+    {
+        path: '/welcome',
+        name: 'welcome',
+        component: Welcome,
+        meta: {
+          flag: false,
+          requireAuth: true
+        }
     },
     {
         path: '/register',
@@ -129,9 +140,9 @@ const router = new Router({
       }
     },
     {
-      path: '/shop',
-      name: 'shop',
-      component: Shop,
+      path: '/shop/goodsdetails',
+      name: 'Shopdetails',
+      component: Shopdetails,
       meta: {
         //tab栏
         flag: false,

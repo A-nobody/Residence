@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div >
         <Reg_top></Reg_top>
         <Reg_cen></Reg_cen>
         <Reg_btm></Reg_btm>
@@ -19,6 +19,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
