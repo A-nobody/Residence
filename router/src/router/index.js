@@ -9,10 +9,13 @@ import Release from '@/components/releases'
 import Style from '@/components/styless'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
+
 import Shop from '@/components/shop'
 import Shophome from '@/components/shop/components/shophome'
 import Checkstand from '@/components/shop/components/checkstand'
 import Confirm from '@/components/shop/components/confirmorder'
+import Viewphoto from '@/components/shop/components/viewphoto_g'
+
 import Register from '@/components/register'
 import Login from '@/components/login'
 
@@ -162,6 +165,17 @@ const router = new Router({
       path: '/shop/confirm',
       name: 'confirm',
       component: Confirm,
+      meta: {
+        //tab栏
+        flag: false,
+        //路由守卫
+        requireAuth: true
+      }
+    },
+    {
+      path: '/shop/viewphoto',
+      name: 'viewphoto',
+      component: Viewphoto,
       meta: {
         //tab栏
         flag: false,

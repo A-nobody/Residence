@@ -74,15 +74,16 @@
 			line-height: .71rem;
 			margin-left: .4rem;
 			font-weight:bold;
+			margin-bottom: .11rem;
 		}
 		.main_con ul{
 			width: 100%;
 			display: flex;
-			justify-content:space-around;
-			padding: 0 .3rem;
 			flex-wrap: wrap;
+			padding: 0 .2rem;
 			li{
-				margin-top: .22rem;
+				width: 43%;
+				margin:0.11rem 0.2rem;
 				height: 4.12rem;
 				.img{
 					width: 3.25rem;
