@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
-    <Footer-com v-show="footshow"/>
+    <Footer-com/>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
     "Footer-com":Footer
   },
   created(){
-  	this.footshow = this.$route.meta.flag;
+  	// this.footshow = this.$route.meta.flag;
   },
   data(){
   	return{
@@ -21,7 +21,7 @@ export default {
   },
   watch:{
   	"$route"(to,from){
-  		this.footshow = this.$route.meta.flag;
+  		// this.footshow = this.$route.meta.flag;
   	}
   }
 }
@@ -29,11 +29,7 @@ export default {
 
 <style >
 #app {
-<<<<<<< HEAD
-  height: auto;
-=======
 	width: 100%;
 	height: 100%;
->>>>>>> master
 }
 </style>

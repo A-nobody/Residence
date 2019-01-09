@@ -2,7 +2,7 @@
     <div id="footer">
         <ul>
             <li v-for="(item,index) in navs">
-                <router-link :to="item.name" @click="handleFhover($event,index)">
+                <router-link :to="item.name">
                     <i class="iconfont" v-html="item.icon"></i>
                     <span>{{item.title}}</span>
                 </router-link>
@@ -54,14 +54,7 @@ export default {
             ]
         }
     },
-    methods:{
-        handleFhover(e,index){
-            
-        }
-    },
-    mounted(){
-        
-    }
+ 
 }
 </script>
 
@@ -74,7 +67,8 @@ export default {
 		left: 0;
 		box-shadow:0px -2px 5px rgba(163,163,163,0.34);
 		background: #FFFFFF;
-		opacity: .85;
+        opacity: .85;
+        z-index:1000;
 	}
 	#footer ul{
 		display: flex;
