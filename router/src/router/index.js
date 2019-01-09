@@ -15,6 +15,7 @@ import Checkstand from '@/components/shop/components/checkstand'
 import Confirm from '@/components/shop/components/confirmorder'
 import Register from '@/components/register'
 import Login from '@/components/login'
+import Shopserver from '@/components/shop/components/server_j'
 
 Vue.use(Router)
 
@@ -136,6 +137,17 @@ const router = new Router({
         requireAuth: true
       }
     },
+     {
+       path: '/shop/shopserver',
+       name: 'Shopserver',
+       component: Shopserver,
+       meta: {
+         //tab栏
+         flag: false,
+         //路由守卫
+         requireAuth: true
+       }
+     },
     {
       path: '/shop/shophome',
       name: 'shophome',

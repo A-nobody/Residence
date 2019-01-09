@@ -20,10 +20,10 @@ export default {
   },
   methods: {
     handlechoose(){
-      this.Observer.$emit('handleSendcolor',this.flag)
+      this.observer.$emit('handleSendcolor',this.flag)
     },
     handleparamter(){
-      this.Observer.$emit('handleSendpar',this.flag)
+      this.observer.$emit('handleSendpar',this.flag)
     }
   },
 };

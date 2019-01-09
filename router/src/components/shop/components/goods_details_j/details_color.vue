@@ -42,10 +42,10 @@
 <script>
 export default {
   created() {
-    this.Observer.$on('handleSend',params=>{
+    this.observer.$on('handleSend',params=>{
       this.flag=params;
     })
-    this.Observer.$on('handleSendcolor',params=>{
+    this.observer.$on('handleSendcolor',params=>{
       this.flag=params;
     })
   },
@@ -174,15 +174,13 @@ export default {
         border-radius: 0.1rem;
         font-size: 0.4rem;
       }
-      input {
-        background: rgb(241, 241, 241);
-      }
       button:nth-child(1) {
         position: absolute;
         top: 0.2rem;
         left: 4.83rem;
       }
       input {
+        background: rgb(241, 241, 241);
         position: absolute;
         top: 0.2rem;
         left: 5.53rem;
