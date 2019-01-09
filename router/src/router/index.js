@@ -19,11 +19,8 @@ import Viewphoto from '@/components/shop/components/viewphoto_g'
 
 import Register from '@/components/register'
 import Login from '@/components/login'
-<<<<<<< HEAD
 import Welcome from '@/components/welcome'
-=======
 import Shopserver from '@/components/shop/components/server_j'
->>>>>>> jin
 
 Vue.use(Router)
 
