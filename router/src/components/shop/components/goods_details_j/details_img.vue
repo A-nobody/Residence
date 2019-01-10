@@ -32,11 +32,7 @@ export default {
     },
     methods: {
       handleNone(){
-<<<<<<< HEAD
         this.observer.$emit('handleSend',this.flag)
-=======
-        this.Observer.$emit('handleSend',this.flag)
->>>>>>> heng
       }
     },
 };

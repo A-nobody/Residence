@@ -1,6 +1,5 @@
 <template>
 	<div id="message_g">
-<<<<<<< HEAD
 		<div class="message_top">
 			<div class="message_le">
 				<img src="static/img/shop/order_g/zuobiao@2x.png" />
@@ -20,22 +19,6 @@
 		</div>
 		<div class="img">
 			<img src="static/img/shop/order_g/地址条纹@2x.png" />
-=======
-		<div class="message_le">
-			<img src="static/img/shop/order_g/zuobiao@2x.png" />
-		</div>
-		<div class="message_bet">
-			<div class="message_con">
-				<span class="uname">叶良辰</span>
-				<span class="tel">1311111111</span>
-			</div>
-			<div class="address">
-				<span>北京市海淀区黄村镇幸福小区</span>
-			</div>
-		</div>
-		<div class="message_ri">
-			<img src="static/img/shop/order_g/arrowsleft.png" />
->>>>>>> heng
 		</div>
 	</div>
 </template>
@@ -48,7 +31,6 @@
 		height:1.78rem;
 		width: 100%;
 		background-color: #F6F6F6;
-<<<<<<< HEAD
 		font-size: .28rem;
 		color: #323232;
 		font-weight: bold;
@@ -59,14 +41,6 @@
 			justify-content: space-between;
 			align-items: center;
 		}
-=======
-		display: flex;
-		padding: 0 .4rem;
-		justify-content: space-between;
-		align-items: center;
-		font-size: .28rem;
-		color: #323232;
->>>>>>> heng
 		.message_le img{
 			width:.27rem;
 			height: .34rem;
@@ -82,7 +56,6 @@
 			color: #929292;
 			margin-top: .25rem;
 		}
-<<<<<<< HEAD
 		.img{
 			margin-top: .02rem;
 			width: 100%;
@@ -90,7 +63,5 @@
 				width: 100%;
 			}
 		}
-=======
->>>>>>> heng
 	}
 </style>

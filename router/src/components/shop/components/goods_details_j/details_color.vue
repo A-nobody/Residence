@@ -44,21 +44,15 @@
 import { Toast } from "mint-ui";
 export default {
   created() {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     this.observer.$on('handleSend',params=>{
       this.flag=params;
     })
     this.observer.$on('handleSendcolor',params=>{
-=======
-    this.Observer.$on('handleSend',params=>{
+
       this.flag=params;
     })
-    this.Observer.$on('handleSendcolor',params=>{
->>>>>>> heng
-      this.flag=params;
-    })
-=======
+
     this.observer.$on("handleSend", params => {
       this.flag = params;
     });
@@ -68,7 +62,7 @@ export default {
     this.observer.$on("handleTocar", params => {
       this.flag = params;
     });
->>>>>>> jin
+
   },
   data() {
     return {
@@ -217,22 +211,13 @@ export default {
         border-radius: 0.1rem;
         font-size: 0.4rem;
       }
-<<<<<<< HEAD
-=======
-      input {
-        background: rgb(241, 241, 241);
-      }
->>>>>>> heng
       button:nth-child(1) {
         position: absolute;
         top: 0.2rem;
         left: 4.83rem;
       }
       input {
-<<<<<<< HEAD
         background: rgb(241, 241, 241);
-=======
->>>>>>> heng
         position: absolute;
         top: 0.2rem;
         left: 5.53rem;
