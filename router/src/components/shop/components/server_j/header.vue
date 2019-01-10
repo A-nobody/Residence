@@ -1,16 +1,25 @@
 <template>
   <div class="server_header_j">
-    <div class="back">
+    <div class="back" @click="handleback()">
       <img src="../../../../../static/img/shop/server_slices_j/jiantou@2x.png" alt>
     </div>
     <div class="title">绘居客服</div>
-    <div class="store">
+    <div class="store" @click="handleStore()">
       <img src="../../../../../static/img/shop/server_slices_j/dianpu@2x.png" alt>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    handleback(){
+      this.$router.go(-1);
+    },
+    handleStore(){
+      this.$router.push({name:'shophome'})
+    }
+  },
+};
 </script>
 <style lang="scss" scoped>
 @mixin width($width) {

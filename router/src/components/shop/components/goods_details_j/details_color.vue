@@ -24,14 +24,15 @@
     <div class="color_num">
       <p>数量</p>
       <p>
-        <button>-</button>
-        <input type="text" value="1">
-        <button>+</button>
+        <button @click="handleReduce()">-</button>
+        <input type="text" value="1" v-model="num">
+        <button @click="handleAdd()">+</button>
       </p>
     </div>
     <div class="color_tostore">
-      <div class="toshoppingcar"></div>
+      <div class="toshoppingcar" @click="handleToast()"></div>
       <img
+        @click="handleTobuy()"
         class="tobuy"
         src="../../../../../static/img/shop/goods_details_slices_j/goumai@2x.png"
         alt
@@ -40,21 +41,47 @@
   </div>
 </template>
 <script>
+import { Toast } from "mint-ui";
 export default {
   created() {
-    this.observer.$on('handleSend',params=>{
-      this.flag=params;
-    })
-    this.observer.$on('handleSendcolor',params=>{
-      this.flag=params;
-    })
+    this.observer.$on("handleSend", params => {
+      this.flag = params;
+    });
+    this.observer.$on("handleSendcolor", params => {
+      this.flag = params;
+    });
+    this.observer.$on("handleTocar", params => {
+      this.flag = params;
+    });
   },
   data() {
     return {
-      flag:false
-    }
+      flag: false,
+      num: 1
+    };
   },
-}
+
+  methods: {
+    handleToast() {
+      Toast({
+        message: "加入购物车成功",
+      });
+    },
+    handleTobuy() {
+      this.$router.push({ name: "confirm" });
+    },
+    handleReduce() {
+      if (this.num == 1) {
+        this.num = 1;
+      } else {
+        this.num--;
+      }
+    },
+    handleAdd() {
+      this.num++;
+    }
+  }
+};
 </script>
 <style lang="scss" scoped>
 .details_color_j {
