@@ -10,7 +10,12 @@ import './common/css/animate.min.css'
 Vue.config.productionTip = false
 
 Vue.prototype.observer = observer;
-Vue.config.productionTip = false
+
+import Mint from 'mint-ui';
+import 'mint-ui/lib/style.css'
+Vue.use(Mint);
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

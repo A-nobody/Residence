@@ -1,13 +1,20 @@
 <template>
 	<div id="foot">
 		<div class="paybox">实付:<span>￥2790</span></div>
-		<div class="btn">
+		<div class="btn" @click="handleTocheck()">
 			提交订单
 		</div>
 	</div>
 </template>
 
 <script>
+export default {
+	methods: {
+		handleTocheck(){
+			this.$router.push({name:'checkstand'})
+		}
+	},
+}
 </script>
 
 <style scoped lang="scss">

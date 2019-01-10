@@ -1,5 +1,5 @@
 <template>
-	<div class="head" :style="note">
+	<div class="head" :style="note" @click="handleBack()">
 		<span>确认订单</span>
 	</div>
 </template>
@@ -15,7 +15,12 @@
 					backgroundPosition:".4rem .28rem"
 				}
 			}
-		}
+		},
+		methods: {
+			handleBack(){
+				this.$router.go(-1);
+			}
+		},
 	}
 </script>
 
