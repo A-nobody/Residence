@@ -19,6 +19,7 @@
 
 <style scoped>
 .reg-font span{
+    display: block;
     color:#7FD0A3
 }
 .reg-font{

@@ -1,11 +1,11 @@
 <template>
   <div class="details_classify_j">
-    <div class="classify_choose">
-      <a @click='handlechoose'>选择</a>
+    <div class="classify_choose" @click='handlechoose'>
+      <a>选择</a>
       <span>颜色</span>
     </div>
-    <div class="classify_parameter">
-      <a @click="handleparamter">参数</a>
+    <div class="classify_parameter" @click="handleparamter">
+      <a>参数</a>
       <span>主体材质</span>
       <span>尺寸</span>
     </div>
@@ -15,12 +15,15 @@
 export default {
   data() {
     return {
-      flag:false,
+      flag:true,
     }
   },
   methods: {
     handlechoose(){
-      this.Observer.$emit('handleSend',flag)
+      this.Observer.$emit('handleSendcolor',this.flag)
+    },
+    handleparamter(){
+      this.Observer.$emit('handleSendpar',this.flag)
     }
   },
 };

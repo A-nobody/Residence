@@ -3,7 +3,7 @@
     <div class="back_j">
       <img src="../../../../../static/img/shop/goods_details_slices_j/jiantou_left@2x.png">
     </div>
-    <div class="shoppingcar_j">
+    <div class="shoppingcar_j" >
       <img src="../../../../../static/img/shop/goods_details_slices_j/gouwu@2x.png">
     </div>
     <!-- <div class="swiper-container img_j">
@@ -18,7 +18,7 @@
            /
       <span>5</span>
     </div>
-    <div class="img_j"></div>
+    <div class="img_j"  @click="handleNone"></div>
   </div>
 </template>
 <script>
@@ -28,6 +28,11 @@ export default {
     data() {
       return {
         img_num_j:[1,2,3,4,5]
+      }
+    },
+    methods: {
+      handleNone(){
+        this.Observer.$emit('handleSend',this.flag)
       }
     },
 };
