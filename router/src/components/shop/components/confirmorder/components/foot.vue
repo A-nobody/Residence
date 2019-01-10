@@ -46,7 +46,7 @@ export default {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			color: #FFFFFF;
+			color: #F6F6F6;
 			font-size: .28rem;
 		}
 		
