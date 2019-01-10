@@ -4,7 +4,7 @@ import Home from '@/components/home'
 import UserData from '@/components/mine/userData.vue'
 import Cart from '@/components/mine/cart.vue'
 import Favorite from '@/components/mine/favorite.vue'
-import Order from '@/components/mine/order.vue'
+import Order from '@/components/mine/order'
 import Release from '@/components/releases'
 import Style from '@/components/styless'
 import Renovation from '@/components/Renovation'
@@ -102,6 +102,7 @@ const router = new Router({
     {
       path: '/mine/order',
       component: Order,
+      name: 'order',
       meta: {
         flag:false
       }
