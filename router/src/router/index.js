@@ -6,7 +6,7 @@ import Cart from '@/components/mine/cart.vue'
 import Favorite from '@/components/mine/favorite.vue'
 import Order from '@/components/mine/order.vue'
 import Release from '@/components/releases'
-import Style from '@/components/styless'
+import Style from '@/components/styless/components/style_j'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
 
