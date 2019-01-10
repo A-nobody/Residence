@@ -6,7 +6,7 @@
             <span @click="nameChange()">保存</span>
         </div>
         <div class="inputName">
-            <input type="text" placeholder="贝贝">
+            <input type="text" autofocus placeholder="贝贝">
             <p>昵称可是中英文、数字的任意组合、30天只能修改一次哦。</p>
         </div>
     </div>
@@ -66,6 +66,7 @@ export default {
         font-size: 0.3rem;
         padding: 0.5rem 0.1rem;
         border-bottom: 0.01rem solid #cacaca;
+        outline: none;
     }
     .userName .inputName p{
         font-size: 0.2rem;

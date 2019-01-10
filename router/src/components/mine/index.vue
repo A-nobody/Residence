@@ -6,7 +6,7 @@
                 <router-link to=""><img src="static/img/mine/shezhi.png"></router-link>
             </div>
             <div class="top-two">
-                <router-link to="/mine/userData"><img src="static/img/mine/touxiang.png"><span>居友_qq</span></router-link>
+                <router-link to="/mine/userData"><img src="static/img/mine/touxiang.png"><span>居友_qq</span><img src="static/img/mine/rightb.png"></router-link>
             </div>
         </div>
         <div class="pic"><img src="static/img/mine/banner.png"></div>
@@ -15,6 +15,7 @@
             <router-link to="/mine/cart"><img src="static/img/mine/gouwuche.png"><br><span>购物车</span></router-link>
             <router-link to="/mine/order"><img src="static/img/mine/dingdan.png"><br><span>我的订单</span></router-link>
         </div>
+        
     </div>
 </template>
 
@@ -34,7 +35,9 @@ export default {
         width: 100%;
         height: 100%;
         font-weight:400;
-        font-family: PingFang-SC-Medium;
+        font-family: "PingFang-SC-Medium";
+        /*解决滑动问题*/
+        overflow-x: hidden;
     }
     .mine>.top{
         width: 100%;
@@ -52,7 +55,7 @@ export default {
     }
     .mine>.bottom{
         width: 100%;
-        height: 100%;
+        height: 3rem;
         padding-top: 0.41rem;
         display: flex;
         justify-content: space-around;
@@ -88,9 +91,15 @@ export default {
         font-size: 0.36rem;
         display: flex;
         align-items: center;
+        position: relative;
     }
     .mine .top-two>a>img{
         float: left;
         margin-right: 0.22rem;
+    }
+    .mine .top-two>a>img:last-child{
+        position: absolute;
+        right: -0.15rem;
+        top: 0.45rem;
     }
 </style>

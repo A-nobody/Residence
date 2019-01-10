@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="main">
-            <textarea class="userTxt"></textarea>
+            <textarea class="userTxt" autofocus></textarea>
         </div>
         <div class="bottom"><span>10/40</span></div>
     </div>
