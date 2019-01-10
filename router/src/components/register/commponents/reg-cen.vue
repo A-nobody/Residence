@@ -1,11 +1,11 @@
 <template>
     <div class="reg-box">
         <div class="reg-center">
-            <div class="reg-center-left">
+            <div class="reg-center-left d1">
                  +86
             </div>
             <div class="reg-center-right">
-               <input type="text" placeholder="请输入手机号码">
+               <input type="number" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码">
             </div>
         </div>
         <div class="reg-center d1">
@@ -65,14 +65,13 @@
     color:rgba(255,255,255,1);
 }
 .reg-query{
-    width:1.09rem;
     height:.23rem;
     font-size:.24rem;
     font-family:PingFang-SC-Regular;
     font-weight:400;
     color:rgba(0,0,0,1);
     position: absolute;
-    left: 5.85rem;
+    left: 5.7rem;
     top:7.5rem;
 }
 .reg-box{
@@ -95,12 +94,10 @@
     font-family:PingFang-SC-Regular;
     font-weight:400;
     color:rgba(0,0,0,1);
-    margin-right:.2rem ;
-    border-bottom: .02rem solid rgba(233,233,233,1);
-    zoom: 1;
- 
+    margin-right:.2rem ; 
 }
 .reg-center-right{
+    
     height: 1.12rem;
     width: 5rem;
     line-height: 1.12rem;

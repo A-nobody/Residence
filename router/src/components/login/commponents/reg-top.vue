@@ -2,7 +2,7 @@
     <div class="reg-box">
         <div class="reg-top">
             <div class="reg-top-right">
-                <div>设计师入住</div>
+                <div>设计师入驻</div>
                 <div><img src="../../../../static/img/注册_slices/icon-zc-fh.png" alt=""></div>
             </div>
             <div class="reg-top-left">

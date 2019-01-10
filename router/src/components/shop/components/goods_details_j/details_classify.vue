@@ -20,10 +20,17 @@ export default {
   },
   methods: {
     handlechoose(){
+<<<<<<< HEAD
       this.observer.$emit('handleSendcolor',this.flag)
     },
     handleparamter(){
       this.observer.$emit('handleSendpar',this.flag)
+=======
+      this.Observer.$emit('handleSendcolor',this.flag)
+    },
+    handleparamter(){
+      this.Observer.$emit('handleSendpar',this.flag)
+>>>>>>> heng
     }
   },
 };

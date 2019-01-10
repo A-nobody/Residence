@@ -68,14 +68,13 @@ import Active_com1 from "./logreg.vue"
     color:rgba(255,255,255,1);
 }
 .reg-query{
-    width:1.09rem;
     height:.23rem;
     font-size:.24rem;
     font-family:PingFang-SC-Regular;
     font-weight:400;
     color:rgba(0,0,0,1);
     position: absolute;
-    left: 5.85rem;
+    left: 5.7rem;
     top:7.5rem;
 }
 
