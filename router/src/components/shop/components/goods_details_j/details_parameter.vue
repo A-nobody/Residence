@@ -8,7 +8,7 @@
       </li>
     </ul>
     <div class="parameter_complete">
-      <div class="p_complete">完成</div>
+      <div class="p_complete" @click="handlNone">完成</div>
     </div>
   </div>
 </template>
@@ -28,7 +28,12 @@ export default {
       parameter: ["品牌", "型号", "风格", "尺寸"],
       content: ["林氏木业", "BA3A###", "北欧", "1500mm*2000mm"]
     };
-  }
+  },
+  methods: {
+    handlNone(){
+     this.flag=false;
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>

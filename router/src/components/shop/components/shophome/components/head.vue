@@ -1,6 +1,6 @@
 <template>
 	<div id="shhead_g">
-		<div class="arrows">
+		<div class="arrows" @click="handleBack()">
 			<img src="static/img/shop/homeg/arrowsg.png"/>
 		</div>
 		<div class="search">
@@ -10,7 +10,15 @@
 </template>
 
 <script>
+export default {
+	methods: {
+		handleBack(){
+			this.$router.go(-1)
+		}
+	},
+}
 </script>
+
 
 <style scoped>
 	#shhead_g{

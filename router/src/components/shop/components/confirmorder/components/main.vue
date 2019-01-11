@@ -57,6 +57,7 @@
 				margin-right:.54rem;
 				border-bottom:0.02rem solid #E3E1E1;
 				border-radius:.1rem;
+				overflow:hidden;
 				img{
 					width: 100%;
 					height: 100%;

@@ -1,21 +1,36 @@
 <template>
   <div class="details_bottom_j">
-    <div class="bottom_store">
+    <div class="bottom_store" @click="handleStore()">
       <img src="../../../../../static/img/shop/goods_details_slices_j/dianpu@2x.png" alt>
       <span>店铺</span>
     </div>
-    <div class="bottom_service">
+    <div class="bottom_service" @click="handleServer()">
       <img src="../../../../../static/img/shop/goods_details_slices_j/kefu@2x.png" alt>
       <span>客服</span>
     </div>
     <div class="bottom_tostore">
-      <div class="toshoppingcar"></div>
-      <img class="tobuy" src="../../../../../static/img/shop/goods_details_slices_j/goumai@2x.png" alt>
+      <div class="toshoppingcar" @click="handleTocar()"></div>
+      <img class="tobuy" @click="handletoBuy()" src="../../../../../static/img/shop/goods_details_slices_j/goumai@2x.png" alt>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    handleServer(){
+      this.$router.push({name:'Shopserver'})
+    },
+    handleStore(){
+      this.$router.push({name:'shophome'})
+    },
+    handletoBuy(){
+      this.$router.push({name:'confirm'})
+    },
+    handleTocar(){
+      this.observer.$emit('handleTocar',true)
+    }
+  },
+};
 </script>
 <style lang="scss" scoped>
 .details_bottom_j {

@@ -1,6 +1,6 @@
 <template>
-	<div class="head" :style="note" @click="handleBack()">
-		<span>确认订单</span>
+	<div class="head" :style="note">
+		<span>我的订单</span>
 	</div>
 </template>
 
@@ -9,18 +9,13 @@
 		data(){
 			return{
 				note:{
-					backgroundImage:"url("+require('../../../../../../static/img/shop/homeg/arrowsg.png')+")",
+					backgroundImage:"url("+require('../../../../../static/img/shop/homeg/arrowsg.png')+")",
 					backgroundSize:".18rem .32rem",
 					backgroundRepeat:"no-repeat",
 					backgroundPosition:".4rem .28rem"
 				}
 			}
-		},
-		methods: {
-			handleBack(){
-				this.$router.go(-1);
-			}
-		},
+		}
 	}
 </script>
 
@@ -33,7 +28,6 @@
 		align-items: center;
 		color: #323232;
 		font-size: .3rem;
-		font-weight:bold;
 		background-color: #fff;
 	}
 </style>

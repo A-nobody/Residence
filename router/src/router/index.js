@@ -7,8 +7,10 @@ import Favorite from '@/components/mine/favorite.vue'
 import FavoritePic from '@/components/mine/like/favoritePic.vue'
 import FavoriteArticle from '@/components/mine/like/favoriteArticle.vue'
 import FavoriteGoods from '@/components/mine/like/favoriteGoods.vue'
+import Order from '@/components/mine/order'
+
 import Release from '@/components/releases'
-import Style from '@/components/styless'
+import Style from '@/components/styless/components/style_j'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
 
@@ -119,6 +121,14 @@ const router = new Router({
     {
       path: '/mine/favorite/goods',
       component: FavoriteGoods,
+      meta: {
+        flag:false
+      }
+    },
+    {
+      path: '/mine/order',
+      component: Order,
+      name:'order',
       meta: {
         flag:false
       }

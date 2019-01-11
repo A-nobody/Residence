@@ -5,7 +5,7 @@
                  +86
             </div>
             <div class="reg-center-right">
-               <input type="text" placeholder="请输入手机号码">
+               <input type="number" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码">
             </div>
         </div>
         <div class="reg-center d1">

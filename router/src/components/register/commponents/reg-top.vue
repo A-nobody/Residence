@@ -2,7 +2,7 @@
     <div class="reg-box">
         <div class="reg-top">
             <div class="reg-top-right">
-                <div>设计师入住</div>
+                <div>设计师入驻</div>
                 <div><img src="../../../../static/img/注册_slices/icon-zc-fh.png" alt=""></div>
             </div>
             <div class="reg-top-left">
@@ -66,7 +66,8 @@
     top:1.81rem;
 }
 .reg-top-bottom{
-    width:1.5rem;
+    text-align: center;
+    width: 100%;
     height:.29rem;
     font-size:.3rem;
     font-family:PingFang-SC-Regular;
@@ -74,7 +75,7 @@
     color:#ffffff;
     line-height:.2rem;
     position: absolute;
-    left: 2.99rem;
+    left: 0;
     top:4.35rem
 }
 </style>
