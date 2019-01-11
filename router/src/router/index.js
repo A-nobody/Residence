@@ -4,6 +4,9 @@ import Home from '@/components/home'
 import UserData from '@/components/mine/userData.vue'
 import Cart from '@/components/mine/cart.vue'
 import Favorite from '@/components/mine/favorite.vue'
+import FavoritePic from '@/components/mine/like/favoritePic.vue'
+import FavoriteArticle from '@/components/mine/like/favoriteArticle.vue'
+import FavoriteGoods from '@/components/mine/like/favoriteGoods.vue'
 import Order from '@/components/mine/order.vue'
 import Release from '@/components/releases'
 import Style from '@/components/styless'
@@ -60,6 +63,27 @@ const router = new Router({
     {
       path: '/mine/favorite',
       component: Favorite,
+      meta: {
+        flag:false
+      }
+    },
+    {
+      path: '/mine/favorite/pic',
+      component: FavoritePic,
+      meta: {
+        flag:false
+      }
+    },
+    {
+      path: '/mine/favorite/article',
+      component: FavoriteArticle,
+      meta: {
+        flag:false
+      }
+    },
+    {
+      path: '/mine/favorite/goods',
+      component: FavoriteGoods,
       meta: {
         flag:false
       }
