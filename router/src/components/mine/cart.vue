@@ -8,24 +8,29 @@
         </div>
         <div class="wrapper middle" ref="cartWrapper">
         <div class="content mainOutside">
-            <div class="main" v-for="(item,index) in data1">
+            <div class="main" v-for="(item,index) in goodsList">
                 <div class="mainList">
                     <div class="listTop">
                         <!-- <img src="static/img/mine/yuan.png"> -->
-                        <input type="radio">
+                        <input type="checkbox" :checked="item.flag" @click="handleCheck(index)">
                         <span>{{item.shop}}</span>
+                        <p @click="handleDel(item.id)">删除</p>
                     </div>
                     <div class="listMain">
                         <img :src='item.src'>
                         <p>
                             <span class="goodsName">{{item.name}}</span><br>
                             <span class="goodsColor">{{item.color}}</span><br>
-                            <span class="goodsPrice">{{item.num | count(item.price)}}</span>
+                            <span class="goodsPrice">{{item.price}}</span>
                         </p>
                     </div>
                     <div class="listBottom">
                         <p>满包邮，满99元即可包邮</p>
-                        <img src="static/img/mine/jian.png">
+                        <div class="NumBtn">
+                            <p class="reduce" @click="handleReduce(index)"></p>
+                            <p class="thatNum">{{item.num}}</p>
+                            <p class="add" @click="handleAdd(index)"></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,8 +39,8 @@
         <div class="footer">
             <div class="footerInside">
                 <!-- <img src="static/img/mine/yuan.png"> -->
-                <input type="radio"><p>全选</p>
-                    <span>不含运费</span><p>总计：<span>1111</span></p>
+                <input type="checkbox" :checked='checkAll' @click="handleCheckAll()"><p>全选</p>
+                    <span>不含运费</span><p>已选：<span>{{result.Num}}</span></p><p>总计：<span>{{result.Price}}</span></p>
                 <img src="static/img/mine/jiesuan.png">
             </div>
         </div>
@@ -46,26 +51,39 @@
 import Vuex from 'vuex'
 import BScroll from 'better-scroll'
 export default {
+    created(){
+        this.$store.dispatch('mine/getGoodsList')
+    },
+    mounted(){
+        this.scroll = new BScroll(this.$refs.cartWrapper,{
+            click:true
+        })
+    },
     computed:{
         ...Vuex.mapState({
-            data1:state=>state.mine.data1
+            goodsList:state=>state.mine.goodsList,
+            checkAll:state=>state.mine.checkAll
+        }),
+        ...Vuex.mapGetters({
+            result:'mine/result'
         })
     },
     methods:{
         ...Vuex.mapMutations({
-
+            handleCheckAll:'mine/handleCheckAll',
+            handleCheck:'mine/handleCheck',
+            handleAdd:'mine/handleAdd',
+            handleReduce:'mine/handleReduce'
+        }),
+        ...Vuex.mapActions({
+            handleDel:'mine/handleDel'
         }),
         getBack() {
             this.$router.back();
         }
     },
-    mounted(){
-        this.scroll = new BScroll(this.$refs.cartWrapper)
-    },
     filters:{
-        count(a,b){
-            return '￥'+(a*(b*10))/10;
-        }
+        
     }
 }
 </script>
@@ -122,12 +140,17 @@ export default {
         align-items: center;
         font-size: 0.28rem;
         color: #323232;
+        position: relative;
     }
     .cart .main .listTop>input{
         margin-right: 0.36rem;
         width: 0.36rem;
         height: 0.36rem;
-        
+    }
+    .cart .main .listTop>p{
+        position: absolute;
+        right: 0.2rem;
+        color: #7FD0A3;
     }
     .cart .main .listMain{
         height: 2.05rem;
@@ -164,6 +187,26 @@ export default {
         color: #BFBFBF;
         font-size: 0.26rem;
     }
+    .cart .main .listBottom .NumBtn{
+        height: 0.35rem;
+    }
+    .cart .main .listBottom .NumBtn>p{
+        width: 0.35rem;
+        height: 0.35rem;
+        display: inline-block;
+        background: url('../../../static/img/mine/jian.png');
+    }
+    .cart .main .listBottom .NumBtn .add{
+        background-position-x: 36px;
+    }
+    .cart .main .listBottom .NumBtn .thatNum{
+        background: #F6F6F6;
+        text-align: center;
+        position: relative;
+        top: -0.1rem;
+        color: #0e0e0e;
+        font-size: 0.24rem;
+    }
     .cart .footer{
         width: 100%;
         height: 0.98rem;
@@ -183,15 +226,15 @@ export default {
         height: 0.36rem;
     }
     .footerInside>p{
-        font-size: 0.28rem;
+        font-size: 0.26rem;
         color: #323232;
-        margin-left: 0.2rem;
-        font-weight: bold;
+        margin: 0 0.05rem;
+        font-weight: 600;
     }
     .footerInside>span{
         font-size: 0.24rem;
         color: #ABABAB;
-        margin-left: 0.2rem;
+        margin: 0 0.05rem;
     }
     .footerInside>p>span{
         font-size: 0.32rem;
