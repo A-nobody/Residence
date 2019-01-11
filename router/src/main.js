@@ -4,9 +4,17 @@ import router from './router'
 import "./common/css/reset.css"
 import "./common/css/iconfont/iconfont.css"
 import "./common/js/flexble"
-import store from "./store"
+import store from "./store";
+import observer from './common/js/observer'
 import './common/css/animate.min.css'
 Vue.config.productionTip = false
+
+Vue.prototype.observer = observer;
+
+import Mint from 'mint-ui';
+import 'mint-ui/lib/style.css'
+Vue.use(Mint);
+
 
 /* eslint-disable no-new */
 new Vue({

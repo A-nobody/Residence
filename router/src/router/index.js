@@ -7,14 +7,24 @@ import Favorite from '@/components/mine/favorite.vue'
 import FavoritePic from '@/components/mine/like/favoritePic.vue'
 import FavoriteArticle from '@/components/mine/like/favoriteArticle.vue'
 import FavoriteGoods from '@/components/mine/like/favoriteGoods.vue'
-import Order from '@/components/mine/order.vue'
+import Order from '@/components/mine/order'
+
 import Release from '@/components/releases'
-import Style from '@/components/styless'
+import Style from '@/components/styless/components/style_j'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
-import Shop from '@/components/shop'
+
+import Shopdetails from '@/components/shop/components/goods_details_j'
+
 import Shophome from '@/components/shop/components/shophome'
 import Checkstand from '@/components/shop/components/checkstand'
+import Confirm from '@/components/shop/components/confirmorder'
+import Viewphoto from '@/components/shop/components/viewphoto_g'
+
+import Register from '@/components/register'
+import Login from '@/components/login'
+import Welcome from '@/components/welcome'
+import Shopserver from '@/components/shop/components/server_j'
 
 Vue.use(Router)
 
@@ -22,7 +32,34 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/register'
+    },
+    {
+        path: '/welcome',
+        name: 'welcome',
+        component: Welcome,
+        meta: {
+          flag: false,
+          requireAuth: true
+        }
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: Register,
+        meta: {
+          flag: false,
+          requireAuth: true
+        }
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login,
+        meta: {
+          flag: false,
+          requireAuth: true
+        }
     },
     {
       path: '/home',
@@ -91,6 +128,7 @@ const router = new Router({
     {
       path: '/mine/order',
       component: Order,
+      name:'order',
       meta: {
         flag:false
       }
@@ -129,9 +167,9 @@ const router = new Router({
       }
     },
     {
-      path: '/shop',
-      name: 'shop',
-      component: Shop,
+      path: '/shop/goodsdetails',
+      name: 'Shopdetails',
+      component: Shopdetails,
       meta: {
         //tab栏
         flag: false,
@@ -139,6 +177,17 @@ const router = new Router({
         requireAuth: true
       }
     },
+     {
+       path: '/shop/shopserver',
+       name: 'Shopserver',
+       component: Shopserver,
+       meta: {
+         //tab栏
+         flag: false,
+         //路由守卫
+         requireAuth: true
+       }
+     },
     {
       path: '/shop/shophome',
       name: 'shophome',
@@ -154,6 +203,28 @@ const router = new Router({
       path: '/shop/checkstand',
       name: 'checkstand',
       component: Checkstand,
+      meta: {
+        //tab栏
+        flag: false,
+        //路由守卫
+        requireAuth: true
+      }
+    },
+    {
+      path: '/shop/confirm',
+      name: 'confirm',
+      component: Confirm,
+      meta: {
+        //tab栏
+        flag: false,
+        //路由守卫
+        requireAuth: true
+      }
+    },
+    {
+      path: '/shop/viewphoto',
+      name: 'viewphoto',
+      component: Viewphoto,
       meta: {
         //tab栏
         flag: false,

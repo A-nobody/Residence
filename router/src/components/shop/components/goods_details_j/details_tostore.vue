@@ -21,13 +21,19 @@
       </div>
       <span>5.0</span>
     </div>
-    <div class="tostore_kan">
+    <div class="tostore_kan" @click="handleStore()">
         <img src="../../../../../static/img/shop/goods_details_slices_j/kankan@2x.png" alt="">
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    handleStore(){
+      this.$router.push({name:'shophome'})
+    }
+  },
+};
 </script>
 <style lang="scss" scoped>
 @mixin font {
