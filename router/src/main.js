@@ -9,6 +9,9 @@ import observer from './common/js/observer'
 import './common/css/animate.min.css'
 Vue.config.productionTip = false
 
+
+
+
 Vue.prototype.observer = observer
 /* eslint-disable no-new */
 new Vue({

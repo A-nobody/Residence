@@ -1,8 +1,8 @@
 <template>
     <div id="header_w">
         <p class="tab_w">
-            <router-link  to="/home">关注</router-link>
-            <router-link  to="/home1">推荐</router-link>
+            <i :class="num==1?'active':''" @click="handleNavF()">关注</i>
+            <i :class="num==2?'active':''" @click="handleNavR()">推荐</i>
         </p>
         <router-link to="/home" class="smallBell" :style="'background-image:url('+smallBellBg+')'"></router-link>
     </div>
@@ -12,7 +12,18 @@
 export default {
     data(){
         return{
-            smallBellBg:"static/img/home_slices/icon_sy_xx@3x.png"
+            smallBellBg:"static/img/home_slices/icon_sy_xx@2x.png",
+            num:1
+        }
+    },
+    methods:{
+        handleNavF(){
+            this.$emit("handlenav","HArticle-com");
+            this.num=1
+        },  
+        handleNavR(){
+            this.$emit("handlenav","Recommend-com")
+            this.num=2
         }
     }
 }
@@ -26,6 +37,8 @@ export default {
         top:0;
         left:0;
         border-bottom:#e2e2e2 .02rem solid;
+        background: #fff;
+        z-index: 5;
     }
     #header_w>.tab_w{
         width: 2.16rem;
@@ -37,16 +50,13 @@ export default {
         justify-content: space-between;
         padding:0 .2rem;
     }
-    .tab_w>a{
+    .tab_w>i{
         display: block;
         height: 100%;
-        line-height: .88rem;
-        font-size:.32rem;
-        font-weight: 700;
-        font-family: PingFang-SC-Bold;
+        font:normal 700 .32rem/.88rem PingFang-SC-Bold;
         position:relative;
     }
-    .tab_w>a.router-link-active:after{
+    .tab_w>i.active::after{
         content: "";
         display: block;
         height: .06rem;

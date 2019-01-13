@@ -15,6 +15,11 @@ import Checkstand from '@/components/shop/components/checkstand'
 import Register from '@/components/register'
 import Login from '@/components/login'
 
+// 魏
+import dynamic_w from '@/components/home/components/dynamic'
+import details_w from '@/components/home/components/details'
+
+
 Vue.use(Router)
 
 const router = new Router({
@@ -155,6 +160,22 @@ const router = new Router({
         flag: false,
         //路由守卫
         requireAuth: true
+      }
+    },
+    {
+      path:"/home/dynamic",
+      name:"dynamic_w",
+      component:dynamic_w,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path:"/home/details",
+      name:"details_w",
+      component:details_w,
+      meta:{
+        flag:false
       }
     },
     {

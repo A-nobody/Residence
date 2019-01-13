@@ -15,10 +15,12 @@ export default {
         height: 1.2rem;
         width: 100%;
         position: absolute;
-        top:.89rem;
+        top:.88rem;
         left:0;
         box-sizing: border-box;
         padding: .28rem .4rem;
+        background: #fff;
+        z-index: 5;
     }
      #search_w>.search{
          border:0;
