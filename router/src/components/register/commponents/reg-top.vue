@@ -2,7 +2,7 @@
     <div class="reg-box">
         <div class="reg-top">
             <div class="reg-top-right">
-                <div>设计师入住</div>
+                <div>设计师入驻</div>
                 <div><img src="../../../../static/img/注册_slices/icon-zc-fh.png" alt=""></div>
             </div>
             <div class="reg-top-left">
@@ -30,28 +30,26 @@
     height:5rem;
     position: relative;
     background: url('../../../../static/img/注册_slices/icon-zc-tp.png');
+    background-size: cover
 }
 .reg-top-right{
     display: flex;
-    justify-content: space-between;
-    height: .21rem;
+    justify-content: space-around;
+    align-items: center;
+    height: .22rem;
     width: 1.5rem;
     position: absolute;
     left: 5.75rem;
-    top:.9rem
+    top:.9rem;
 }
 .reg-top-right div:nth-child(1){
-    height: 100%;
-    line-height: .21rem;
     font-size: .22rem;
-    letter-spacing: .02rem;
     font-family: PingFang-SC-Regular;
     color: #ffffff
 }
 .reg-top-right div:nth-child(2){
-    padding:.02rem .08rem;
-    
-
+    height: .22rem;
+    padding:0 .08rem;
 }
 .reg-top-right img{
     height: 100%;
@@ -68,7 +66,8 @@
     top:1.81rem;
 }
 .reg-top-bottom{
-    width:1.5rem;
+    text-align: center;
+    width: 100%;
     height:.29rem;
     font-size:.3rem;
     font-family:PingFang-SC-Regular;
@@ -76,7 +75,7 @@
     color:#ffffff;
     line-height:.2rem;
     position: absolute;
-    left: 2.99rem;
+    left: 0;
     top:4.35rem
 }
 </style>

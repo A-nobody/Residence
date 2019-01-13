@@ -5,12 +5,12 @@
                  +86
             </div>
             <div class="reg-center-right">
-               <input type="text" placeholder="请输入手机号码">
+               <input type="number" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码">
             </div>
         </div>
         <div class="reg-center d1">
                <div class="reg-center-right">
-                   <input type="text" placeholder="请输入验证码">
+                   <input type="text" maxlength="6" placeholder="请输入验证码">
                </div>
                <div class="reg-center-btn">
                    获取验证码
@@ -93,7 +93,7 @@
 .reg-center-right>input{
     height: 100%;
     width: 100%;
-    line-height: 1.12rem;
+    line-height: .6rem;
     outline: none;
     border: none;
     font-size: .3rem;
@@ -110,7 +110,7 @@
     border-radius:.1rem;
     text-align: center;
     line-height: .6rem;
-    font-size:22px;
+    font-size:.22rem;
     font-family:PingFang-SC-Regular;
     font-weight:400;
     color:rgba(255,255,255,1);
