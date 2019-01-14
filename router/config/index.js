@@ -13,15 +13,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-<<<<<<< HEAD
       "/apiw":{
         target: "https://www.easy-mock.com",
         changeOrigin:true,
         pathRewrite:{
           "^/apiw":""
         }, 
-      }
-=======
+      },
          "/api":{
                target:"https://www.easy-mock.com",
                changeOrigin: true,  
@@ -29,7 +27,6 @@ module.exports = {
                  "^/api":""
               } 
          }
->>>>>>> nttbranch
     },
 
     // Various Dev Server settings

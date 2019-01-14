@@ -28,13 +28,10 @@ import Login from '@/components/login'
 import Welcome from '@/components/welcome'
 import Shopserver from '@/components/shop/components/server_j'
 
-<<<<<<< HEAD
 // 魏
 import dynamic_w from '@/components/home/components/dynamic'
 import details_w from '@/components/home/components/details'
 
-=======
->>>>>>> nttbranch
 
 Vue.use(Router)
 
@@ -221,7 +218,6 @@ const router = new Router({
       }
     },
     {
-<<<<<<< HEAD
       path:"/home/dynamic",
       name:"dynamic_w",
       component:dynamic_w,
@@ -235,7 +231,6 @@ const router = new Router({
       component:details_w,
       meta:{
         flag:false,
-=======
       path:"/renovation/details",
       component:Detail,
       name:"details",
@@ -243,7 +238,8 @@ const router = new Router({
         flag:false,
         requireAuth:true
       }
-    },
+    }
+  },
     {
       path:"/renovation/details/expericence",
       component:Experience,
@@ -263,7 +259,6 @@ const router = new Router({
       }
     },
     {
->>>>>>> nttbranch
       path: '/shop/confirm',
       name: 'confirm',
       component: Confirm,
@@ -274,7 +269,7 @@ const router = new Router({
         requireAuth: true
       }
     }
-  },
+  ,
     {
       path: '/shop/viewphoto',
       name: 'viewphoto',

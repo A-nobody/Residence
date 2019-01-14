@@ -66,15 +66,9 @@ export default {
 		bottom: 0;
 		left: 0;
 		box-shadow:0px -2px 5px rgba(163,163,163,0.34);
-<<<<<<< HEAD
 		background: #fff;
 		/* opacity: .85; */
         z-index: 1000;
-=======
-		background: #FFFFFF;
-        opacity: .85;
-        z-index:1000;
->>>>>>> nttbranch
 	}
 	#footer ul{
 		display: flex;
