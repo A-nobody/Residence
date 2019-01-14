@@ -73,8 +73,9 @@ export default {
 		bottom: 0;
 		left: 0;
 		box-shadow:0px -2px 5px rgba(163,163,163,0.34);
-		background: #FFFFFF;
-		opacity: .85;
+		background: #fff;
+		/* opacity: .85; */
+        z-index: 1000;
 	}
 	#footer ul{
 		display: flex;
@@ -99,15 +100,18 @@ export default {
     }
 	#footer>ul>li:nth-of-type(3) i{
 		font-size: .82rem;
+        width: .82rem;
+        height: 0.82rem;
 		position: absolute;
 		top: -0.36rem;
 		left: 50%;
 		margin-left: -0.4rem;
-		border: .06rem solid rgba(255,255,255,0.85);
-        border-top: .02rem solid rgba(255,255,255,0.85);
+		/* border: .06rem solid rgb(255,255,255); */
+        /* border-top: .06rem solid rgb(255, 255, 255); */
 		border-radius: 50%;
-		box-shadow: 0 -2px 5px rgba(163,163,163,0.34);
-        color: #7FD0A3
+		text-shadow: 0px -2px 3px rgb(255, 255, 255);
+        color: #7FD0A3;
+        text-align: center;
 	}
 	#footer>ul>li:nth-of-type(3) span{
 		display: inline-block;

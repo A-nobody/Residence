@@ -4,12 +4,11 @@
             <section class="user_info w100">
                 <div>
                     <img  class="user_img" src="/static/img/mine/banner.png" alt="">
-                    <p class="user_name">{{item.uame}}</p>
+                    <p class="user_name">dashabi</p>
                 </div>
-                <section class="follow">已关注</section>
             </section>
             <div class="article_img w100">
-                <img src="/static/img/home_slices/tp_sy_02@2x.png" alt="">
+                <img src="/static/img/home_slices/jx 10@2x.png" alt="">
             </div>
             <p class="article_title w100">
                 堕落天使-莫甘娜是《英雄联盟》系列中的英雄之一。莫甘娜拥有被动技
@@ -70,7 +69,6 @@ export default {
     }
     #articleW{
         position: relative;
-        top:2.08rem;
         background: #f6f6f6;
     }
     .article_w{
@@ -98,19 +96,7 @@ export default {
         width: 1.1rem;
         font:bolder .3rem/.6rem PingFang-SC-Heavy;
     }
-    .user_info>.follow{
-        width: 1.16rem;
-        height: .46rem;
-        font:.24rem/.46rem PingFang-SC-Medium;
-        background:#e5f6ed;
-        position: absolute;
-        bottom:.33rem;
-        right:.41rem;
-        border-radius:1rem; 
-        color: #7FD0A3;
-        text-align: center;
-    }
-     .article_w>.article_img{
+    .article_w>.article_img{
         height:4.52rem;
     }
      .article_img>img{
@@ -143,4 +129,3 @@ export default {
         margin-left: .40rem;
     }
 </style>
-
