@@ -1,5 +1,6 @@
 <template>
 	<div class="head" :style="note">
+		<router-link to="/mine" class="btn"></router-link>
 		<span>我的订单</span>
 	</div>
 </template>
@@ -29,5 +30,12 @@
 		color: #323232;
 		font-size: .3rem;
 		background-color: #fff;
+		position: relative;
+	}
+	.head .btn{
+		width: 0.5rem;
+		height: 0.5rem;
+		position: absolute;
+		left: 0.3rem;
 	}
 </style>

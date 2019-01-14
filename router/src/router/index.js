@@ -4,9 +4,13 @@ import Home from '@/components/home'
 import UserData from '@/components/mine/userData.vue'
 import Cart from '@/components/mine/cart.vue'
 import Favorite from '@/components/mine/favorite.vue'
+import FavoritePic from '@/components/mine/like/favoritePic.vue'
+import FavoriteArticle from '@/components/mine/like/favoriteArticle.vue'
+import FavoriteGoods from '@/components/mine/like/favoriteGoods.vue'
 import Order from '@/components/mine/order'
+
 import Release from '@/components/releases'
-import Style from '@/components/styless'
+import Style from '@/components/styless/components/style_j'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
 
@@ -28,6 +32,11 @@ import Register from '@/components/register'
 import Login from '@/components/login'
 import Welcome from '@/components/welcome'
 import Shopserver from '@/components/shop/components/server_j'
+
+// 魏
+import dynamic_w from '@/components/home/components/dynamic'
+import details_w from '@/components/home/components/details'
+
 
 Vue.use(Router)
 
@@ -108,9 +117,30 @@ const router = new Router({
       }
     },
     {
+      path: '/mine/favorite/pic',
+      component: FavoritePic,
+      meta: {
+        flag:false
+      }
+    },
+    {
+      path: '/mine/favorite/article',
+      component: FavoriteArticle,
+      meta: {
+        flag:false
+      }
+    },
+    {
+      path: '/mine/favorite/goods',
+      component: FavoriteGoods,
+      meta: {
+        flag:false
+      }
+    },
+    {
       path: '/mine/order',
       component: Order,
-      name: 'order',
+      name:'order',
       meta: {
         flag:false
       }
@@ -219,6 +249,19 @@ const router = new Router({
       }
     },
     {
+      path:"/home/dynamic",
+      name:"dynamic_w",
+      component:dynamic_w,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path:"/home/details",
+      name:"details_w",
+      component:details_w,
+      meta:{
+        flag:false,
       path: '/shop/confirm',
       name: 'confirm',
       component: Confirm,
@@ -228,7 +271,8 @@ const router = new Router({
         //路由守卫
         requireAuth: true
       }
-    },
+    }
+  },
     {
       path: '/shop/viewphoto',
       name: 'viewphoto',

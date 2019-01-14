@@ -6,7 +6,8 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
+    //https://www.easy-mock.com/mock/5c3481b05ee07b0e226214fa/example
+    //http://39.96.75.124:8080/HuiJu-1.0-SNAPSHOT/login?userName=user&userPassword=123456
     // Paths
     //https://www.easy-mock.com/mock/5c36e81c96e17359c184e2f8/huiju/shop/viewphoto
     assetsSubDirectory: 'static',
