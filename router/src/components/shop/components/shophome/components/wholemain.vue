@@ -1,61 +1,54 @@
 <template>
-	<div id="main_g"  class="wrapper" ref="mainwrapper">
-		<div class="content">
-			<div class="contentmain">
-				<div class="main_top">
-					热销商品
-				</div>
-				<div class="main_con">
-					<ul>
-						<li v-for="(item,index) in hotlist">
-							<div class="img">
-								<img v-lazy="item.goodsPicture"/>
-							</div>
-							<div class="main_bot">
-								<p class="con"><span>{{item.goodsTitle}}</span></p>
-								<p class="price"><span>{{item.goodsDiscountPrice|price}}</span></p>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
+	<div id="wholemain_g" class="wrapper" ref="wholewrapper">
+		<div class="content main_con">
+			<ul>
+				<li v-for="(item,index) in alllist">
+					<div class="img">
+						<img v-lazy="item.goodsPicture" />
+					</div>
+					<div class="main_bot">
+						<p class="con"><span>{{item.goodsTitle}}</span></p>
+						<p class="price"><span>{{item.goodsDiscountPrice|price}}</span></p>
+					</div>
+				</li>
+			</ul>
 		</div>
 	</div>
 </template>
 
 <script>
-	import Vuex from "vuex";
-	import BScroll from 'better-scroll';
+	import Vuex from "vuex"
+	import BScroll from 'better-scroll'
 	export default{
 		filters:{
 			price(p){
 				return "￥"+p;
 			}
 		},
-		computed:{
-			...Vuex.mapState({
-				hotlist:state=>state.Shop.hotlist
-			})
-		},
 		watch:{
-			hotlist(newval,oldval){
-				this.scroll.finishPullUp();
+			alllist(newval,oldval){
+				 this.scroll.finishPullUp();
                  //作用 重新计算better-scroll
                 this.scroll.refresh();
 			}
 		},
+		computed:{
+			...Vuex.mapState({
+				alllist:state=>state.Shop.alllist
+			})
+		},
 		mounted(){
-			this.scroll = new BScroll(this.$refs.mainwrapper,{
+			this.scroll = new BScroll(this.$refs.wholewrapper,{
 				pullUpLoad:true,
 				click:true,
 				probeType:2
 			});
 			this.scroll.on("pullingUp",()=>{
-				this.$store.dispatch("Shop/handlehotlistagain");
+				this.$store.dispatch("Shop/handlealllistagain");
 			})
 		},
 		created() {
-			this.$store.dispatch("Shop/handlehotlist");
+				this.$store.dispatch("Shop/handlealllist");
 		},
 		activated(){
 			this.scroll.refresh();
@@ -64,17 +57,10 @@
 </script>
 
 <style scoped lang="scss">
-	#main_g{
+	#wholemain_g{
 		width: 100%;
-		height: 100%;
 		padding-top:0.22rem;
-		.main_top{
-			font-size: .32rem;
-			line-height: .71rem;
-			margin-left: .4rem;
-			font-weight:bold;
-			margin-bottom: .11rem;
-		}
+		height: 100%;
 		.main_con ul{
 			width: 100%;
 			display: flex;
@@ -84,6 +70,7 @@
 				width: 43%;
 				margin:0.11rem 0.2rem;
 				height: 4.12rem;
+
 				.img{
 					width: 3.25rem;
 					height: 3.25rem;

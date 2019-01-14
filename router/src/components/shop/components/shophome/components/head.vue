@@ -15,7 +15,7 @@ export default {
 		handleBack(){
 			this.$router.go(-1)
 		}
-	},
+	}
 }
 </script>
 
