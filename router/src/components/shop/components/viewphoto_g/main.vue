@@ -16,27 +16,30 @@
 			return{
 				imgs:[
 					{
-						id:0,
 						url:"http://files.eyee.com/Shop/system/main/a0b614d6b54b4a639ce85b18113c013c.jpg"
 					},
 					{
-						id:1,
 						url:"http://files.eyee.com/Shop/system/main/bd22f8913850432bb93d44ecb1bb2692.jpg"
 					},
 					{
-						id:2,
 						url:"http://files.eyee.com/Shop/system/main/06bd1f85d6f346c18c8f486cb457b1cb.jpg"
 					},
 					{
-						id:3,
 						url:"http://files.eyee.com/Shop/system/main/a0b614d6b54b4a639ce85b18113c013c.jpg"
 					},
 					{
-						id:4,
 						url:"http://files.eyee.com/Shop/system/main/bd22f8913850432bb93d44ecb1bb2692.jpg"
 					}
 				]
 			}
+		},
+		created(){
+			this.$axios({
+				method:"post",
+				url:"/api/mock/5c36e81c96e17359c184e2f8/huiju/shop/viewphoto",
+			}).then((data)=>{
+				console.log(data)
+			})
 		},
 		mounted(){
 			this.scroll = new Bscroll(this.$refs.bedbox,{

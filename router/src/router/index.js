@@ -10,12 +10,19 @@ import Style from '@/components/styless'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
 
+
 import Shopdetails from '@/components/shop/components/goods_details_j'
 
 import Shophome from '@/components/shop/components/shophome'
+import Hotlist from '@/components/shop/components/shophome/components/main.vue'
+import Alllist from '@/components/shop/components/shophome/components/wholemain.vue'
+
 import Checkstand from '@/components/shop/components/checkstand'
 import Confirm from '@/components/shop/components/confirmorder'
 import Viewphoto from '@/components/shop/components/viewphoto_g'
+import Address from '@/components/shop/components/address'
+
+
 
 import Register from '@/components/register'
 import Login from '@/components/login'
@@ -166,14 +173,40 @@ const router = new Router({
     {
       path: '/shop/shophome',
       name: 'shophome',
+      redirect:'/shop/shophome/hotlist',
       component: Shophome,
       meta: {
         //tab栏
         flag: false,
         //路由守卫
         requireAuth: true
-      }
+      },
+      children:[
+		     {
+		      path: '/shop/shophome/hotlist',
+		      name: 'hotlist',
+		      component: Hotlist,
+		      meta: {
+		        //tab栏
+		        flag: false,
+		        //路由守卫
+		        requireAuth: true
+		      }
+		    }, 
+		    {
+		      path: '/shop/shophome/alllist',
+		      name: 'alllist',
+		      component: Alllist,
+		      meta: {
+		        //tab栏
+		        flag: false,
+		        //路由守卫
+		        requireAuth: true
+		      }
+		    },
+      ]
     },
+   
     {
       path: '/shop/checkstand',
       name: 'checkstand',
@@ -200,6 +233,17 @@ const router = new Router({
       path: '/shop/viewphoto',
       name: 'viewphoto',
       component: Viewphoto,
+      meta: {
+        //tab栏
+        flag: false,
+        //路由守卫
+        requireAuth: true
+      }
+    },
+    {
+      path: '/shop/address',
+      name: 'address',
+      component: Address,
       meta: {
         //tab栏
         flag: false,

@@ -7,6 +7,8 @@ import "./common/js/flexble"
 import store from "./store";
 import observer from './common/js/observer'
 import './common/css/animate.min.css'
+
+
 Vue.config.productionTip = false
 
 Vue.prototype.observer = observer;
@@ -15,6 +17,17 @@ import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css'
 Vue.use(Mint);
 
+import axios from "axios";
+import "./lib"
+Vue.prototype.$axios = axios;
+
+
+/* 图片懒加载 */
+import VueLazyLoad from 'vue-lazyload'
+Vue.use(VueLazyLoad,{
+    preLoad: 50,    //预加载高度的比例
+    loading:'static/img/loading.gif'
+})
 
 /* eslint-disable no-new */
 new Vue({

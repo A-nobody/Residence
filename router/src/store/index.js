@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import mine from './mine'
-import Checkstand from './checkstand'
+import Shop from './shop_g'
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   modules: {
-  	Checkstand,
+  	Shop,
     mine
   }
 })

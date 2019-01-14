@@ -27,7 +27,7 @@
 	export default{
 		computed:{
 			...Vuex.mapState({
-				pays:state=>state.Checkstand.paystyle
+				pays:state=>state.Shop.paystyle
 			})
 		},
 		data(){
@@ -62,7 +62,7 @@
 		},
 		methods:{
 			...Vuex.mapMutations({
-				handleMutations:"Checkstand/handleMutations"
+				handleMutations:"Shop/handleMutations"
 			}),
 			check(index){
 				//先取消所有选中项
