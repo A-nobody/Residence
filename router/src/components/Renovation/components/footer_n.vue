@@ -138,6 +138,7 @@ export default {
        height: .8rem;
        margin: 0 auto;
        border-top: 1px solid #8A8989;
+       padding-bottom:.98rem; 
    }
    .footerquality ul{
        display: flex;
@@ -159,8 +160,5 @@ export default {
        float: left;
        margin-top:.24rem ;
    }
-   .blank{
-       width: 6.7rem;
-       height: .98rem;
-   }
+
 </style>

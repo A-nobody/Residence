@@ -9,12 +9,13 @@ import Release from '@/components/releases'
 import Style from '@/components/styless'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
-
+import process from '@/components/Renovation/components/process'
 import Shopdetails from '@/components/shop/components/goods_details_j'
 
 import Shophome from '@/components/shop/components/shophome'
 import Checkstand from '@/components/shop/components/checkstand'
 import Detail from '@/components/Renovation/components/mustlookskip/details'
+import Experience from '@/components/Renovation/components/expericedetail'
 import Confirm from '@/components/shop/components/confirmorder'
 import Viewphoto from '@/components/shop/components/viewphoto_g'
 
@@ -22,6 +23,7 @@ import Register from '@/components/register'
 import Login from '@/components/login'
 import Welcome from '@/components/welcome'
 import Shopserver from '@/components/shop/components/server_j'
+
 
 Vue.use(Router)
 
@@ -189,6 +191,28 @@ const router = new Router({
       path:"/renovation/details",
       component:Detail,
       name:"details",
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/renovation/details/expericence",
+      component:Experience,
+      name:"expericence",
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/renovation/process",
+      component:process,
+      name:'process',
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
     },
     {
       path: '/shop/confirm',

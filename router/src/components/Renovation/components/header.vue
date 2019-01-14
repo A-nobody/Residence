@@ -25,6 +25,7 @@
 
          <!-- 装修流程，避坑指南 -->
            <div class="process_n">
+              <router-link :to="{name:'process'}">
                 <div class="process_left">
                     <dl>
                         <dt><img :src="imgfirst"></dt>
@@ -32,6 +33,8 @@
                         <dd><span>{{bottomtitleleft}}</span></dd>
                     </dl>
                 </div>
+              </router-link>
+              <!-- <router-link :to="{name:'process'}"> -->
                 <div class="process_right">
                     <dl>
                         <dt><img :src="imgtwo"></dt>
@@ -39,6 +42,7 @@
                         <dd><span>{{bottomtitleright}}</span></dd>
                     </dl>
                 </div>
+              <!-- </router-link> -->
            </div>
     </div>
     <!-- 顶部结束 -->
@@ -138,7 +142,13 @@ export default {
    .process_n{
        width: 100%;
        height: 1.36rem;
-       margin: 1.05rem 0 0 .4rem;
+       margin: 1.05rem 0 0 0;
+       padding: 0 .35rem 0 .35rem;
+   }
+   .process_n a{
+       display: inline-block;
+       float: left;
+       margin-right: .02rem;
    }
    .process_left,.process_right{
       width:3.34rem;
@@ -147,9 +157,7 @@ export default {
       background:#EEF5F6;
       border-radius: .06rem;
    }
-   .process_left{
-       margin-right:.02rem;
-   }
+
 /* 装修流程样式 */
    .process_left>dl>dt,
    .process_right>dl>dt{

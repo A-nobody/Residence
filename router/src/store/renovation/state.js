@@ -1,5 +1,6 @@
 export default {
-    mustlook:[],
-    space:[],
-    alllook:[]
+
+    detailtitle:[],
+    professor:[],
+    experience:[]
 }

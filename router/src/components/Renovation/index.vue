@@ -17,6 +17,7 @@ import Header from './components/header';
 import Main from './components/main';
 import Footer from './components/footer_n.vue';
 
+
 export default {
     components:{
        "Header-com":Header,
