@@ -13,12 +13,7 @@ import Release from '@/components/releases'
 import Style from '@/components/styless/components/style_j'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
-<<<<<<< HEAD
 import process from '@/components/Renovation/components/process'
-=======
-
-
->>>>>>> 934affe49b10f407b62eedbc0d8429ea5e330ff1
 import Shopdetails from '@/components/shop/components/goods_details_j'
 
 import Shophome from '@/components/shop/components/shophome'

@@ -7,7 +7,6 @@ export default{
     expericeMutations(state,params){
         state.professor=params;
     },
-
     // 详情页面专家经验
     expericelistMutations(state,params){
         state.experience=params;

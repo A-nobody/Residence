@@ -7,13 +7,9 @@ import "./common/js/flexble"
 import store from "./store";
 import observer from './common/js/observer'
 import './common/css/animate.min.css'
-<<<<<<< HEAD
 import MintUi from 'mint-ui'
 import 'mint-ui//lib/style.css'
 Vue.use(MintUi);
-=======
-
->>>>>>> 934affe49b10f407b62eedbc0d8429ea5e330ff1
 
 Vue.config.productionTip = false
 
