@@ -82,6 +82,7 @@ export default {
   height: 3rem;
   position: relative;
   z-index: 99;
+  margin-left: .06rem;
 
   .nav_l,
   .nav_r {

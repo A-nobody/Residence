@@ -5,35 +5,41 @@
     </div>
     <div class="shoppingcar_j" >
       <img src="../../../../../static/img/shop/goods_details_slices_j/gouwu@2x.png">
-    </div>
-    <!-- <div class="swiper-container img_j">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">slider1</div>
-        <div class="swiper-slide">slider2</div>
-        <div class="swiper-slide">slider3</div>
-      </div>
-    </div> -->
+    </div> 
     <div class="img_num_j">
-      <span>1</span>
+      <span></span>
            /
       <span>5</span>
     </div>
-    <div class="img_j"  @click="handleNone"></div>
+    <div class="img_j"  @click="handleNone()">{</div>
   </div>
 </template>
 <script>
-// import { Swiper } from "swiper"; 
-// import Vuex from 'vuex';
+
+import Vuex from 'vuex';
+
 export default {
+  created() {
+   this.handleDetails()
+  },
     data() {
       return {
-        img_num_j:[1,2,3,4,5]
+      
+        // img_num_j:[1,2,3,4,5]
       }
+    },
+    computed:{
+      ...Vuex.mapState({
+        goodsdetailsList:state=>state.details.goodsdetailsList
+      }),
     },
     methods: {
       handleNone(){
         this.observer.$emit('handleSend',this.flag)
-      }
+      },
+      ...Vuex.mapActions({
+        handleDetails:"details/handleDetails"
+      })
     },
 };
 </script>
