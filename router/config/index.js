@@ -13,20 +13,20 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      "/apiw":{
+      "/apiw": {
         target: "https://www.easy-mock.com",
-        changeOrigin:true,
-        pathRewrite:{
-          "^/apiw":""
-        }, 
+        changeOrigin: true,
+        pathRewrite: {
+          "^/apiw": ""
+        },
       },
-         "/api":{
-               target:"https://www.easy-mock.com",
-               changeOrigin: true,  
-               pathRewrite: { 
-                 "^/api":""
-              } 
-         }
+      "/api": {
+        target: "https://www.easy-mock.com",
+        changeOrigin: true,
+        pathRewrite: {
+          "^/api": ""
+        }
+      }
     },
 
     // Various Dev Server settings
@@ -37,7 +37,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */

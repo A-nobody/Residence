@@ -10,6 +10,6 @@ export default{
 
     // 详情页面专家经验
     expericelistMutations(state,params){
-        state.experience=params.data;
+        state.experience=params;
     }
 }

@@ -231,6 +231,9 @@ const router = new Router({
       component:details_w,
       meta:{
         flag:false,
+      }
+    },
+    {
       path:"/renovation/details",
       component:Detail,
       name:"details",
@@ -238,8 +241,7 @@ const router = new Router({
         flag:false,
         requireAuth:true
       }
-    }
-  },
+    },
     {
       path:"/renovation/details/expericence",
       component:Experience,

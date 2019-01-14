@@ -2,20 +2,20 @@ import axios from "axios";
 import qs from "qs";
 
 // 请求的拦截
-axios.interceptors.request.use((config)=>{
-    //当发送方式为post时
-     if(config.method=="post"){
-        config.data=qs.stringify(config.data);
-     }
-     return config;
-  })
+// axios.interceptors.request.use((config)=>{
+//     //当发送方式为post时
+//      if(config.method=="post"){
+//         config.data=qs.stringify(config.data);
+//      }
+//      return config;
+//   })
 
-//   响应拦截，只返回需要用到的数据
-  axios.interceptors.response.use((res)=>{
-    if(res.status){   
-       return res.data; 
-    }
-})
+// //   响应拦截，只返回需要用到的数据
+//   axios.interceptors.response.use((res)=>{
+//     if(res.status){   
+//        return res.data; 
+//     }
+// })
 
 export default{
        
@@ -26,7 +26,7 @@ export default{
             url:"/api/mock/5c34910a571e3a78765765f9/example/detail_img_article"
         })
         .then((data)=>{
-            commit("detailtitleMutations",data.data)
+            commit("detailtitleMutations",data.data)     
         })
     }, 
 
@@ -48,7 +48,8 @@ export default{
                  url:"/api/mock/5c37ec68ecfa5277f4100272/professor_list",
              })
              .then((data)=>{
-                commit("expericelistMutations",data)
+                commit("expericelistMutations",data.data)
+               
              })
          }
 
