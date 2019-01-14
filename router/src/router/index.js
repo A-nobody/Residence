@@ -13,11 +13,13 @@ import Release from '@/components/releases'
 import Style from '@/components/styless/components/style_j'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
-
+import process from '@/components/Renovation/components/process'
 import Shopdetails from '@/components/shop/components/goods_details_j'
 
 import Shophome from '@/components/shop/components/shophome'
 import Checkstand from '@/components/shop/components/checkstand'
+import Detail from '@/components/Renovation/components/mustlookskip/details'
+import Experience from '@/components/Renovation/components/expericedetail'
 import Confirm from '@/components/shop/components/confirmorder'
 import Viewphoto from '@/components/shop/components/viewphoto_g'
 
@@ -26,10 +28,13 @@ import Login from '@/components/login'
 import Welcome from '@/components/welcome'
 import Shopserver from '@/components/shop/components/server_j'
 
+<<<<<<< HEAD
 // 魏
 import dynamic_w from '@/components/home/components/dynamic'
 import details_w from '@/components/home/components/details'
 
+=======
+>>>>>>> nttbranch
 
 Vue.use(Router)
 
@@ -216,6 +221,7 @@ const router = new Router({
       }
     },
     {
+<<<<<<< HEAD
       path:"/home/dynamic",
       name:"dynamic_w",
       component:dynamic_w,
@@ -229,6 +235,35 @@ const router = new Router({
       component:details_w,
       meta:{
         flag:false,
+=======
+      path:"/renovation/details",
+      component:Detail,
+      name:"details",
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/renovation/details/expericence",
+      component:Experience,
+      name:"expericence",
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/renovation/process",
+      component:process,
+      name:'process',
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+>>>>>>> nttbranch
       path: '/shop/confirm',
       name: 'confirm',
       component: Confirm,
