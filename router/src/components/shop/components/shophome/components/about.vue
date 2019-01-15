@@ -1,13 +1,13 @@
 <template>
 	<div id="about_g">
 		<div class="about_logo">
-			<img src="static/img/shop/homeg/logog.png" />
+			<img :src="data.shopLogo" />
 		</div>
 		<div class="about_ri">
-			<p><span>林氏木业</span></p>
+			<p><span>{{data.shopName}}</span></p>
 			<div class="star">
 				<span class="star_item" v-for="(star,index) in starScore">{{star}}</span>
-   				<span class="star_level">{{temp|level}}</span>
+   				<span class="star_level">{{data.star|level}}</span>
 			</div>
 		</div>
 	</div>
@@ -17,8 +17,20 @@
 	export default{
 		data(){
 			return{
-				temp:4.0 //从后台获取星级评价数据
+				data:[]
 			}
+		},
+		created(){
+		this.index = this.$route.query.id;
+		this.$axios({
+			method:"post",
+			url:"/apiw/mock/5c36e81c96e17359c184e2f8/huiju/shop/shopid",
+			data:{
+				id:4
+			}
+			}).then((data)=>{
+				this.data = data.data.data[0];
+			})
 		},
 		filters:{
 			level(val){
@@ -28,7 +40,7 @@
 		computed:{
 			starScore(){
 				let stars = []; /*定义一个空数组来存储类名*/
-				let score = Math.floor(this.temp*2)/2    
+				let score = Math.floor((this.data.star)*2)/2    
 				/*把评分转成整数或整数+0.5（4.7转成4.5 4.2转成4.0）*/
 				let wholeScore = Math.floor(score)/*取整数分数（显示全星）*/
 			

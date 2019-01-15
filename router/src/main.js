@@ -7,10 +7,16 @@ import "./common/js/flexble"
 import store from "./store";
 import observer from './common/js/observer'
 import './common/css/animate.min.css'
+<<<<<<< HEAD
 import MintUI from "mint-ui"
 import '../node_modules/mint-ui/lib/style.css'
 
 Vue.use(MintUI)
+=======
+import MintUi from 'mint-ui'
+import 'mint-ui//lib/style.css'
+Vue.use(MintUi);
+>>>>>>> master
 
 Vue.config.productionTip = false
 
@@ -20,6 +26,16 @@ import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css'
 Vue.use(Mint);
 
+import axios from "axios";
+import "./lib"
+Vue.prototype.$axios = axios;
+
+
+/* 图片懒加载 */
+import VueLazyLoad from 'vue-lazyload'
+Vue.use(VueLazyLoad,{
+    loading:'static/img/loading.gif'
+})
 
 /* eslint-disable no-new */
 new Vue({
