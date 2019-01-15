@@ -34,37 +34,36 @@ import details_w from '@/components/home/components/details'
 Vue.use(Router)
 
 const router = new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       redirect: '/register'
     },
     {
-        path: '/welcome',
-        name: 'welcome',
-        component: Welcome,
-        meta: {
-          flag: false,
-          requireAuth: true
-        }
+      path: '/welcome',
+      name: 'welcome',
+      component: Welcome,
+      meta: {
+        flag: false,
+        requireAuth: true
+      }
     },
     {
-        path: '/register',
-        name: 'register',
-        component: Register,
-        meta: {
-          flag: false,
-          requireAuth: true
-        }
+      path: '/register',
+      name: 'register',
+      component: Register,
+      meta: {
+        flag: false,
+        requireAuth: true
+      }
     },
     {
-        path: '/login',
-        name: 'login',
-        component: Login,
-        meta: {
-          flag: false,
-          requireAuth: true
-        }
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: {
+        flag: false,
+        requireAuth: true
+      }
     },
     {
       path: '/home',
@@ -80,7 +79,7 @@ const router = new Router({
     {
       path: '/mine',
       name: 'mine',
-      component: ()=>import('@/components/Mine'),
+      component: () => import('@/components/Mine'),
       meta: {
         //tab栏
         flag: true,
@@ -92,50 +91,50 @@ const router = new Router({
       path: '/mine/cart',
       component: Cart,
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
       path: '/mine/userData',
       component: UserData,
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
       path: '/mine/favorite',
       component: Favorite,
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
       path: '/mine/favorite/pic',
       component: FavoritePic,
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
       path: '/mine/favorite/article',
       component: FavoriteArticle,
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
       path: '/mine/favorite/goods',
       component: FavoriteGoods,
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
       path: '/mine/order',
       component: Order,
-      name:'order',
+      name: 'order',
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
@@ -182,17 +181,17 @@ const router = new Router({
         requireAuth: true
       }
     },
-     {
-       path: '/shop/shopserver',
-       name: 'Shopserver',
-       component: Shopserver,
-       meta: {
-         //tab栏
-         flag: false,
-         //路由守卫
-         requireAuth: true
-       }
-     },
+    {
+      path: '/shop/shopserver',
+      name: 'Shopserver',
+      component: Shopserver,
+      meta: {
+        //tab栏
+        flag: false,
+        //路由守卫
+        requireAuth: true
+      }
+    },
     {
       path: '/shop/shophome',
       name: 'shophome',
@@ -216,19 +215,22 @@ const router = new Router({
       }
     },
     {
-      path:"/home/dynamic",
-      name:"dynamic_w",
-      component:dynamic_w,
-      meta:{
-        flag:false
+      path: "/home/dynamic",
+      name: "dynamic_w",
+      component: dynamic_w,
+      meta: {
+        flag: false
       }
     },
     {
-      path:"/home/details",
-      name:"details_w",
-      component:details_w,
-      meta:{
-        flag:false,
+      path: "/home/details",
+      name: "details_w",
+      component: details_w,
+      meta: {
+        flag: false,
+      }
+    },
+    {
       path: '/shop/confirm',
       name: 'confirm',
       component: Confirm,
@@ -237,9 +239,9 @@ const router = new Router({
         flag: false,
         //路由守卫
         requireAuth: true
+
       }
-    }
-  },
+    },
     {
       path: '/shop/viewphoto',
       name: 'viewphoto',
@@ -252,10 +254,10 @@ const router = new Router({
       }
     },
     {
-      path:'**',
-      component:Err
+      path: '**',
+      component: Err
     }
-    
+
   ]
 })
 

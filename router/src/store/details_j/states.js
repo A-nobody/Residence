@@ -1,3 +1,4 @@
 export default {
     goodsdetailsList:[],
+    content:[]
 }
