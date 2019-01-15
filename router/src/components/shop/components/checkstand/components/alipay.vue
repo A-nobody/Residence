@@ -1,7 +1,7 @@
 <template>
 	<div id="alipay_g">
 		<div class="tit">
-			“绘居”想要打开<span>“{{this.$store.state.Checkstand.paystyle}}”</span>
+			“绘居”想要打开<span>“{{this.$store.state.Shop.paystyle}}”</span>
 		</div>
 		<div class="btn">
 			<span @click="clickCancle()">取消</span>
@@ -15,7 +15,7 @@
 	export default{
 		methods:{
 			...Vuex.mapMutations({
-				clickCancle:"Checkstand/clickCancle"
+				clickCancle:"Shop/clickCancle"
 			})
 		}
 	}

@@ -13,13 +13,21 @@ import Release from '@/components/releases'
 import Style from '@/components/styless/components/style_j'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
-
+import process from '@/components/Renovation/components/process'
 import Shopdetails from '@/components/shop/components/goods_details_j'
 
 import Shophome from '@/components/shop/components/shophome'
+import Hotlist from '@/components/shop/components/shophome/components/main.vue'
+import Alllist from '@/components/shop/components/shophome/components/wholemain.vue'
+
 import Checkstand from '@/components/shop/components/checkstand'
+import Detail from '@/components/Renovation/components/mustlookskip/details'
+import Experience from '@/components/Renovation/components/expericedetail'
 import Confirm from '@/components/shop/components/confirmorder'
 import Viewphoto from '@/components/shop/components/viewphoto_g'
+import Address from '@/components/shop/components/address'
+
+
 
 import Register from '@/components/register'
 import Login from '@/components/login'
@@ -195,14 +203,40 @@ const router = new Router({
     {
       path: '/shop/shophome',
       name: 'shophome',
+      redirect:'/shop/shophome/hotlist',
       component: Shophome,
       meta: {
         //tab栏
         flag: false,
         //路由守卫
         requireAuth: true
-      }
+      },
+      children:[
+		     {
+		      path: '/shop/shophome/hotlist',
+		      name: 'hotlist',
+		      component: Hotlist,
+		      meta: {
+		        //tab栏
+		        flag: false,
+		        //路由守卫
+		        requireAuth: true
+		      }
+		    }, 
+		    {
+		      path: '/shop/shophome/alllist',
+		      name: 'alllist',
+		      component: Alllist,
+		      meta: {
+		        //tab栏
+		        flag: false,
+		        //路由守卫
+		        requireAuth: true
+		      }
+		    },
+      ]
     },
+   
     {
       path: '/shop/checkstand',
       name: 'checkstand',
@@ -231,6 +265,41 @@ const router = new Router({
       }
     },
     {
+      path:"/home/details",
+      name:"details_w",
+      component:details_w,
+      meta:{
+        flag:false,
+      }
+    },
+    {
+      path:"/renovation/details",
+      component:Detail,
+      name:"details",
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/renovation/details/expericence",
+      component:Experience,
+      name:"expericence",
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/renovation/process",
+      component:process,
+      name:'process',
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
       path: '/shop/confirm',
       name: 'confirm',
       component: Confirm,
@@ -254,8 +323,19 @@ const router = new Router({
       }
     },
     {
-      path: '**',
-      component: Err
+      path: '/shop/address',
+      name: 'address',
+      component: Address,
+      meta: {
+        //tab栏
+        flag: false,
+        //路由守卫
+        requireAuth: true
+      }
+    },
+    {
+      path:'**',
+      component:Err
     }
 
   ]

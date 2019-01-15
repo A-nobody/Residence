@@ -28,7 +28,7 @@
 		},
 		computed:{
 			...Vuex.mapState({
-				paystyle:state=>state.Checkstand.paystyle
+				paystyle:state=>state.Shop.paystyle
 			})
 		},
 		data(){
