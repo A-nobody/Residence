@@ -21,6 +21,8 @@ import Checkstand from '@/components/shop/components/checkstand'
 import Confirm from '@/components/shop/components/confirmorder'
 import Viewphoto from '@/components/shop/components/viewphoto_g'
 
+import Address from '@/components/shop/components/address'
+
 import Register from '@/components/register'
 import Login from '@/components/login'
 import Welcome from '@/components/welcome'

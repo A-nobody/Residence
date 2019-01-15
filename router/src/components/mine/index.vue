@@ -3,7 +3,7 @@
         <div class="top">
             <div class="top-one">
                 <router-link to=""><img src="static/img/mine/guanzhu.png"></router-link>
-                <router-link to=""><img src="static/img/mine/shezhi.png"></router-link>
+                <router-link to="/mine/userData"><img src="static/img/mine/shezhi.png"></router-link>
             </div>
             <div class="top-two">
                 <router-link to="/mine/userData"><img src="static/img/mine/touxiang.png"><span>居友_qq</span><img src="static/img/mine/rightb.png"></router-link>

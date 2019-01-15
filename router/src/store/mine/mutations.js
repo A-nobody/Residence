@@ -18,6 +18,11 @@ export default {
   nameHide(state) {
     state.nameFlag = false;
   },
+  getAddress(state,params){
+    state.addr=params;
+    state.maskFlag = false;
+  },
+
 
   getGoodsList(state, params) {
     state.goodsList = params;

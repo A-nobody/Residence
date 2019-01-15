@@ -4,5 +4,6 @@ export default {
   nameFlag: false,
   typeNum: "",
   goodsList: [],
-  checkAll: true
+  checkAll: true,
+  addr:'未选择'
 }

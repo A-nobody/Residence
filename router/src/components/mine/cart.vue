@@ -21,7 +21,7 @@
                         <p>
                             <span class="goodsName">{{item.name}}</span><br>
                             <span class="goodsColor">{{item.color}}</span><br>
-                            <span class="goodsPrice">{{item.price}}</span>
+                            <span class="goodsPrice">{{item.price | price}}</span>
                         </p>
                     </div>
                     <div class="listBottom">
@@ -52,7 +52,8 @@ import Vuex from 'vuex'
 import BScroll from 'better-scroll'
 export default {
     created(){
-        this.$store.dispatch('mine/getGoodsList')
+        // this.$store.dispatch('mine/getGoodsList')
+        this.getGoodsList()
     },
     mounted(){
         this.scroll = new BScroll(this.$refs.cartWrapper,{
@@ -76,6 +77,7 @@ export default {
             handleReduce:'mine/handleReduce'
         }),
         ...Vuex.mapActions({
+            getGoodsList:'mine/getGoodsList',
             handleDel:'mine/handleDel'
         }),
         getBack() {
@@ -83,7 +85,9 @@ export default {
         }
     },
     filters:{
-        
+        price(val){
+            return "￥"+val
+        }
     }
 }
 </script>

@@ -29,7 +29,7 @@
       <li @click="maskShow(1)">
         <span>位置</span>
         <p>
-          <span>未选择</span>
+          <span>{{addr}}</span>
           <img src="static/img/mine/right2.png">
         </p>
       </li>
@@ -64,7 +64,8 @@ export default {
     ...Vuex.mapState({
       maskFlag: state => state.mine.maskFlag,
       synoFlag: state => state.mine.synoFlag,
-      nameFlag: state => state.mine.nameFlag
+      nameFlag: state => state.mine.nameFlag,
+      addr:state => state.mine.addr
     })
   },
   components: {
@@ -121,10 +122,9 @@ export default {
 }
 .userData .dataList > li > p > span {
   color: #7d7d7d;
-  font-size: 0.22rem;
+  font-size: 0.25rem;
 }
-.userData .dataList > li > p > span,
-img {
+.userData .dataList > li > p > span,img {
   float: left;
   margin-left: 0.2rem;
 }
