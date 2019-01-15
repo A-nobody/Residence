@@ -52,7 +52,8 @@
 			});
 			this.scroll.on("pullingUp",()=>{
 				this.$store.dispatch("Shop/handlehotlistagain");
-			})
+			});
+			this.scroll.refresh();
 		},
 		created() {
 			this.$store.dispatch("Shop/handlehotlist");
@@ -88,9 +89,13 @@
 					width: 3.25rem;
 					height: 3.25rem;
 					border-radius:.15rem;
-					// background:#fff;
 					overflow:hidden;
-					img{
+					img[lazy=loading] {
+						width: .32rem;
+						height: .32rem;
+						margin: auto;
+					}
+					img[lazy=loaded]{
 						width: 100%;
 						height: 100%;
 					}
