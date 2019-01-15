@@ -22,6 +22,22 @@ export default {
     state.addr=params;
     state.maskFlag = false;
   },
+  getBirthday(state,params){
+    state.birth=params;
+    state.maskFlag = false;
+  },
+  setSex(state,params){
+    state.sex=params;
+    state.maskFlag = false;
+  },
+  setName(state,params){
+    state.userName=params;
+    state.nameFlag = false;
+  },
+  setSyno(state,params){
+    state.syno=params;
+    state.synoFlag = false;
+  },
 
 
   getGoodsList(state, params) {

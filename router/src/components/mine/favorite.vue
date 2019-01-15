@@ -36,12 +36,6 @@ export default {
     return {
       pic: [
         {
-          name: "贝贝的图片",
-          src: "static/img/mine/icon-scj-yper.png",
-          num: 10,
-          route: "/mine/favorite/pic"
-        },
-        {
           name: "贝贝的文章",
           src: "static/img/mine/icon-scj-ypyi.png",
           num: 11,
@@ -88,11 +82,11 @@ export default {
   margin-bottom: 0.2rem;
 }
 .favorite .main {
-  height: 6.32rem;
+  height: 4.2rem;
   margin: 0 auto;
   border-top: 0.01rem solid #cacaca;
   border-bottom: 0.01rem solid #cacaca;
-  padding-top: 0.5rem;
+  padding-top: 0.4rem;
 }
 .favorite .mainList {
   width: 100%;

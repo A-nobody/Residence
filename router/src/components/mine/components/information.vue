@@ -6,8 +6,7 @@
         <div class="content">
           <!-- 性别 -->
           <div id="sex" v-show="typeNum==0?true:false">
-            <p><a href="#">男</a></p>
-            <p><a href="#">女</a></p>
+            <mt-picker :slots="SexSlots" @change="onSexChange"></mt-picker>
           </div>
           <!-- 地址 -->
           <mt-picker
@@ -17,7 +16,7 @@
           />
           <!-- 生日 -->
           <div class="date" v-show="typeNum==2?true:false">
-            2019-1-1
+            <mt-picker :slots="BirthdaySlots" @change="onBirthdayChange"></mt-picker>
           </div>
         </div>
         <div class="confirm">
@@ -39,6 +38,42 @@ Vue.component(Picker.name, Picker);
 export default {
   data() {
     return {
+      SexSlots:[
+        {
+          flex: 1,
+          values: ['男','女'],
+          className: 'slot1',
+          textAlign: 'center'
+        }
+      ],
+      sex:'',
+      BirthdaySlots: [
+        {
+          flex: 1,
+          values: ['2001','2000','1999','1998','1997','1996','1995','1994','1993','1992','1991','1990','1989','1988','1987','1986','1985','1984','1983','1982','1981','1980'],
+          className: 'slot1',
+          textAlign: 'center'
+        }, {
+          divider: true,
+          content: '-',
+          className: 'slot2'
+        }, {
+          flex: 1,
+          values: ['1', '2', '3', '4', '5', '6','7','8','9','10','11','12'],
+          className: 'slot3',
+          textAlign: 'center'
+        },{
+          divider: true,
+          content: '-',
+          className: 'slot4'
+        }, {
+          flex: 1,
+          values: ['1', '2', '3', '4', '5', '6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
+          className: 'slot5',
+          textAlign: 'center'
+        }
+      ],
+      birthday:'',
       myAddressSlots: [
         {
           flex: 1, //对应 slot CSS 的 flex 值
@@ -83,8 +118,23 @@ export default {
   methods: {
     ...Vuex.mapMutations({
       maskHide: "mine/maskHide",
-      getAddress: "mine/getAddress"
+      getAddress: "mine/getAddress",
+      getBirthday: "mine/getBirthday",
+      setSex: "mine/setSex"
     }),
+    onSexChange(picker, values){
+      if([values[0]]){
+        picker.setSlotValues(values[0]);
+        this.sex = values[0];
+      }
+    },
+    onBirthdayChange(picker, values) {
+      if ([values[0]]) {
+        picker.setSlotValues(Object.keys([values[0]]));
+        picker.setSlotValues([values[0]][values[1]]);
+        this.birthday = values[0]+'.'+values[1]+'.'+values[2];
+      }
+    },
     onMyAddressChange(picker, values) {
       if (myaddress[values[0]]) {
         //这个判断类似于v-if的效果（可以不加，但是vue会报错，很不爽）
@@ -103,8 +153,9 @@ export default {
       if (this.typeNum == 1) {
         this.getAddress(this.myAddresscounty);
       } else if (this.typeNum == 2) {
-        console.log(1);
-      } else {
+        this.getBirthday(this.birthday);
+      } else if (this.typeNum == 0){
+        this.setSex(this.sex);
       }
     }
   },
@@ -182,7 +233,7 @@ export default {
   line-height: 0.8rem;
   border-bottom: 0.01rem solid #cacaca;
 }
-#sex > p >a{
+#sex > p > a {
   color: #a8a8a8;
 }
 </style>

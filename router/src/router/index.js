@@ -4,7 +4,6 @@ import Home from '@/components/home'
 import UserData from '@/components/mine/userData.vue'
 import Cart from '@/components/mine/cart.vue'
 import Favorite from '@/components/mine/favorite.vue'
-import FavoritePic from '@/components/mine/like/favoritePic.vue'
 import FavoriteArticle from '@/components/mine/like/favoriteArticle.vue'
 import FavoriteGoods from '@/components/mine/like/favoriteGoods.vue'
 import Order from '@/components/mine/order'
@@ -20,8 +19,6 @@ import Shophome from '@/components/shop/components/shophome'
 import Checkstand from '@/components/shop/components/checkstand'
 import Confirm from '@/components/shop/components/confirmorder'
 import Viewphoto from '@/components/shop/components/viewphoto_g'
-
-import Address from '@/components/shop/components/address'
 
 import Register from '@/components/register'
 import Login from '@/components/login'
@@ -102,13 +99,6 @@ const router = new Router({
     {
       path: '/mine/favorite',
       component: Favorite,
-      meta: {
-        flag:false
-      }
-    },
-    {
-      path: '/mine/favorite/pic',
-      component: FavoritePic,
       meta: {
         flag:false
       }
