@@ -24,7 +24,7 @@
 		this.index = this.$route.query.id;
 		this.$axios({
 			method:"post",
-			url:"/api/mock/5c36e81c96e17359c184e2f8/huiju/shop/shopid",
+			url:"/apiw/mock/5c36e81c96e17359c184e2f8/huiju/shop/shopid",
 			data:{
 				id:4
 			}

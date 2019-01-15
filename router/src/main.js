@@ -27,7 +27,6 @@ Vue.prototype.$axios = axios;
 /* 图片懒加载 */
 import VueLazyLoad from 'vue-lazyload'
 Vue.use(VueLazyLoad,{
-    preLoad: 50,    //预加载高度的比例
     loading:'static/img/loading.gif'
 })
 
