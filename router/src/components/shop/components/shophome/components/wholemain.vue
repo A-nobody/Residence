@@ -79,7 +79,7 @@
 					img[lazy=loading] {
 						width: .32rem;
 						height: .32rem;
-						margin: auto;
+						margin:auto;
 					}
 					img[lazy=loaded]{
 						width: 100%;
