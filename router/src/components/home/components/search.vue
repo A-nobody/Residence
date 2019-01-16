@@ -1,11 +1,17 @@
 <template>
     <div id="search_w">
-        <input type="search" class="search" placeholder="大家都在搜：装饰画">
+        <input type="search" class="search" 
+        placeholder="大家都在搜：装饰画"
+        @click="jumpsearch()">
     </div>
 </template>
 <script>
 export default {
-    
+    methods:{
+        jumpsearch(){
+            this.$emit("searchSF",true)
+        }
+    }
 }
 </script>
 

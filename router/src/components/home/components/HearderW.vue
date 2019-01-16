@@ -4,7 +4,7 @@
             <i :class="num==1?'active':''" @click="handleNavF()">关注</i>
             <i :class="num==2?'active':''" @click="handleNavR()">推荐</i>
         </p>
-        <router-link to="/home" class="smallBell" :style="'background-image:url('+smallBellBg+')'"></router-link>
+        <router-link to="/home/message" class="smallBell iconfont" >&#xe605;</router-link>
     </div>
 </template>
 
@@ -74,7 +74,7 @@ export default {
         height: 0.38rem;
         margin-top: .28rem;
         margin-right:.4rem ;
-        background: no-repeat;
+        font-size:.38rem
     }
 </style>
 
