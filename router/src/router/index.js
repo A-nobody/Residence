@@ -15,15 +15,19 @@ import Err from '@/components/error/error.vue'
 import process from '@/components/Renovation/components/process'
 import Shopdetails from '@/components/shop/components/goods_details_j'
 
+/*店铺首页*/
 import Shophome from '@/components/shop/components/shophome'
 import Hotlist from '@/components/shop/components/shophome/components/main.vue'
 import Alllist from '@/components/shop/components/shophome/components/wholemain.vue'
-
+/* 收银台 */
 import Checkstand from '@/components/shop/components/checkstand'
 import Detail from '@/components/Renovation/components/mustlookskip/details'
 import Experience from '@/components/Renovation/components/expericedetail'
+/* 确认订单 */
 import Confirm from '@/components/shop/components/confirmorder'
+/* 查看商品图片 */
 import Viewphoto from '@/components/shop/components/viewphoto_g'
+/* 收货地址*/
 import Address from '@/components/shop/components/address'
 
 
@@ -97,6 +101,7 @@ const router = new Router({
     },
     {
       path: '/mine/cart',
+      name:'ShopCart',
       component: Cart,
       meta: {
         flag:false

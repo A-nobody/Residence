@@ -41,7 +41,7 @@
                 <!-- <img src="static/img/mine/yuan.png"> -->
                 <input type="checkbox" :checked='checkAll' @click="handleCheckAll()"><p>全选</p>
                     <span>不含运费</span><p>已选：<span>{{result.Num}}</span></p><p>总计：<span>{{result.Price}}</span></p>
-                <img src="static/img/mine/jiesuan.png">
+                <img src="static/img/mine/jiesuan.png" @click="goConfirm()">
             </div>
         </div>
     </div>
@@ -82,6 +82,9 @@ export default {
         }),
         getBack() {
             this.$router.back();
+        },
+        goConfirm(){
+            this.$router.push({name:"confirm"})
         }
     },
     filters:{

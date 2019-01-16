@@ -3,7 +3,7 @@
     <div class="back_j">
       <img src="../../../../../static/img/shop/goods_details_slices_j/jiantou_left@2x.png">
     </div>
-    <div class="shoppingcar_j" >
+    <div class="shoppingcar_j" @click="goShopCar()">
       <img src="../../../../../static/img/shop/goods_details_slices_j/gouwu@2x.png">
     </div>
     <!-- <div class="swiper-container img_j">
@@ -32,7 +32,11 @@ export default {
     },
     methods: {
       handleNone(){
-        this.observer.$emit('handleSend',this.flag)
+        this.observer.$emit('handleSend',this.flag);
+        this.$router.push({name:"viewphoto"});
+      },
+      goShopCar(){
+        this.$router.push({name:'ShopCart'});
       }
     },
 };

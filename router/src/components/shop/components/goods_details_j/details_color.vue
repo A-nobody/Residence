@@ -78,7 +78,7 @@ export default {
       });
     },
     handleTobuy() {
-      this.$router.push({ name: "confirm" });
+      this.$router.push({ name: "ShopCart" });
     },
     handleReduce() {
       if (this.num == 1) {

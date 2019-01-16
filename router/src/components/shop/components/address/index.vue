@@ -2,9 +2,11 @@
   <div class="addres">
     <div class="topOut">
       <div class="top">
-        <img src="static/img/mine/left.png">
+        <div class="img" @click="goBack()">
+          <img src="static/img/mine/left.png">
+        </div>
         <h2>添加收货地址</h2>
-        <span>保存</span>
+        <span @click="goConfirmOrder()">保存</span>
       </div>
     </div>
     <div class="main">
@@ -45,6 +47,12 @@ export default {
         },
         addresHide(){
             this.flag = false;
+        },
+        goConfirmOrder(){
+          this.$router.push({name:"confirm"});
+        },
+        goBack(){
+           this.$router.go(-1);
         }
     }
 };
