@@ -8,9 +8,9 @@
       <span class="content_price_old_font">价格</span>
       <span class="content_price_old_none">￥{{content.goodsPrice}}</span>
     </div>
-    <div class="content_price_title">{{content.goodsTitle.substr(0,10)}}</div>
+    <div class="content_price_title">{{content.goodsBrand}}</div>
     <div class="content_price_details">
-        <span>快递:{{content.goodsFreight}}</span>
+        <span>快递:￥{{content.goodsFreight}}</span>
         <span>发货时间:72小时</span>
         <span>发货地:{{content.shopAddress}}</span>
     </div>

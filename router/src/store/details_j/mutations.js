@@ -1,6 +1,12 @@
 export default {
     handledetailsData(state,params){
-        state.goodsdetailsList = params.goodsPicture;
+        state.goodsdetailsImg = params;
         state.content = params;
+        state.goodscolor = params;
+        state.goodsParameter.push(params.goodsBrand);
+        state.goodsParameter.push(params.goodsModel);
+        state.goodsParameter.push(params.goodsStyle);
+        state.goodsParameter.push(params.goodsStock);
+       
     }
 }

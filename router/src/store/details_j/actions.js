@@ -9,7 +9,6 @@ export default {
          }
      })
      .then((data) => {
-        //  console.log(data)
          console.log(data.data.listproinfo[0])
          commit("handledetailsData", data.data.listproinfo[0])   
      })

@@ -2,23 +2,26 @@
   <div class="details_color_j" v-show="flag">
     <div class="color_content">
       <div class="color_img">
-        <!-- <img src="" alt=""> -->
+        <!-- <img :src=""> -->
       </div>
       <p>
-        <span>￥2790</span>
+        <span>￥{{goodscolor.goodsDiscountPrice}}</span>
       </p>
       <p>
         <span>库存充足</span>
       </p>
       <p>
-        <span>已选：红色</span>
+        <span>已选:  {{goodscolor.goodsColorList[index2]}} </span>
       </p>
     </div>
     <div class="color_choose">
       <p>颜色</p>
       <p>
-        <button class="choose_active">红色</button>
-        <button>白色</button>
+        <!-- <button class="choose_active">红色</button> -->
+        <button v-for="(item,index) in goodscolor.goodsColorList"
+        v-bind="{class:activeIndex==index?'choose_active':''}"
+        @click="handleActivecolor(index)"
+        >{{item}}</button>
       </p>
     </div>
     <div class="color_num">
@@ -41,6 +44,7 @@
   </div>
 </template>
 <script>
+import Vuex from "vuex";
 import { Toast } from "mint-ui";
 export default {
   created() {
@@ -67,11 +71,21 @@ export default {
   data() {
     return {
       flag: false,
-      num: 1
+      num: 1,
+      activeIndex:0,
+      index2:0
     };
   },
-
+computed: {
+  ...Vuex.mapState({
+    goodscolor:state=>state.details.goodscolor
+  })
+},
   methods: {
+    handleActivecolor(index){
+      this.activeIndex = index;
+      this.index2 = index
+    },
     handleToast() {
       Toast({
         message: "加入购物车成功",
@@ -151,7 +165,7 @@ export default {
     }
   }
   .color_choose {
-    height: 2.09rem;
+    height: 3.09rem;
     width: 100%;
     margin: 0 0.4rem;
     border-bottom: 0.01rem solid #e5e5e5;
@@ -171,6 +185,7 @@ export default {
         background: rgba(229, 229, 229, 1);
         border: none;
         margin-right: 0.4rem;
+        margin-bottom: 0.4rem;
         float: left;
         font-size: 0.28rem;
         font-family: PingFang-SC-Regular;
@@ -232,7 +247,7 @@ export default {
   }
   .color_tostore {
     width: 100%;
-    height: 4.9rem;
+    height: 3.9rem;
     position: relative;
     img {
       position: absolute;

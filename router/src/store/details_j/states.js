@@ -1,4 +1,8 @@
 export default {
-    goodsdetailsList:[],
-    content:[]
+    goodsdetailsImg:[],
+    content:[],
+    goodscolor:[],
+    goodsParameter: [],
+ 
+   
 }
