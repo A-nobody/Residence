@@ -23,12 +23,11 @@ import axios from "axios";
 import "./lib"
 Vue.prototype.$axios = axios;
 
-
-/* 图片懒加载 */
 import VueLazyLoad from 'vue-lazyload'
 Vue.use(VueLazyLoad,{
     loading:'static/img/loading.gif'
 })
+
 
 /* eslint-disable no-new */
 new Vue({

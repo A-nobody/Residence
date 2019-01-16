@@ -5,5 +5,6 @@ export default {
 	alllist:[],
 	allpageIndex:1,
 	hotpageIndex:1,
-	shopId:4
+	shopId:4,
+	goodsId:4
 }
