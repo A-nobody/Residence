@@ -121,16 +121,6 @@ const router = new Router({
       }
     },
     {
-<<<<<<< HEAD
-      path: '/mine/favorite/pic',
-      component: FavoritePic,
-      meta: {
-        flag: false
-      }
-    },
-    {
-=======
->>>>>>> master
       path: '/mine/favorite/article',
       component: FavoriteArticle,
       meta: {
