@@ -71,10 +71,10 @@ export default {
     handleNone() {
       this.observer.$emit("handleSend", this.flag);
     this.$router.push({name:"viewphoto"});
-    }
+    },
       goShopCar(){
         this.$router.push({name:'ShopCart'});
-      }
+      },
     ...Vuex.mapActions({
       handleDetails: "details/handleDetails"
     })
