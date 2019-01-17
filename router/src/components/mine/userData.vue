@@ -15,35 +15,35 @@
       <li @click="nameshow()">
         <span>昵称</span>
         <p>
-          <span>未选择</span>
+          <span>{{userName}}</span>
           <img src="static/img/mine/right2.png">
         </p>
       </li>
       <li @click="maskShow(0)">
         <span>性别</span>
         <p>
-          <span>未选择</span>
+          <span>{{sex}}</span>
           <img src="static/img/mine/right2.png">
         </p>
       </li>
       <li @click="maskShow(1)">
         <span>位置</span>
         <p>
-          <span>未选择</span>
+          <span>{{addr}}</span>
           <img src="static/img/mine/right2.png">
         </p>
       </li>
       <li @click="maskShow(2)">
         <span>生日</span>
         <p>
-          <span>未选择</span>
+          <span>{{birth}}</span>
           <img src="static/img/mine/right2.png">
         </p>
       </li>
       <li @click="synoShow()">
         <span>个人简介</span>
         <p>
-          <span>未选择</span>
+          <span>{{syno}}</span>
           <img src="static/img/mine/right2.png">
         </p>
       </li>
@@ -64,13 +64,18 @@ export default {
     ...Vuex.mapState({
       maskFlag: state => state.mine.maskFlag,
       synoFlag: state => state.mine.synoFlag,
-      nameFlag: state => state.mine.nameFlag
+      nameFlag: state => state.mine.nameFlag,
+      userName: state => state.mine.userName,
+      addr: state => state.mine.addr,
+      birth: state => state.mine.birth,
+      sex: state => state.mine.sex,
+      syno: state => state.mine.syno
     })
   },
   components: {
     "Information-com": Information,
-    "Synopsis-com" : Synopsis,
-    "UserName-com" : UserName
+    "Synopsis-com": Synopsis,
+    "UserName-com": UserName
   },
   methods: {
     ...Vuex.mapMutations({
@@ -121,7 +126,7 @@ export default {
 }
 .userData .dataList > li > p > span {
   color: #7d7d7d;
-  font-size: 0.22rem;
+  font-size: 0.25rem;
 }
 .userData .dataList > li > p > span,
 img {

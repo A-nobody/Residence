@@ -1,6 +1,6 @@
 <template>
 	<div id="main">
-		<ul>
+		<ul v-for="(item,index) in orderlist">
 			<li class="shopname">
 				<label 
 					class="radiobox" 
@@ -10,22 +10,22 @@
 					<img src="static/img/shop/pay_g/check.png" v-if="!isChecked"/>
 					<img src="static/img/shop/pay_g/checked.png" v-if="isChecked"/>
 				</label>
-				<span>林氏木业</span>
+				<span>{{item.shopName}}</span>
 			</li>
 			<li class="main_con">
 				<div class="img">
 					<img src="static/img/mine/banner.png" />
 				</div>
 				<div class="tit">
-					<span class="detail">林氏木业北欧家具1.8米床储物双人床</span>
-					<span class="bcolor">红色</span>
-					<span class="price">￥2790</span>
-					<p class="num">×<span>1</span></p>
+					<span class="detail">{{item.goodsTitle}}</span>
+					<span class="bcolor">{{item.goodsColor}}</span>
+					<span class="price">{{item.goodsDiscountPrice|price}}</span>
+					<p class="num">×<span>{{item.goodsNumber}}</span></p>
 				</div>
 			</li>
 			<li class="smalltotal">
-				<p class="count">共计<span>1</span>件商品</p>
-				<p class="total">小计：<span class="tprice">￥2790</span></p>
+				<p class="count">共计<span>{{item.goodsNumber}}</span>件商品</p>
+				<p class="total">小计：<span class="tprice">{{item.goodsNumber*item.goodsDiscountPrice|price}}</span></p>
 			</li>
 			<li class="last" v-if="againflag ">
 				<div class="cancel" v-if="cancelflag">
@@ -47,11 +47,31 @@
 				isChecked:false,
 				wholeflag:true,
 				againflag:true,
-				cancelflag:false
+				cancelflag:false,
+				orderlist:[]
+			}
+		},
+		filters:{
+			price(p){
+				return "￥"+p;
 			}
 		},
 		created(){
 			this.id = this.$route.query;
+
+
+			this.$axios({
+				method:"post",
+				url:"/apiw/mock/5c36e81c96e17359c184e2f8/huiju/shop/orderList",
+				data:{
+						"userId":1,
+						"pageIndex":1,
+						"limit":2
+				}
+			})
+			.then((data)=>{
+				this.orderlist = data.data.rows;
+			})
 		},
 		watch:{
 			"$route"(to,from){

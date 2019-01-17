@@ -45,7 +45,8 @@
 			});
 			this.scroll.on("pullingUp",()=>{
 				this.$store.dispatch("Shop/handlealllistagain");
-			})
+			});
+			this.scroll.refresh();
 		},
 		created() {
 				this.$store.dispatch("Shop/handlealllist");
@@ -70,18 +71,22 @@
 				width: 43%;
 				margin:0.11rem 0.2rem;
 				height: 4.12rem;
-
 				.img{
 					width: 3.25rem;
 					height: 3.25rem;
 					border-radius:.15rem;
-					// background:#fff;
 					overflow:hidden;
-					img{
+					img[lazy=loading] {
+						width: .32rem;
+						height: .32rem;
+						margin:auto;
+					}
+					img[lazy=loaded]{
 						width: 100%;
 						height: 100%;
 					}
 				}
+				
 				.main_bot{
 					width: 3.25rem;
 					padding-left: .36rem;

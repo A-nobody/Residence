@@ -4,7 +4,7 @@ export default {
 		 if(state.hotpageIndex<=10){
 			axios({
 					method:"post",
-					url:"/api/mock/5c36e81c96e17359c184e2f8/huiju/shop/goodList/shopID",
+					url:"/apiw/mock/5c36e81c96e17359c184e2f8/huiju/shop/goodList/shopID",
 					data:{
 						shopId:state.shopId,
 						pageIndex:state.hotpageIndex,
@@ -21,7 +21,7 @@ export default {
 		 if(state.allpageIndex<=10){
 			axios({
 					method:"post",
-					url:"/api/mock/5c36e81c96e17359c184e2f8/huiju/shop/goodList/shopID",
+					url:"/apiw/mock/5c36e81c96e17359c184e2f8/huiju/shop/goodList/shopID",
 					data:{
 						shopId:state.shopId,
 						pageIndex:state.allpageIndex,

@@ -6,7 +6,7 @@
             <span @click="nameChange()">保存</span>
         </div>
         <div class="inputName">
-            <input type="text" autofocus placeholder="贝贝">
+            <input type="text" v-model="userName" value="userName" autofocus placeholder="贝贝">
             <p>昵称可是中英文、数字的任意组合、30天只能修改一次哦。</p>
         </div>
     </div>
@@ -15,13 +15,20 @@
 <script>
 import Vuex from 'vuex'
 export default {
+    data(){
+        return{
+            userName:''
+        }
+    },
     methods:{
         ...Vuex.mapMutations({
-            nameHide:'mine/nameHide'
+            nameHide:'mine/nameHide',
+            setName: 'mine/setName'
         }),
         nameChange(){
             var msg = "确定要修改昵称吗";
             if (confirm(msg)==true){
+                this.setName(this.userName)
                 return true;
             }else{
                 return false;

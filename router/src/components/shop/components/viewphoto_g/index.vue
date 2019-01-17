@@ -1,13 +1,14 @@
 <template>
 	<div id="viewphoto_g">
 		<div class="head">
-			<div class="img">
+			<div class="img" @click="clickCancel()">
 				<img src="static/img/shop/homeg/cancel.png" />
 			</div>
 			<div class="num">
 				<span>{{index}}</span>/<span>5</span>
 			</div>
 		</div>
+		<!--main组件向父组件传当前是第几张图片-->
 		<Main @handle="handlescroll"/>
 	</div>
 </template>
@@ -25,6 +26,9 @@
 		methods:{
 			handlescroll(val){
 				this.index = val;
+			},
+			clickCancel(){
+				this.$router.push({name:'Shopdetails'});
 			}
 		}
 	}
