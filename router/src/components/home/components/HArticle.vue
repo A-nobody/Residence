@@ -48,6 +48,7 @@ export default {
             up_w:"/static/img/home_slices/icon_sy_dz@2x.png",
         }
     },
+
     methods:{
         jumpDynamic(){
             this.$router.push({name:"dynamic_w"})
