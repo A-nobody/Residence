@@ -1,7 +1,7 @@
 <template>
     <div>
         <header class = "h">
-           <button class = "b1">
+          <button class = "b1 iconfont" @click="handleback()">&#xe64a;</button>
            </button>
         </header>
         <div class = "ban">    
@@ -35,7 +35,11 @@
 
 <script>
 export default {
-    
+    methods:{
+        handleback(){
+            this.$router.back()
+        }
+    }
 }
 </script>
 
@@ -49,15 +53,15 @@ export default {
        margin-left: .4rem;
    }
    .h>.b1{
-        width:.16rem;
-        height:.28rem;
         border:0;
-        background:#fff url(/static/img/addressl/you@2x.png) no-repeat;
-        background-size: contain;
+        font-size:.24rem;
+        text-align:center;
+        outline:none;
+        background:#fff;
    }
    .ban{
        height:5.6rem;
-       background:url(/static/img/systeml/tu@2x.png) no-repeat;
+       background:url(/static/img/home_slices/tu@2x.png) no-repeat;
        background-size: contain;
    }
    .s{

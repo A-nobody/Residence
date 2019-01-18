@@ -30,7 +30,8 @@ import Shopserver from '@/components/shop/components/server_j'
 import dynamic_w from '@/components/home/components/dynamic'
 import details_w from '@/components/home/components/details'
 import message_w from '@/components/home/components/message'
-
+import system1_l from '@/components/home/components/system1'
+import system2_l from '@/components/home/components/system2'
 Vue.use(Router)
 
 const router = new Router({
@@ -237,6 +238,22 @@ const router = new Router({
       component:message_w,
       meta:{
         flag:true,
+      }
+    },
+    {
+      path:"/home/system1",
+      name:"system1_l",
+      component:system1_l,
+      meta:{
+        flag:false,
+      }
+    },
+    {
+      path:"/home/system2",
+      name:"system2_l",
+      component:system2_l,
+      meta:{
+        flag:false,
       }
     },
 

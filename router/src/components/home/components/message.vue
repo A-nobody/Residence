@@ -6,35 +6,35 @@
             <i>设置</i>
         </header>
         <section class = "s">
-            <div class="ss">
+            <div class="ss" @click="jumpnews()">
             <div class="s1"><img src="/static/img/home_slices/shezhi@2x.png" alt=""></div>
             <div class="sr">
                 <p><b>系统设置</b><span>12:21</span></p>
                 <h3>Hi,我们看到你发布的第一张图片</h3>
             </div>
             </div>
-            <div class="ss">
+            <div class="ss" @click="jumpnews()">
             <div class="s1"><img src="/static/img/home_slices/tongzhi@2x.png" alt=""></div>
             <div class="sr">
                 <p><b>通知</b><span>22小时前</span></p>
                 <h3>来说说：我的2018年度关键词</h3>
             </div>
             </div>
-            <div class="ss">
+            <div class="ss" @click="jumpnews()">
             <div class="s1"><img src="/static/img/home_slices/zixun@2x.png" alt=""></div>
             <div class="sr">
                 <b>设计咨询</b>
                 <h3>没有新的咨询</h3>
             </div>
             </div>
-            <div class="ss">
+            <div class="ss" @click="jumpnews()">
             <div class="s1"><img src="/static/img/home_slices/wuliu@2x.png" alt=""></div>
             <div class="sr">
                 <b>商城信息</b>
                 <h3>没有新的信息</h3>
             </div>
             </div>
-            <div class="ss">
+            <div class="ss" @click="jumpnews()">
             <div class="s1"><img src="/static/img/home_slices/shangcheng@2x.png" alt=""></div>
             <div class="sr">
                 <b>交易物流</b>
@@ -51,6 +51,9 @@ export default {
     methods:{
         handleback(){
             this.$router.back()
+        },
+        jumpnews(){
+            this.$router.push({name:"system2_l"})
         }
     }
 }
@@ -68,7 +71,7 @@ export default {
         text-align: center;
         position: relative;
         .back{
-            font-size:.32rem;
+            font-size:.24rem;
             float:left;
             line-height: 0.88rem;
             position: relative;
@@ -88,7 +91,7 @@ export default {
         font-size:.24rem;
         font-family:PingFang-SC-Regular;
         font-weight:400;
-        color:rgba(0,0,0,1);
+        color:rgb(212, 114, 114);
         margin-left: 3.31rem;
         position: absolute;
         left:3.3rem;
