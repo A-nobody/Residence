@@ -17,7 +17,6 @@
     <div class="color_choose">
       <p>颜色</p>
       <p>
-        <!-- <button class="choose_active">红色</button> -->
         <button v-for="(item,index) in goodscolor.goodsColorList"
         v-bind="{class:activeIndex==index?'choose_active':''}"
         @click="handleActivecolor(index)"

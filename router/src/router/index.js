@@ -120,17 +120,14 @@ const router = new Router({
         flag: false
       }
     },
+    // {
+    //   path: '/mine/favorite/pic',
+    //   component: FavoritePic,
+    //   meta: {
+    //     flag: false
+    //   }
+    // },
     {
-<<<<<<< HEAD
-      path: '/mine/favorite/pic',
-      component: FavoritePic,
-      meta: {
-        flag: false
-      }
-    },
-    {
-=======
->>>>>>> master
       path: '/mine/favorite/article',
       component: FavoriteArticle,
       meta: {
