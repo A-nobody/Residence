@@ -15,11 +15,11 @@
                 堕落天使-莫甘娜是《英雄联盟》系列中的英雄之一。莫甘娜拥有被动技
             </p>
             <section class="article_info w100">
-                <button class="forward_w w30" :style="{backgroundImage: 'url(' + forward_w + ')'}"></button>
+                <button class="forward_w w30  iconfont" v-html="forward_w"></button>
                 <div>
-                    <span><button class="comment_w w30" :style="{backgroundImage: 'url(' + comment_w + ')'}"></button> <i>{{item.sCommentNumber}}</i></span>
-                    <span><button class="collection_w w30" :style="{backgroundImage: 'url(' + collection_w + ')'}"></button> <i>{{item.sCollectionNumber}}</i></span>
-                    <span><button class="up_w w30" :style="{backgroundImage: 'url(' + up_w + ')'}"></button> <i>{{item.sUpNumber}}</i></span>
+                    <span><button class="comment_w w30 iconfont" v-html="comment_w" @click="jumpComment()"></button> <i>{{item.sCommentNumber}}</i></span>
+                    <span><button class="collection_w w30  iconfont" v-html="collection_w" @click="jumpColl()"></button> <i>{{item.sCollectionNumber}}</i></span>
+                    <span><button class="up_w w30  iconfont" v-html="up_w"></button> <i>{{item.sUpNumber}}</i></span>
                 </div>
             </section>
         </div>
@@ -30,6 +30,11 @@
 import Vuex from "vuex";
 import BScorll from "better-scroll";
 export default {
+    props:{
+        // commemtFlag 父传子  commentSF 子传父事件  comment_sf 事件函数
+        commemtFlag:Boolean,
+        collFlag:Boolean
+    },
     created(){
         this.$store.dispatch("home/handleSetHome")
     },
@@ -42,10 +47,11 @@ export default {
     },
     data(){
         return{
-            forward_w:"/static/img/home_slices/icon_sy_fx@2x.png",
-            comment_w:"/static/img/home_slices/icon_sy_pl@2x.png",
-            collection_w:"/static/img/home_slices/icon_sy_sc@2x.png",
-            up_w:"/static/img/home_slices/icon_sy_dz@2x.png",
+            forward_w:"&#xe647;",
+            comment_w:"&#xe601;",
+            collection_w:"&#xe648;",
+            up_w:"&#xe607;",
+            comment_flag:"",
         }
     },
 
@@ -55,10 +61,14 @@ export default {
         },
         jumpArticle(){
             this.$router.push({name:"details_w"})
-            console.log(1)
+        },
+        jumpComment(){
+            this.$emit("commentSF",!this.commemtFlag)
+        },
+        jumpColl(){
+            this.$emit('collSF',!this.collFlag)
         }
-    },
-    
+    }, 
 }
 </script>
 
@@ -77,6 +87,7 @@ export default {
         border:none;
         background: #fff;
         vertical-align: top;
+        font-size:.3rem;
     }
     #articleW{
         position: relative;
@@ -119,6 +130,11 @@ export default {
         border-radius:1rem; 
         color: #7FD0A3;
         text-align: center;
+    }
+    /* outline：none */
+    .article_info button{
+        outline:none;
+        border:0;
     }
      .article_w>.article_img{
         height:4.52rem;
