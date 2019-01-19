@@ -13,7 +13,7 @@
 					<span>北京市海淀区黄村镇幸福小区</span>
 				</div>
 			</div>
-			<div class="message_ri">
+			<div class="message_ri" @click="goAddress()">
 				<img src="static/img/shop/order_g/arrowsleft.png" />
 			</div>
 		</div>
@@ -24,6 +24,13 @@
 </template>
 
 <script>
+	export default{
+		methods:{
+			goAddress(){
+				this.$router.push({name:"address"});
+			}
+		}
+	}
 </script>
 
 <style scoped lang="scss">

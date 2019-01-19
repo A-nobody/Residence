@@ -4,19 +4,19 @@ export default {
     getGoodsList({commit}){
         axios({
             method:"get",
-            url:"http://localhost:3000/goods"
+            url:"/api/mock/5c3865797198202bdf59eed5/api/goods"
         })
         .then((data)=>{
-            data.map((item)=>{
+            data.goods.map((item)=>{
                 item.flag = true
             })
-            commit("getGoodsList",data)
+            commit("getGoodsList",data.goods)
         })
     },
     handleDel({dispatch},params){
         axios({
             method:"delete",
-            url:"http://localhost:3000/goods/"+params
+            url:"/api/mock/5c3865797198202bdf59eed5/api/goods/"+params
         })
         .then(()=>{
             dispatch('getGoodsList')

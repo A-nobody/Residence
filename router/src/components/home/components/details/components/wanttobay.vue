@@ -18,7 +18,7 @@
                             <span class="com_price_b">138</span>
                             </span>
                         </p>
-                        <button class="purchase_w">已购买</button>
+                        <button class="purchase_w" @click="handleShopDetails()">已购买</button>
                     </div>
                 </section>
             </div>
@@ -49,7 +49,11 @@
 
 <script>
 export default {
-    
+    methods:{
+        handleShopDetails(){
+            this.$router.push({name:"Shopdetails"})
+        }
+    }
 }
 </script>
 

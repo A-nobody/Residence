@@ -1,6 +1,6 @@
 <template>
   <div class="style_j">
-    <div class="top_j"></div>
+    <!-- <div class="top_j"></div> -->
     <Sty-header-com/>
     <Sty-nav-com/>
     <Sty-main-com/>
@@ -30,6 +30,8 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
+   overflow-x: hidden;
+  //  overflow-y: hidden;
   .top_j {
     @extend %top_j;
     background: transparent;

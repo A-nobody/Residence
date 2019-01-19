@@ -73,7 +73,7 @@ export default {
     font-weight: 400;
     color: rgba(0, 0, 0, 1);
     background: #fff;
-    opacity: 0.8;
+    opacity: 0.9;
     border: 1px solid #7fd0a3;
   }
 }
@@ -82,6 +82,7 @@ export default {
   height: 3rem;
   position: relative;
   z-index: 99;
+  margin-left: .06rem;
 
   .nav_l,
   .nav_r {
@@ -106,14 +107,14 @@ export default {
     height: 0.75rem;
     text-align: center;
     line-height: 0.75rem;
-    font-size: 0.22rem;
+    font-size: 0.24rem;
     font-family: PingFang-SC-Regular;
     font-weight: 400;
     color: rgba(0, 0, 0, 1);
     border: 1px solid #7fd0a3;
     float: left;
     background: #fff;
-    opacity: 0.8;
+    opacity: 0.9;
     position: relative;
     img {
       position: absolute;
