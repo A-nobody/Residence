@@ -3,23 +3,23 @@
         <div class="article_w w100" v-for="(item,index) in homeNavs":keys="index">
             <section class="user_info w100">
                 <div>
-                    <img  class="user_img" src="/static/img/mine/banner.png" alt="" @click="jumpDynamic()">
-                    <p class="user_name" @click="jumpDynamic()">{{item.uname}}</p>
+                    <img  class="user_img" src="/static/img/mine/banner.png" alt="" @click="jumpDynamic()" ref="user_img">
+                    <p class="user_name"  @click="jumpDynamic()" ref="user_name">qweqs</p>
                 </div>
                 <section class="follow">已关注</section>
             </section>
             <div class="article_img w100">
-                <img src="/static/img/home_slices/tp_sy_02@2x.png" alt="">
+                <img :src="item.uimg" alt="">
             </div>
             <p class="article_title w100" @click="jumpArticle()">
                 堕落天使-莫甘娜是《英雄联盟》系列中的英雄之一。莫甘娜拥有被动技
             </p>
             <section class="article_info w100">
-                <button class="forward_w w30" :style="{backgroundImage: 'url(' + forward_w + ')'}"></button>
+                <button class="forward_w w30  iconfont" v-html="forward_w"></button>
                 <div>
-                    <span><button class="comment_w w30" :style="{backgroundImage: 'url(' + comment_w + ')'}" @click="jumpComment()"></button> <i>{{item.sCommentNumber}}</i></span>
-                    <span><button class="collection_w w30" :style="{backgroundImage: 'url(' + collection_w + ')'}"></button> <i>{{item.sCollectionNumber}}</i></span>
-                    <span><button class="up_w w30" :style="{backgroundImage: 'url(' + up_w + ')'}"></button> <i>{{item.sUpNumber}}</i></span>
+                    <span><button class="comment_w w30 iconfont" v-html="comment_w" @click="jumpComment()"></button> <i>{{item.sCommentNumber}}</i></span>
+                    <span><button class="collection_w w30  iconfont" v-html="collection_w" @click="jumpColl()"></button> <i>{{item.sCollectionNumber}}</i></span>
+                    <span><button class="up_w w30  iconfont" v-html="up_w"></button> <i>{{item.sUpNumber}}</i></span>
                 </div>
             </section>
         </div>
@@ -30,8 +30,15 @@
 import Vuex from "vuex";
 import BScorll from "better-scroll";
 export default {
+    props:{
+        // commemtFlag 父传子  commentSF 子传父事件  comment_sf 事件函数
+        commemtFlag:Boolean,
+        collFlag:Boolean
+    },
     created(){
         this.$store.dispatch("home/handleSetHome")
+    },
+    mounted(){
     },
     computed:{
         ...Vuex.mapState({
@@ -40,12 +47,14 @@ export default {
     },
     data(){
         return{
-            forward_w:"/static/img/home_slices/icon_sy_fx@2x.png",
-            comment_w:"/static/img/home_slices/icon_sy_pl@2x.png",
-            collection_w:"/static/img/home_slices/icon_sy_sc@2x.png",
-            up_w:"/static/img/home_slices/icon_sy_dz@2x.png",
+            forward_w:"&#xe647;",
+            comment_w:"&#xe601;",
+            collection_w:"&#xe648;",
+            up_w:"&#xe607;",
+            comment_flag:"",
         }
     },
+
     methods:{
         jumpDynamic(){
             this.$router.push({name:"dynamic_w"})
@@ -55,8 +64,11 @@ export default {
         },
         jumpComment(){
             this.$emit("commentSF",!this.commemtFlag)
+        },
+        jumpColl(){
+            this.$emit('collSF',!this.collFlag)
         }
-    }
+    }, 
 }
 </script>
 
@@ -75,6 +87,7 @@ export default {
         border:none;
         background: #fff;
         vertical-align: top;
+        font-size:.3rem;
     }
     #articleW{
         position: relative;
@@ -118,6 +131,12 @@ export default {
         color: #7FD0A3;
         text-align: center;
     }
+    /* outline：none */
+    .article_info button{
+        outline:none;
+        border:0;
+        vertical-align: middle;
+    }
      .article_w>.article_img{
         height:4.52rem;
     }
@@ -128,9 +147,7 @@ export default {
     .article_w>.article_title{
         height:1.5rem;
         padding:.21rem .53rem 0 .4rem;
-        font-size:.3rem;
-        font-family: PingFang-SC-Regular;
-        line-height: .51rem;
+        font:.3rem/.51rem  PingFang-SC-Regular
     }
      .article_w>.article_info{
          height:.79rem;
@@ -145,10 +162,10 @@ export default {
     }
     .article_info>div i{
         display: inline-block;
-        margin-bottom: .1rem;
+        margin-left: .1rem;
+        vertical-align: middle;
     }
     .article_info>.forward_w{
         margin-left: .40rem;
     }
 </style>
-
