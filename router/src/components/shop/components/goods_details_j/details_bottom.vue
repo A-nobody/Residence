@@ -24,7 +24,7 @@ export default {
       this.$router.push({name:'shophome'})
     },
     handletoBuy(){
-      this.$router.push({name:'ShopCart'})
+      this.$router.push({name:'confirm'})
     },
     handleTocar(){
       this.observer.$emit('handleTocar',true)

@@ -13,21 +13,12 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-<<<<<<< HEAD
-      "/api":{
-        target:"https://www.easy-mock.com",
-        changeOrigin:true,
-        pathRewrite:{
-          "^/api":""
-        }
-=======
       "/apiw": {
         target: "https://www.easy-mock.com",
         changeOrigin: true,
         pathRewrite: {
           "^/apiw": ""
         },
->>>>>>> master
       }
     },
 

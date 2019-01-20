@@ -34,7 +34,6 @@
 		width: 100%;
 		height:.84rem;
 		background: #fff;
-		margin-bottom: .2rem;
 		ul{
 			height: 100%;
 	        display: flex;

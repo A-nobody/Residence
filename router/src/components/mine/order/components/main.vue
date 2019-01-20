@@ -7,8 +7,8 @@
 					@click="check(index)"
 					v-if="wholeflag"
 					>
-					<img src="static/img/shop/pay_g/check.png" v-if="!isChecked"/>
-					<img src="static/img/shop/pay_g/checked.png" v-if="isChecked"/>
+					<img src="static/img/shop/pay_g/check.png" v-if="!item.flag"/>
+					<img src="static/img/shop/pay_g/checked.png" v-if="item.flag"/>
 				</label>
 				<span>{{item.shopName}}</span>
 			</li>
@@ -44,7 +44,6 @@
 		data(){
 			return{
 				id:0,
-				isChecked:false,
 				wholeflag:true,
 				againflag:true,
 				cancelflag:false,
@@ -70,6 +69,9 @@
 				}
 			})
 			.then((data)=>{
+				data.data.rows.map((item)=>{
+					item.flag = false;
+				})
 				this.orderlist = data.data.rows;
 			})
 		},
@@ -97,8 +99,7 @@
 		},
 		methods:{
 			check(index){
-				//先取消所有选中项
-				this.isChecked = !this.isChecked;
+				this.orderlist[index].flag = !this.orderlist[index].flag;
 			}
 		}
 		
@@ -108,12 +109,13 @@
 <style scoped lang="scss">
 	#main{
 		width: 100%;
-		background: #FFFFFF;
 		font-size: .28rem;
 		color: #181818;
 		font-weight:bold;
 		ul{
 			padding: 0 .4rem;
+			background: #FFFFFF;
+			margin-top:.2rem;
 		}
 		li{
 			padding: 0.28rem 0;
