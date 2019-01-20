@@ -137,6 +137,7 @@
 				},1000)
 					
 			},
+			/* 跳转到我的订单 */
 			goMineOrder(){
 				this.$router.push({name:"order"});
 			},
