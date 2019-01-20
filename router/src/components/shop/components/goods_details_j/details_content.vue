@@ -1,25 +1,41 @@
 <template>
-  <div class="details_content_j">
+  <div class="details_content_j" >
     <div class="content_price_j">
       <span class="content_price_sign">￥</span>
-      <span class="content_price_pri">2790</span>
+      <span class="content_price_pri">{{content.goodsDiscountPrice}}</span>
     </div>
     <div class="content_price_old">
       <span class="content_price_old_font">价格</span>
-      <span class="content_price_old_none">￥3548</span>
+      <span class="content_price_old_none">￥{{content.goodsPrice}}</span>
     </div>
-    <div class="content_price_title">林氏木业北欧家具1.8米床储物双人床</div>
+    <div class="content_price_title">{{content.goodsBrand}}</div>
     <div class="content_price_details">
-        <span>快递:免运费</span>
+        <span>快递:￥{{content.goodsFreight}}</span>
         <span>发货时间:72小时</span>
-        <span>发货地:广东广州</span>
+        <span>发货地:{{content.shopAddress}}</span>
     </div>
   </div>
 </template>
 
 
 <script>
-export default {};
+import Vuex from "vuex"
+
+export default {
+  created() {
+    this.handleDetails()
+  },
+   computed: {
+    ...Vuex.mapState({
+      content: state => state.details.content
+    })
+  },
+    methods: {
+    ...Vuex.mapActions({
+      handleDetails: "details/handleDetails"
+    })
+  }
+};
 </script>
 
 

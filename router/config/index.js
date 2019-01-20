@@ -6,10 +6,6 @@ const path = require('path')
 
 module.exports = {
   dev: {
-    //https://www.easy-mock.com/mock/5c3481b05ee07b0e226214fa/example
-    //http://39.96.75.124:8080/HuiJu-1.0-SNAPSHOT/login?userName=user&userPassword=123456
-    // Paths
-    //https://www.easy-mock.com/mock/5c34910a571e3a78765765f9/example/detail_img_article
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
@@ -23,7 +19,7 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: '10.9.26.248', // can be overwritten by process.env.HOST
+    host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,

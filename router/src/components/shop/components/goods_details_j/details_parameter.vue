@@ -1,19 +1,23 @@
 <template>
+ <transition name="parameter_slide">
   <div class="details_parameter_j" v-show="flag">
     <h2>商品参数</h2>
     <ul>
       <li v-for="(item,index) in parameter">
         {{item}}
-        <span>{{content[index]}}</span>
+        <span>{{goodsParameter[index]}}</span>
       </li>
-    </ul>
+    </ul>  
     <div class="parameter_complete">
-      <div class="p_complete" @click="handlNone">完成</div>
+      <div class="p_complete" @click="handlNone()">完成</div>
     </div>
-  </div>
+  </div></transition>
 </template>
 <script>
+import Vuex from 'vuex';
+
 export default {
+  
   created() {
     this.observer.$on("handleSend", params => {
       this.flag = params;
@@ -26,20 +30,25 @@ export default {
     return {
       flag: false,
       parameter: ["品牌", "型号", "风格", "尺寸"],
-      content: ["林氏木业", "BA3A###", "北欧", "1500mm*2000mm"]
+     
     };
+  },
+  computed:{
+    ...Vuex.mapState({
+      goodsParameter:state=>state.details.goodsParameter
+    })
   },
   methods: {
     handlNone(){
      this.flag=false;
-    }
-  },
-};
+    },
+  }
+}
 </script>
 <style lang="scss" scoped>
 .details_parameter_j {
   position: fixed;
-  top: 1.8rem;
+ top: 1.8rem;
   left: 0;
   z-index: 90;
   width: 7.5rem;
@@ -87,5 +96,7 @@ export default {
     }
   }
 }
+
+
 </style>
 

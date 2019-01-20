@@ -40,42 +40,42 @@ import Shopserver from '@/components/shop/components/server_j'
 // 魏
 import dynamic_w from '@/components/home/components/dynamic'
 import details_w from '@/components/home/components/details'
-
-
+import message_w from '@/components/home/components/message'
+import system1_l from '@/components/home/components/system1'
+import system2_l from '@/components/home/components/system2'
 Vue.use(Router)
 
 const router = new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       redirect: '/register'
     },
     {
-        path: '/welcome',
-        name: 'welcome',
-        component: Welcome,
-        meta: {
-          flag: false,
-          requireAuth: true
-        }
+      path: '/welcome',
+      name: 'welcome',
+      component: Welcome,
+      meta: {
+        flag: false,
+        requireAuth: true
+      }
     },
     {
-        path: '/register',
-        name: 'register',
-        component: Register,
-        meta: {
-          flag: false,
-          requireAuth: true
-        }
+      path: '/register',
+      name: 'register',
+      component: Register,
+      meta: {
+        flag: false,
+        requireAuth: true
+      }
     },
     {
-        path: '/login',
-        name: 'login',
-        component: Login,
-        meta: {
-          flag: false,
-          requireAuth: true
-        }
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: {
+        flag: false,
+        requireAuth: true
+      }
     },
     {
       path: '/home',
@@ -91,7 +91,7 @@ const router = new Router({
     {
       path: '/mine',
       name: 'mine',
-      component: ()=>import('@/components/Mine'),
+      component: () => import('@/components/Mine'),
       meta: {
         //tab栏
         flag: true,
@@ -104,43 +104,43 @@ const router = new Router({
       name:'ShopCart',
       component: Cart,
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
       path: '/mine/userData',
       component: UserData,
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
       path: '/mine/favorite',
       component: Favorite,
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
       path: '/mine/favorite/article',
       component: FavoriteArticle,
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
       path: '/mine/favorite/goods',
       component: FavoriteGoods,
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
       path: '/mine/order',
       component: Order,
-      name:'order',
+      name: 'order',
       meta: {
-        flag:false
+        flag: false
       }
     },
     {
@@ -187,17 +187,17 @@ const router = new Router({
         requireAuth: true
       }
     },
-     {
-       path: '/shop/shopserver',
-       name: 'Shopserver',
-       component: Shopserver,
-       meta: {
-         //tab栏
-         flag: false,
-         //路由守卫
-         requireAuth: true
-       }
-     },
+    {
+      path: '/shop/shopserver',
+      name: 'Shopserver',
+      component: Shopserver,
+      meta: {
+        //tab栏
+        flag: false,
+        //路由守卫
+        requireAuth: true
+      }
+    },
     {
       path: '/shop/shophome',
       name: 'shophome',
@@ -247,11 +247,19 @@ const router = new Router({
       }
     },
     {
-      path:"/home/dynamic",
-      name:"dynamic_w",
-      component:dynamic_w,
-      meta:{
-        flag:false
+      path: "/home/dynamic",
+      name: "dynamic_w",
+      component: dynamic_w,
+      meta: {
+        flag: false
+      }
+    },
+    {
+      path: "/home/details",
+      name: "details_w",
+      component: details_w,
+      meta: {
+        flag: false,
       }
     },
     {
@@ -259,10 +267,36 @@ const router = new Router({
       name:"details_w",
       component:details_w,
       meta:{
+      flag:false,
+      }
+    },
+    {
+      path:"/home/message",
+      name:"message_w",
+      component:message_w,
+      meta:{
+        flag:true,
+      }
+    },
+    {
+      path:"/home/system1",
+      name:"system1_l",
+      component:system1_l,
+      meta:{
         flag:false,
       }
     },
     {
+      path:"/home/system2",
+      name:"system2_l",
+      component:system2_l,
+      meta:{
+        flag:false,
+      }
+    },
+
+
+    {  
       path:"/renovation/details",
       component:Detail,
       name:"details",
@@ -298,9 +332,9 @@ const router = new Router({
         flag: false,
         //路由守卫
         requireAuth: true
+
       }
-    }
-  ,
+    },
     {
       path: '/shop/viewphoto',
       name: 'viewphoto',
@@ -327,7 +361,7 @@ const router = new Router({
       path:'**',
       component:Err
     }
-    
+
   ]
 })
 

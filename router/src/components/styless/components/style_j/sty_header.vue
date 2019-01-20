@@ -20,10 +20,10 @@ export default {
   width: 100%;
     z-index:99;
   height: 0.88rem;
-  margin-top: 0.4rem;
+  // margin-top: 0.4rem;
   position: relative;
   background: #fff;
-  opacity: .8;
+  opacity: .9;
   h2 {
     text-align: center;
     line-height: 0.88rem;
