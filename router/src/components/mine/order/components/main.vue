@@ -1,45 +1,48 @@
 <template>
-	<div id="main">
-		<ul v-for="(item,index) in orderlist">
-			<li class="shopname">
-				<label 
-					class="radiobox" 
-					@click="check(index)"
-					v-if="wholeflag"
-					>
-					<img src="static/img/shop/pay_g/check.png" v-if="!item.flag"/>
-					<img src="static/img/shop/pay_g/checked.png" v-if="item.flag"/>
-				</label>
-				<span>{{item.shopName}}</span>
-			</li>
-			<li class="main_con">
-				<div class="img">
-					<img src="static/img/mine/banner.png" />
-				</div>
-				<div class="tit">
-					<span class="detail">{{item.goodsTitle}}</span>
-					<span class="bcolor">{{item.goodsColor}}</span>
-					<span class="price">{{item.goodsDiscountPrice|price}}</span>
-					<p class="num">×<span>{{item.goodsNumber}}</span></p>
-				</div>
-			</li>
-			<li class="smalltotal">
-				<p class="count">共计<span>{{item.goodsNumber}}</span>件商品</p>
-				<p class="total">小计：<span class="tprice">{{item.goodsNumber*item.goodsDiscountPrice|price}}</span></p>
-			</li>
-			<li class="last" v-if="againflag ">
-				<div class="cancel" v-if="cancelflag">
-					取消订单
-				</div>
-				<div class="again">
-					再次购买
-				</div>
-			</li>
-		</ul>
+	<div id="main" class="wrapper" ref="main">
+		<div class="content">
+			<ul v-for="(item,index) in orderlist">
+				<li class="shopname">
+					<label 
+						class="radiobox" 
+						@click="check(index)"
+						v-if="wholeflag"
+						>
+						<img src="static/img/shop/pay_g/check.png" v-if="!item.flag"/>
+						<img src="static/img/shop/pay_g/checked.png" v-if="item.flag"/>
+					</label>
+					<span>{{item.shopName}}</span>
+				</li>
+				<li class="main_con">
+					<div class="img">
+						<img src="static/img/mine/banner.png" />
+					</div>
+					<div class="tit">
+						<span class="detail">{{item.goodsTitle}}</span>
+						<span class="bcolor">{{item.goodsColor}}</span>
+						<span class="price">{{item.goodsDiscountPrice|price}}</span>
+						<p class="num">×<span>{{item.goodsNumber}}</span></p>
+					</div>
+				</li>
+				<li class="smalltotal">
+					<p class="count">共计<span>{{item.goodsNumber}}</span>件商品</p>
+					<p class="total">小计：<span class="tprice">{{item.goodsNumber*item.goodsDiscountPrice|price}}</span></p>
+				</li>
+				<li class="last" v-if="againflag ">
+					<div class="cancel" v-if="cancelflag">
+						取消订单
+					</div>
+					<div class="again" @click="againPay()">
+						再次购买
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
 </template>
 
 <script>
+	import BScroll from "better-scroll";
 	export default{
 		data(){
 			return{
@@ -57,15 +60,13 @@
 		},
 		created(){
 			this.id = this.$route.query;
-
-
 			this.$axios({
 				method:"post",
 				url:"/apiw/mock/5c36e81c96e17359c184e2f8/huiju/shop/orderList",
 				data:{
 						"userId":1,
-						"pageIndex":1,
-						"limit":2
+						"pageIndex":2,
+						"limit":3
 				}
 			})
 			.then((data)=>{
@@ -95,12 +96,28 @@
 				}else{
 					this.againflag = true;
 				}
+			},
+			orderlist(newval,oldval){
+				this.scroll.finishPullUp();
+                 //作用 重新计算better-scroll
+                this.scroll.refresh();
 			}
 		},
 		methods:{
 			check(index){
 				this.orderlist[index].flag = !this.orderlist[index].flag;
+			},
+			againPay(){
+				this.$router.push({name:"Shopdetails"})
 			}
+		},
+		mounted(){
+			this.scroll = new BScroll(this.$refs.main,{
+				pullUpLoad:true,
+				click:true,
+				probeType:2
+			});
+			this.scroll.refresh();
 		}
 		
 	}
@@ -112,6 +129,8 @@
 		font-size: .28rem;
 		color: #181818;
 		font-weight:bold;
+		margin-top: 1.72rem;
+		height: 100%;
 		ul{
 			padding: 0 .4rem;
 			background: #FFFFFF;
