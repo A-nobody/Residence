@@ -263,14 +263,6 @@ const router = new Router({
       }
     },
     {
-      path:"/home/details",
-      name:"details_w",
-      component:details_w,
-      meta:{
-      flag:false,
-      }
-    },
-    {
       path:"/home/message",
       name:"message_w",
       component:message_w,

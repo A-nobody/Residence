@@ -1,6 +1,6 @@
 <template>
 	<div id="main" class="wrapper" ref="main">
-		<div class="content">
+		<div class="mainContent content">
 			<ul v-for="(item,index) in orderlist">
 				<li class="shopname">
 					<label 
@@ -43,6 +43,8 @@
 
 <script>
 	import BScroll from "better-scroll";
+	import Vuex from "vuex";
+
 	export default{
 		data(){
 			return{
@@ -50,42 +52,25 @@
 				wholeflag:true,
 				againflag:true,
 				cancelflag:false,
-				orderlist:[]
 			}
 		},
 		filters:{
 			price(p){
 				return "￥"+p;
-			}
+			},
 		},
 		created(){
-			this.id = this.$route.query;
-			this.$axios({
-				method:"post",
-				url:"/apiw/mock/5c36e81c96e17359c184e2f8/huiju/shop/orderList",
-				data:{
-						"userId":1,
-						"pageIndex":2,
-						"limit":3
-				}
-			})
-			.then((data)=>{
-				data.data.rows.map((item)=>{
-					item.flag = false;
-				})
-				this.orderlist = data.data.rows;
-			})
+			this.id = this.$route.query.id;
+			this.changeStatus();
 		},
 		watch:{
 			"$route"(to,from){
 				this.id = to.query.id;
-				
 				if(this.id!=0){
 					this.wholeflag = false;
 				}else{
 					this.wholeflag = true;
 				}
-				
 				if(this.id==1){
 					this.cancelflag = true;
 				}else{
@@ -96,6 +81,13 @@
 				}else{
 					this.againflag = true;
 				}
+				/* 调用修改订单状态的函数 */
+
+				this.changeStatus();
+
+				/* 使每次点击不同的订单状态都会从开始位置开始 */
+				this.scroll.scrollTo(0, 0, 0);
+				this.$store.dispatch("mine/handleGetOrder");
 			},
 			orderlist(newval,oldval){
 				this.scroll.finishPullUp();
@@ -103,21 +95,57 @@
                 this.scroll.refresh();
 			}
 		},
+		computed:{
+			...Vuex.mapState({
+				orderState:state=>state.mine.orderState,
+				orderlist:state=>state.mine.orderlist
+			}),
+		},
 		methods:{
 			check(index){
 				this.orderlist[index].flag = !this.orderlist[index].flag;
 			},
 			againPay(){
 				this.$router.push({name:"Shopdetails"})
+			},
+			/* 修改订单状态的 */
+			changeStatus(){
+				switch(this.id){
+					case 1:{
+						this.$store.commit("mine/handleChangeStatus",0);
+						break;
+					}
+					case 2:{
+						this.$store.commit("mine/handleChangeStatus",1);
+						break;
+					}
+					case 3:{
+						this.$store.commit("mine/handleChangeStatus",2);
+						break;
+					}
+					case 4:{
+						this.$store.commit("mine/handleChangeStatus",3);
+						break;
+					}
+					default:{
+						this.$store.commit("mine/handleChangeStatus","null");
+					}
+				}
 			}
+			
 		},
 		mounted(){
-			this.scroll = new BScroll(this.$refs.main,{
-				pullUpLoad:true,
-				click:true,
-				probeType:2
-			});
-			this.scroll.refresh();
+			 this.$nextTick(() =>{
+				 this.scroll = new BScroll(this.$refs.main,{
+					pullUpLoad:true,
+					click:true,
+					probeType:2,
+				});
+				this.scroll.on("pullingUp",()=>{
+					this.$store.dispatch("mine/handleGetOrderAgain");
+				});
+				this.scroll.refresh();
+			 })
 		}
 		
 	}
@@ -128,9 +156,11 @@
 		width: 100%;
 		font-size: .28rem;
 		color: #181818;
-		font-weight:bold;
 		margin-top: 1.72rem;
-		height: 100%;
+		height: 84.1%;
+		.mainContent{
+			overflow: hidden;
+		}
 		ul{
 			padding: 0 .4rem;
 			background: #FFFFFF;
@@ -163,6 +193,10 @@
 				.detail{
 					color:#141414 ;
 					line-height: .48rem;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					width: 4.4rem;
 				}
 				.bcolor{
 					color: #929292;

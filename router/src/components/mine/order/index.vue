@@ -11,25 +11,20 @@
 				<ul>
 					<li 
 						v-for="(item,index) in tabarr"
-						@click="handleTab(index)"
 						>
 						<router-link :to="{'name':'order','query':{'id':index}}"
-							:class="tabindex==index?'active':''"
-							>{{item}}</router-link>
-						</li>
+							>{{item.con}}</router-link>
+					</li>
 				</ul>
-			
-			
 			</div>
 		</div>
     	<Main/>
     </div>
 </template>
 <script>
-import Main from "./components/main.vue";
 export default {
     components:{
-    	Main
+    	Main:()=>import("./components/main.vue")
 	},
 	data(){
 			return{
@@ -39,24 +34,43 @@ export default {
 					backgroundRepeat:"no-repeat",
 					backgroundPosition:".4rem .28rem"
 				},
-				tabarr:["全部","待付款","待收货","已完成","已取消"],
+				tabarr:[
+						{
+							"con":"全部",
+							"flag":true
+						},
+						{
+							"con":"待付款",
+							"flag":true
+						},
+						{
+							"con":"待收货",
+							"flag":true
+						},
+						{
+							"con":"已完成",
+							"flag":true
+						},
+						{
+							"con":"已取消",
+							"flag":true
+						},
+					],
 				tabindex:0
 			}
 	},
-	methods:{
-			handleTab(index){
-				this.tabindex = index;
-			}
-	}
+	created(){
+		this.$store.dispatch("mine/handleGetOrder");
+	},
 }
 </script>
 
 <style scoped lang="scss">
     #order_g{
-    	font-weight: bold;
     	width: 100%;
     	height: 100%;
-    	background: #f6f6f6;
+		background: #f6f6f6;
+		font-weight: bold;
 		.fixedBox{
 			position: fixed;
 			top: 0;
@@ -92,19 +106,20 @@ export default {
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					font-size: 0.24rem;
-					a{
+					font-size: .24rem;
+					.router-link-active{
 						color: #323232;
 						display: inline-block;
 						height:100%;
 						line-height:.84rem;
 					}
 				}
-				.active{
-					font-size: .30rem;
-					border-bottom: .06rem solid #E37E2E;
-				}
+				
 			}
+		}
+		.router-link-exact-active{
+			font-size: .30rem;
+			border-bottom: .06rem solid #E37E2E;
 		}
     }
 </style>
