@@ -6,13 +6,10 @@ const path = require('path')
 
 module.exports = {
   dev: {
-<<<<<<< HEAD
-=======
     //https://www.easy-mock.com/mock/5c3481b05ee07b0e226214fa/example
     //http://39.96.75.124:8080/HuiJu-1.0-SNAPSHOT/login?userName=user&userPassword=123456
     // Paths
     //https://www.easy-mock.com/mock/5c34910a571e3a78765765f9/example/detail_img_article
->>>>>>> nttbranch
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
@@ -22,9 +19,6 @@ module.exports = {
         pathRewrite: {
           "^/apiw": ""
         },
-<<<<<<< HEAD
-      }
-=======
       },
       "/apin": {
         target: "https://www.easy-mock.com",
@@ -41,7 +35,6 @@ module.exports = {
     			"^/api":""
     		}
     	}
->>>>>>> nttbranch
     },
 
     // Various Dev Server settings
