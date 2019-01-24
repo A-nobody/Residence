@@ -9,7 +9,6 @@ module.exports = {
     //https://www.easy-mock.com/mock/5c3481b05ee07b0e226214fa/example
     //http://39.96.75.124:8080/HuiJu-1.0-SNAPSHOT/login?userName=user&userPassword=123456
     // Paths
-<<<<<<< HEAD
     //https://www.easy-mock.com/mock/5c34910a571e3a78765765f9/example/detail_img_article
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -21,18 +20,14 @@ module.exports = {
           "^/apiw": ""
         },
       },
-      "/api": {
+      "/apin": {
         target: "https://www.easy-mock.com",
         changeOrigin: true,
         pathRewrite: {
-          "^/api": ""
+          "^/apin": ""
         }
-      }
-=======
+      },
     //https://www.easy-mock.com/mock/5c36e81c96e17359c184e2f8/huiju/shop/viewphoto
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {
     	"/api":{
     		target:"https://www.easy-mock.com",
     		changeOrigin:true,
@@ -40,7 +35,6 @@ module.exports = {
     			"^/api":""
     		}
     	}
->>>>>>> 934affe49b10f407b62eedbc0d8429ea5e330ff1
     },
 
     // Various Dev Server settings

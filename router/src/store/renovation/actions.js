@@ -23,7 +23,7 @@ export default{
     detailtitleActions({commit}){
         axios({
             method:"get",
-            url:"/api/mock/5c34910a571e3a78765765f9/example/detail_img_article"
+            url:"/apin/mock/5c34910a571e3a78765765f9/example/detail_img_article"
         })
         .then((data)=>{
             commit("detailtitleMutations",data.data)     
@@ -34,7 +34,7 @@ export default{
     expericeActions({commit}){
         axios({
             method:"get",
-            url:"/api/mock/5c34910a571e3a78765765f9/example/professor"
+            url:"/apin/mock/5c34910a571e3a78765765f9/example/professor"
         })
         .then((data)=>{
             commit("expericeMutations",data.data)
@@ -45,7 +45,7 @@ export default{
          expericelistActions({commit}){
              axios({
                  method:"post",
-                 url:"/api/mock/5c37ec68ecfa5277f4100272/professor_list",
+                 url:"/apin/mock/5c37ec68ecfa5277f4100272/professor_list",
              })
              .then((data)=>{
                 commit("expericelistMutations",data.data)
