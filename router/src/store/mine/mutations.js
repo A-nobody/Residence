@@ -68,6 +68,47 @@ export default {
     if (state.goodsList[params].num > 1) {
       state.goodsList[params].num--
     }
-  }
+  },
 
+  /* 获取订单信息列表 */
+  handleGetOrder(state,params){
+    state.orderlist=[];
+    var rows = JSON.parse(JSON.stringify(params));
+    switch(state.orderState){
+      case 0:{
+        state.orderlist0 = [...state.orderlist0,...rows];
+        state.orderlist = JSON.parse(JSON.stringify(state.orderlist0));
+        state.orderpageIndex0++;
+        break;
+      }
+      case 1:{
+          state.orderlist1 = [...state.orderlist1,...rows];
+          state.orderpageIndex1++;
+          state.orderlist = JSON.parse(JSON.stringify(state.orderlist1));
+          break;
+      }
+      case 2:{
+        state.orderlist2 = [...state.orderlist2,...rows];
+        state.orderpageIndex2++;
+        state.orderlist = JSON.parse(JSON.stringify(state.orderlist2));
+        break;
+      }
+      case 3:{
+        state.orderlist3 = [...state.orderlist3,...rows];
+        state.orderpageIndex3++;
+        state.orderlist = JSON.parse(JSON.stringify(state.orderlist3));
+        break;
+      }
+      default:{
+        state.orderalllist = [...state.orderalllist,...rows];
+        state.orderpageIndexnull++;
+        state.orderlist = JSON.parse(JSON.stringify(state.orderalllist));
+        break;
+      }
+    }
+  },
+  // 修改订单状态
+  handleChangeStatus(state,params){
+      state.orderState = params;
+  }
 }

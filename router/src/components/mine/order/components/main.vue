@@ -1,88 +1,76 @@
 <template>
-	<div id="main">
-		<ul v-for="(item,index) in orderlist">
-			<li class="shopname">
-				<label 
-					class="radiobox" 
-					@click="check(index)"
-					v-if="wholeflag"
-					>
-					<img src="static/img/shop/pay_g/check.png" v-if="!isChecked"/>
-					<img src="static/img/shop/pay_g/checked.png" v-if="isChecked"/>
-				</label>
-				<span>{{item.shopName}}</span>
-			</li>
-			<li class="main_con">
-				<div class="img">
-					<img src="static/img/mine/banner.png" />
-				</div>
-				<div class="tit">
-					<span class="detail">{{item.goodsTitle}}</span>
-					<span class="bcolor">{{item.goodsColor}}</span>
-					<span class="price">{{item.goodsDiscountPrice|price}}</span>
-					<p class="num">×<span>{{item.goodsNumber}}</span></p>
-				</div>
-			</li>
-			<li class="smalltotal">
-				<p class="count">共计<span>{{item.goodsNumber}}</span>件商品</p>
-				<p class="total">小计：<span class="tprice">{{item.goodsNumber*item.goodsDiscountPrice|price}}</span></p>
-			</li>
-			<li class="last" v-if="againflag ">
-				<div class="cancel" v-if="cancelflag">
-					取消订单
-				</div>
-				<div class="again">
-					再次购买
-				</div>
-			</li>
-		</ul>
+	<div id="main" class="wrapper" ref="main">
+		<div class="mainContent content">
+			<ul v-for="(item,index) in orderlist">
+				<li class="shopname">
+					<label 
+						class="radiobox" 
+						@click="check(index)"
+						v-if="wholeflag"
+						>
+						<img src="static/img/shop/pay_g/check.png" v-if="!item.flag"/>
+						<img src="static/img/shop/pay_g/checked.png" v-if="item.flag"/>
+					</label>
+					<span>{{item.shopName}}</span>
+				</li>
+				<li class="main_con">
+					<div class="img">
+						<img src="static/img/mine/banner.png" />
+					</div>
+					<div class="tit">
+						<span class="detail">{{item.goodsTitle}}</span>
+						<span class="bcolor">{{item.goodsColor}}</span>
+						<span class="price">{{item.goodsDiscountPrice|price}}</span>
+						<p class="num">×<span>{{item.goodsNumber}}</span></p>
+					</div>
+				</li>
+				<li class="smalltotal">
+					<p class="count">共计<span>{{item.goodsNumber}}</span>件商品</p>
+					<p class="total">小计：<span class="tprice">{{item.goodsNumber*item.goodsDiscountPrice|price}}</span></p>
+				</li>
+				<li class="last" v-if="againflag ">
+					<div class="cancel" v-if="cancelflag">
+						取消订单
+					</div>
+					<div class="again" @click="againPay()">
+						再次购买
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
 </template>
 
 <script>
+	import BScroll from "better-scroll";
+	import Vuex from "vuex";
+
 	export default{
 		data(){
 			return{
 				id:0,
-				isChecked:false,
 				wholeflag:true,
 				againflag:true,
 				cancelflag:false,
-				orderlist:[]
 			}
 		},
 		filters:{
 			price(p){
 				return "￥"+p;
-			}
+			},
 		},
 		created(){
-			this.id = this.$route.query;
-
-
-			this.$axios({
-				method:"post",
-				url:"/apiw/mock/5c36e81c96e17359c184e2f8/huiju/shop/orderList",
-				data:{
-						"userId":1,
-						"pageIndex":1,
-						"limit":2
-				}
-			})
-			.then((data)=>{
-				this.orderlist = data.data.rows;
-			})
+			this.id = this.$route.query.id;
+			this.changeStatus();
 		},
 		watch:{
 			"$route"(to,from){
 				this.id = to.query.id;
-				
 				if(this.id!=0){
 					this.wholeflag = false;
 				}else{
 					this.wholeflag = true;
 				}
-				
 				if(this.id==1){
 					this.cancelflag = true;
 				}else{
@@ -93,13 +81,71 @@
 				}else{
 					this.againflag = true;
 				}
+				/* 调用修改订单状态的函数 */
+
+				this.changeStatus();
+
+				/* 使每次点击不同的订单状态都会从开始位置开始 */
+				this.scroll.scrollTo(0, 0, 0);
+				this.$store.dispatch("mine/handleGetOrder");
+			},
+			orderlist(newval,oldval){
+				this.scroll.finishPullUp();
+                 //作用 重新计算better-scroll
+                this.scroll.refresh();
 			}
+		},
+		computed:{
+			...Vuex.mapState({
+				orderState:state=>state.mine.orderState,
+				orderlist:state=>state.mine.orderlist
+			}),
 		},
 		methods:{
 			check(index){
-				//先取消所有选中项
-				this.isChecked = !this.isChecked;
+				this.orderlist[index].flag = !this.orderlist[index].flag;
+			},
+			againPay(){
+				this.$router.push({name:"Shopdetails"})
+			},
+			/* 修改订单状态的 */
+			changeStatus(){
+				switch(this.id){
+					case 1:{
+						this.$store.commit("mine/handleChangeStatus",0);
+						break;
+					}
+					case 2:{
+						this.$store.commit("mine/handleChangeStatus",1);
+						break;
+					}
+					case 3:{
+						this.$store.commit("mine/handleChangeStatus",2);
+						break;
+					}
+					case 4:{
+						this.$store.commit("mine/handleChangeStatus",3);
+						break;
+					}
+					default:{
+						this.$store.commit("mine/handleChangeStatus","null");
+					}
+				}
 			}
+			
+		},
+		mounted(){
+			 this.$nextTick(() =>{
+				 this.scroll = new BScroll(this.$refs.main,{
+					pullUpLoad:true,
+					click:true,
+					probeType:2,
+				});
+				this.scroll.on("pullingUp",()=>{
+					this.$store.dispatch("mine/handleGetOrderAgain");
+				});
+				this.scroll.refresh();
+			 })
 		}
 		
 	}
@@ -108,12 +154,17 @@
 <style scoped lang="scss">
 	#main{
 		width: 100%;
-		background: #FFFFFF;
 		font-size: .28rem;
 		color: #181818;
-		font-weight:bold;
+		margin-top: 1.72rem;
+		height: 84.1%;
+		.mainContent{
+			overflow: hidden;
+		}
 		ul{
 			padding: 0 .4rem;
+			background: #FFFFFF;
+			margin-top:.2rem;
 		}
 		li{
 			padding: 0.28rem 0;
@@ -142,6 +193,10 @@
 				.detail{
 					color:#141414 ;
 					line-height: .48rem;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					width: 4.4rem;
 				}
 				.bcolor{
 					color: #929292;

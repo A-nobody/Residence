@@ -9,12 +9,4 @@ export default {
 		state.alllist = [...state.alllist,...rows];
 		state.allpageIndex++;
 	},
-	handleMutations(state,params){
-		state.paystyle = params;
-		state.timeflag = false;
-	},
-	clickCancle(state){
-		state.paystyle = "";
-		state.timeflag = true;
-	}
 }

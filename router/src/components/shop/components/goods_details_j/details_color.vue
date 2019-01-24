@@ -91,7 +91,7 @@ computed: {
       });
     },
     handleTobuy() {
-      this.$router.push({ name: "ShopCart" });
+      this.$router.push({ name: "confirm" });
     },
     handleReduce() {
       if (this.num == 1) {
