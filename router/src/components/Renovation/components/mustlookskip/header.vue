@@ -8,10 +8,10 @@
             </div> 
             <!-- 左右两侧返回图标 -->
              <router-link :to="{name:'renovation'}">
-                 <img :src="lefticon" class="lefticon">
+                 <i class="iconfont lefticon" v-html="lefticon"></i>
              </router-link>
 
-                <img :src="righticon" class="righticon" @click="Actionsheet()">
+                <i class="iconfont righticon" v-html="righticon" @click="handleToggle"></i>
                 <p>{{title}}</p>
         </div>
         <div class="article">
@@ -23,47 +23,32 @@
         <div class="title_professor">
             <p>专家经验</p>
         </div>
-        <!--  mint-ui的使用 -->
-          <mt-actionsheet
-                :actions="data"
-                v-model="sheetVisible">
-          </mt-actionsheet>
     </div>
 </template>
 
 <script>
 import Vuex from "vuex"
-// mint-ui的使用
 import Vue from "vue"
-import { Actionsheet } from 'mint-ui';
 
-Vue.component(Actionsheet.name, Actionsheet);
+
 export default {
      data(){
        return {
        id:"",
        title:"",
-       lefticon:"../../../../../static/img/renovation/back@2x.png",
-       righticon:"../../../../../static/img/renovation/fx@2x.png",
+       lefticon:"&#xe64a;",
+       righticon:"&#xe647;",
+       flag:false,
        img:"../../../../../static/img/renovation/mater@2x.png",
-       sheetVisible:false,
-        data: [{
-        name: 'QQ',
-      }, {
-        name: '微信', 
-      },{
-        name:'微博',
-         }],
        }
    },
    methods:{
-       Actionsheet(){
-          this.sheetVisible=true;
-       },
+       handleToggle(){
+           this.flag=!this.flag;
+        this.$emit("toggle",this.flag)
+       }
    },
    created(){
-    //   let title=this.$route.query.title.looktitle;
-    //   let id=this.$route.query.title.id;
       
       this.$store.dispatch("IndexRenovation/detailtitleActions");
       this.observer.$on("detail",(val)=>{
@@ -81,7 +66,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
  .article{
        width: 6.7rem;
@@ -130,21 +115,18 @@ export default {
        font-size: .38rem;
        color: #FFFEFE;
    }
-   .lefticon{
-       width: .18rem;
-       height:.30rem;
+   .lefticon,.righticon{
+       font-size: .4rem;
+       color: #fff;
        position: absolute;
        top: .8rem;
-       left: .39rem;
        z-index: 5;
    }
+   .lefticon{
+       left: .39rem;
+   }
    .righticon{
-       width: .30rem;
-       height: .30rem;
-       position: absolute;
-       top: .8rem;
        right: .39rem;
-       z-index: 5;
    }
    .mint-actionsheet-list{
        display: flex;
@@ -155,10 +137,6 @@ export default {
        margin: 0 auto;
        margin-bottom: .2rem;
        margin-top: .2rem;
-   }
-   .mint-actionsheet{
-     /* background:;
-     opacity: 0; */
    }
    .mint-actionsheet-listitem{
        float: left;
