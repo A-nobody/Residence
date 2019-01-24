@@ -4,8 +4,8 @@
       <div class="goods_img">
         <img src="../../../../../static/img/shop/server_slices_j/tu9@2x.png" alt>
       </div>
-      <div class="title">林氏木业北欧家具1.8米床储物双人床</div>
-      <div class="price">￥ 2790</div>
+      <div class="title">{{server.goodsBrand}}</div>
+      <div class="price">￥ {{server.goodsDiscountPrice}}</div>
       <div class="sendGoods">
         <img src="../../../../../static/img/shop/server_slices_j/fasong@2x.png" alt>
       </div>
@@ -13,7 +13,14 @@
   </div>
 </template>
 <script>
-export default {};
+import Vuex from "vuex"
+export default {
+  computed:{
+    ...Vuex.mapState({
+      server:state=>state.details.server
+    })
+  }
+};
 </script>
 <style lang="scss" scoped>
 @mixin position($top, $left) {
@@ -49,16 +56,17 @@ export default {};
       @include position(0.28rem, 2.19rem);
     }
     .price {
-      font-size: 0.28rem;
+      font-size: 0.34rem;
       font-family: PingFang-SC-Regular;
+      font-weight: bold;
       color: rgba(127, 208, 163, 1);
       line-height: 0.7rem;
-      @include position(1.4rem, 2.18rem);
+      @include position(1.2rem, 2.18rem);
     }
     .sendGoods {
-      width: 1.5rem;
-      height: 0.34rem;
-      @include position(2.36rem, 2.99rem);
+      width: 1.55rem;
+      height: 0.44rem;
+      @include position(2.16rem, 2.99rem);
       img {
         width: 100%;
         height: 100%;

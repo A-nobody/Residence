@@ -74,6 +74,60 @@ export default {
           style: "简约时尚主义",
           apartment: "一居室"
         },
+          {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+          {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+          {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
         {
           src:
             "../.././../../../static/img/style_slices/style_slices_j/tp_04@2x.png",
@@ -94,22 +148,22 @@ export default {
 <style lang="scss" scoped>
 .sty_main_j {
   width: 100%;
-  height: 10rem;
+  height: 8rem;
   margin-top: -2.25rem;
   img {
     width: 7.14rem;
     height: 2.47rem;
     margin-left: 0.18rem;
-    margin-top: 0.04rem;
+    margin-top: 0.08rem;
   }
   p {
     display: flex;
     justify-content: space-around;
 
     span {
-      font-size: 0.2rem;
+      font-size: 0.24rem;
       font-family: PingFang-SC-Regular;
-      // font-weight: 400;
+      font-weight: 400;
       color: rgb(90, 87, 87);
     }
   }

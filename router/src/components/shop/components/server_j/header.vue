@@ -31,7 +31,7 @@ export default {
   height: 100%;
 }
 .server_header_j {
-  margin-top: 0.4rem;
+  // margin-top: 0.4rem;
   width: 100%;
   height: 0.88rem;
   background: rgb(252, 219, 219);
@@ -56,10 +56,10 @@ export default {
     float: left;
   }
   .store {
-    margin-left: 1.79rem;
-    margin-top: .28rem;
-    width: 0.96rem;
-    height: 0.32rem;
+    margin-left: 1.69rem;
+    margin-top: .22rem;
+    width:1.16rem;
+    height: 0.42rem;
     float: left;
     img {
         @extend %wh;

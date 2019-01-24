@@ -93,7 +93,7 @@ export default {
   height: 7.5rem;
   position: relative;
   .wrapper_img {
-    width: 7.5rem;
+    width: 100%;
     height: 7.5rem;
     .s_button{
       width:.1rem;

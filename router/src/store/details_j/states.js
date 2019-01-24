@@ -3,6 +3,7 @@ export default {
     content:[],
     goodscolor:[],
     goodsParameter: [],
- 
-   
+    starImg:[],
+    starNum:"",
+    server:[]
 }

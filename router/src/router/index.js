@@ -9,7 +9,7 @@ import FavoriteGoods from '@/components/mine/like/favoriteGoods.vue'
 import Order from '@/components/mine/order'
 
 import Release from '@/components/releases'
-import Style from '@/components/styless/components/style_j'
+// import Style from '@/components/styless/components/style_j'
 import Renovation from '@/components/Renovation'
 import Err from '@/components/error/error.vue'
 import process from '@/components/Renovation/components/process'
@@ -164,7 +164,7 @@ const router = new Router({
     {
       path: '/style',
       name: 'style',
-      component: Style,
+      component: () => import("@/components/styless/components/style_j"),
       meta: {
         //tab栏
         flag: true,

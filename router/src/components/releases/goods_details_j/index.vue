@@ -1,6 +1,6 @@
 <template>
     <div class="details_j">
-        <div class="top_j">中国移动</div>
+        <!-- <div class="top_j">中国移动</div> -->
         <Details-img-com></Details-img-com>
         <Details-content-com/>
         <Details-classify-com/>

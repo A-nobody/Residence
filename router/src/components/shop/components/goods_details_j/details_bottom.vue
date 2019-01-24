@@ -34,7 +34,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .details_bottom_j {
-  width: 7.5rem;
+  width: 100%;
   height: 0.98rem;
   background: rgba(255, 255, 255, 1);
   display: flex;
@@ -42,6 +42,13 @@ export default {
   .bottom_store,
   .bottom_service {
     margin-top: 0.09rem;
+     align-items: center;
+     img{
+       width:.38rem;
+       height:.38rem;
+      //  margin-top:.2rem;
+      //  margin-left:.1rem;
+     }
   }
   span {
     width: 0.39rem;
@@ -50,13 +57,17 @@ export default {
     font-family: PingFang-SC-Regular;
     font-weight: bold;
     color: rgba(58, 56, 50, 1);
-    line-height: 0.2rem;
+    line-height: 0.5rem;
   }
   .bottom_tostore {
     position: relative;
-    margin-top: 0.09rem;
+    margin-top: 0.15rem;
     width: 4.34rem;
-    height: 0.62rem;
+    height: .62rem; 
+    img{
+        width:100%;
+        height:100%;
+      }
     .toshoppingcar{
       position: absolute;
       top:0;
@@ -64,6 +75,7 @@ export default {
       width:2.17rem;
       height:0.62rem;
       z-index: 5;
+     
     }
   }
 }
