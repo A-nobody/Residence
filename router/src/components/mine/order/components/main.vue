@@ -15,7 +15,7 @@
 				</li>
 				<li class="main_con">
 					<div class="img">
-						<img src="static/img/mine/banner.png" />
+						<img v-lazy="item.goodsPicture[0].url" />
 					</div>
 					<div class="tit">
 						<span class="detail">{{item.goodsTitle}}</span>
@@ -90,6 +90,7 @@
 				this.$store.dispatch("mine/handleGetOrder");
 			},
 			orderlist(newval,oldval){
+				console.log(newval)
 				this.scroll.finishPullUp();
                  //作用 重新计算better-scroll
                 this.scroll.refresh();
