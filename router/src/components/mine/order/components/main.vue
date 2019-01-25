@@ -90,7 +90,6 @@
 				this.$store.dispatch("mine/handleGetOrder");
 			},
 			orderlist(newval,oldval){
-				console.log(newval)
 				this.scroll.finishPullUp();
                  //作用 重新计算better-scroll
                 this.scroll.refresh();
