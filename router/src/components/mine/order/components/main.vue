@@ -179,10 +179,21 @@
 				border-bottom:0.02rem solid #E3E1E1;
 				border-radius:.1rem;
 				overflow:hidden;
-				img{
-					width: 100%;
-					height: 100%;
-				}
+				position: relative;
+					img[lazy=loading] {
+						width: .64rem;
+						height: .64rem;
+						margin:auto;
+						position: absolute;
+						left: 0;
+						top: 0;
+						right: 0;
+						bottom: 0;
+					}
+					img[lazy=loaded]{
+						width: 100%;
+						height: 100%;
+					}
 			}
 			.tit{
 				flex: 1;

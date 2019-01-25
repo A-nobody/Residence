@@ -69,7 +69,18 @@
 				width: 20%;
 				height: 100%;
 				flex-shrink: 0;
-				img{
+				position: relative;
+				img[lazy=loading] {
+					width: .64rem;
+					height: .64rem;
+					margin:auto;
+					position: absolute;
+					left: 0;
+					top: 0;
+					right: 0;
+					bottom: 0;
+				}
+				img[lazy=loaded]{
 					width: 100%;
 					height: 100%;
 				}
