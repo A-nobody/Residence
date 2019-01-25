@@ -1,10 +1,12 @@
 <template>
 	<div id="checkstand_g">
 		<!-- 头部 -->
-		<div class="head" @click="goMineOrder()">
-			<span class="img">
-				<img src="static/img/shop/homeg/arrowsg.png"/>
-			</span>
+		<div class="head" >
+			<router-link to="/mine/order?id=1">
+				<span class="img">
+					<img src="static/img/shop/homeg/arrowsg.png"/>
+				</span>
+			</router-link>
 			<span>收银台</span>
 		</div>
 		<!-- 倒计时 -->
@@ -138,14 +140,15 @@
 					
 			},
 			/* 跳转到我的订单 */
-			goMineOrder(){
-				this.$router.push({name:"order"});
-			},
+			/* goMineOrder(){
+				this.$router.push({name:"order",query:{id:1}});
+			}, */
+
             //关闭提示框，跳转到订单列表页
             closeTip(){
                 this.showAlert = false;
                 if (this.gotoOrders) {
-                    this.$router.push({name:"order"});
+                    this.$router.push({name:"order",query:{id:2}});
                 }
 			},
 			
