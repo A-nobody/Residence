@@ -16,7 +16,7 @@
 				<p class="time"><span>{{timer|timer}}</span></p>
 			</div>
 			<div class="exfunds_bot">
-				<p>共<span>1</span>件商品，需付款：<span class="price">￥2790</span></p>
+				<p>共<span>{{sumcount}}</span>件商品，需付款：<span class="price">{{sumprice|price}}</span></p>
 			</div>
 		</div>
 		<!-- 付款方式 -->
@@ -38,7 +38,7 @@
 				</li>
 			</ul>
 			<div class="radiusPay" @click="confirmPay()">
-				确认支付<span>￥2790</span>
+				确认支付<span>{{sumprice|price}}</span>
 			</div>
 		</div>
 		<!-- 遮罩层 -->
@@ -93,7 +93,9 @@
 				showAlert2: false,//控制点击确认订单的时候出现的弹出框
 				paystyle:"",//支付方式
 				gotoOrders: false, //去付款
-				alertText:""//弹出框的内容
+				alertText:"",//弹出框的内容
+				sumprice:0,//商品总价
+				sumcount:0,//商品总数
 			}
 		},
 		methods:{
@@ -156,6 +158,9 @@
 		//初始化后就执行定时器
 		created(){
 			this.remainingTime();
+			/* 从确认订单页面获取到传过来的总价件数和总价 */
+			this.sumprice = this.$route.query.sumprice;
+			this.sumcount = this.$route.query.sumcount;
 		},
 		beforeDestroy(){
             clearInterval(this.newtimer);
@@ -170,6 +175,9 @@
 				}
 				var time = hour+":"+second;
 				return time;
+			},
+			price(p){
+				return "￥"+p;
 			}
 		}
 	}
