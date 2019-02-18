@@ -13,7 +13,7 @@
         <div class="bottom">
             <router-link to="/mine/favorite"><img src="static/img/mine/shoucangjia.png"><br><span>收藏</span></router-link>
             <router-link to="/mine/cart"><img src="static/img/mine/gouwuche.png"><br><span>购物车</span></router-link>
-            <router-link to="/mine/order"><img src="static/img/mine/dingdan.png"><br><span>我的订单</span></router-link>
+            <router-link to="/mine/order?id=0"><img src="static/img/mine/dingdan.png"><br><span>我的订单</span></router-link>
         </div>
         
     </div>

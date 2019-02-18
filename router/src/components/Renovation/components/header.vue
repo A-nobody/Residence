@@ -2,6 +2,7 @@
     <div class="box_n">
         <!-- 灰色背景块 -->
         <div class="top_n">
+             <i class="iconfont" v-html="righticon"></i>
             <!-- 标题-装修 -->
            <p class="title_n">{{title}}</p>
            <!-- 蓝色背景块 -->
@@ -63,7 +64,8 @@ export default {
             bottomtitleleft:"三分钟把握要点",
             imgtwo:"../../../../static/img/renovation/zxl@2x.png",
             imgtitleright:"避坑指南",
-            bottomtitleright:"过来人血泪经验"
+            bottomtitleright:"过来人血泪经验",
+            righticon:"&#xe626;"
         }
     }
 }
@@ -76,6 +78,23 @@ export default {
        height: 3.5rem;
        background: #777777;
        padding: .32rem 0.4rem 0 .4rem;
+       position: relative;
+   }
+   .lefticon{
+       width: .18rem;
+       height:.30rem;
+       position: absolute;
+       top: .4rem;
+       left: .39rem;
+       z-index: 5;
+   }
+   .top_n i{
+        font-size: .48rem;
+        color: #fff;
+        position: absolute;
+        top: .3rem;
+        right: .39rem;
+        z-index: 5;
    }
    /* 标题---装修栏 */
    .title_n{

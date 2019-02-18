@@ -3,8 +3,10 @@
         <div class="data" v-for="(item,index) in experience" v-if="index==id">
          <div class="bgd">
              <img :src="item.img" class="photo">
-            <img :src="lefticon"/>
-            <img :src="righticon"/>
+             <i class="iconfont righticon" v-html="righticon" @click="handleToggle()"></i>
+           
+             <i class="iconfont lefticon" v-html="lefticon" @click="handleBack()"></i>
+             
          </div>  
          <div class="article">
              <p>{{item.title}}</p>
@@ -21,9 +23,10 @@ export default {
      data(){
          return {
        id:1,
-       lefticon:"../../../../../static/img/renovation/back@2x.png",
-       righticon:"../../../../../static/img/renovation/fx@2x.png",
+       lefticon:"&#xe64a;",
        img:"../../../../../static/img/renovation/mater@2x.png",
+       righticon:"&#xe647;",
+       flag:false
          }
      },
      created(){
@@ -33,11 +36,20 @@ export default {
          ...Vuex.mapState({
          experience:state=>state.IndexRenovation.experience
          })
+     },
+     methods:{
+         handleBack(){
+             this.$router.history.go(-1)
+         },
+         handleToggle(){
+             this.flag=!this.flag;
+             this.$emit("toggle",this.flag)
+         }
      }
 }
 </script>
 
-<style>
+<style scoped>
   .bgd{
       width:7.5rem;
       height: 3.68rem;
@@ -50,6 +62,13 @@ export default {
   }
   .bgd img{
       height: .30rem;
+  }
+  .bgd i{
+      font-size: .36rem;
+      position: absolute;
+       top: .4rem;
+       right: .39rem;
+       z-index: 5;
   }
 
 .article{
@@ -67,4 +86,23 @@ export default {
      color: #424141;
      margin-bottom: .22rem;
  }
+   .righticon{
+       width: .30rem;
+       height: .30rem;
+       position: absolute;
+       top: .4rem;
+       right: .39rem;
+       z-index: 5;
+   }
+   .lefticon{
+       width: .30rem;
+       height: .30rem;
+       position: absolute;
+       top: .4rem;
+       left: .39rem;
+       z-index: 5; 
+   }
+   .iconfont{
+       color: #424141;
+   }
 </style>

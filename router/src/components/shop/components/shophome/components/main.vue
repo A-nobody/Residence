@@ -8,7 +8,7 @@
 				<div class="main_con">
 					<ul>
 						<li v-for="(item,index) in hotlist">
-							<div class="img">
+							<div class="img" @click="handleClick()">
 								<img v-lazy="item.goodsPicture"/>
 							</div>
 							<div class="main_bot">
@@ -60,6 +60,11 @@
 		},
 		activated(){
 			this.scroll.refresh();
+		},
+		methods:{
+			handleClick(){
+				this.$router.push({name:"Shopdetails"})
+			}
 		}
 	}
 </script>
@@ -90,10 +95,16 @@
 					height: 3.25rem;
 					border-radius:.15rem;
 					overflow:hidden;
+					position: relative;
 					img[lazy=loading] {
-						width: .32rem;
-						height: .32rem;
-						margin: auto;
+						width: .64rem;
+						height: .64rem;
+						margin:auto;
+						position: absolute;
+						left: 0;
+						top: 0;
+						right: 0;
+						bottom: 0;
 					}
 					img[lazy=loaded]{
 						width: 100%;

@@ -33,17 +33,17 @@
 		<!-- 订单详情部分 -->
 		<div class="main">
 			<!--这里需要传递数据img-->
-			<ul>
-				<li class="shopname"><span>林氏木业</span></li>
-				<li>
+			<ul v-for="(item,index) in shoplist">
+				<li class="shopname"><span>{{Object.keys(item).toString()}}</span></li>
+				<li v-for="(list,ind) in item[shopname[index]]">
 					<div class="img">
-						<img src="static/img/mine/banner.png" />
+						<img v-lazy="list.goodsPicture[0].url" />
 					</div>
 					<div class="tit">
-						<span class="detail">林氏木业北欧家具1.8米床储物双人床</span>
-						<span class="bcolor">红色</span>
-						<span class="price">￥2790</span>
-						<p class="num">×<span>1</span></p>
+						<span class="detail">{{list.goodsTitle}}</span>
+						<span class="bcolor">{{list.goodsColor}}</span>
+						<span class="price">{{list.goodsDiscountPrice|price}}</span>
+						<p class="num">×<span>{{list.goodsNumber}}</span></p>
 					</div>
 				</li>
 				<li>
@@ -56,14 +56,14 @@
 					</label>
 				</li>
 				<li class="last">
-					<p class="count">共计<span>1</span>件商品</p>
-					<p class="total">小计：<span class="tprice">￥2790</span></p>
+					<p class="count">共计<span>{{shopcount.length==0?0:shopcount[index]}}</span>件商品</p>
+					<p class="total">小计：<span class="tprice">{{shopprice.length==0?0:shopprice[index]|price}}</span></p>
 				</li>
 			</ul>
 		</div>
 		<!-- 尾部 提交订单-->
 		<div id="foot">
-			<div class="paybox">实付:<span>￥2790</span></div>
+			<div class="paybox">实付:<span>{{sumprice|price}}</span></div>
 			<div class="btn" @click="handleTocheck()">
 				提交订单
 			</div>
@@ -73,6 +73,22 @@
 
 <script>
 	export default{
+		data(){
+			return{
+				shoplist:[],//订单列表
+				shopname:[],//店铺名字
+				shopcount:[],//商品总数
+				shopprice:[],//商品总价
+				sumprice:0,//付款总价
+				sumcount:0,//付款商品的数量
+			}
+		},
+		/* 过滤 */
+		filters:{
+			price(p){
+				return "￥"+p;
+			}
+		},
 		methods:{
 			/* 跳转到商品详情 */
 			goGoodsDetails(){
@@ -84,7 +100,70 @@
 			},
 			/* 提交订单到收银台 */
 			handleTocheck(){
-				this.$router.push({name:'checkstand'})
+				this.$router.push({name:'checkstand','query':{"sumprice":this.sumprice,"sumcount":this.sumcount}})
+			},
+			count(){
+				 if(this.shoplist.length!=0){
+					 var countlist = [];
+					 var pricelist = [];
+					 this.shoplist.forEach((item,index)=>{
+						 var count = 0;
+						 var price = 0;
+						item[this.shopname[index]].forEach((list,ind)=>{
+							count += Number(list.goodsNumber);
+							price += Number(list.goodsDiscountPrice)*Number(list.goodsNumber);
+						})
+						pricelist.push(price);
+						countlist.push(count);
+					}) 
+					this.shopcount = countlist;
+					this.shopprice = pricelist;
+					if(pricelist.length!=0){
+						pricelist.forEach((lis,ind)=>{
+							this.sumprice += Number(lis);
+						})
+					}
+					if(countlist.length!=0){
+						countlist.forEach((lis,ind)=>{
+							this.sumcount += parseInt(lis);
+						})
+					}
+				 }
+            }
+		},
+		created(){
+			this.$axios({
+				method:"post",
+				url:"api/mock/5c36e81c96e17359c184e2f8/huiju/shop/addOrder",
+				data:{
+					userId:1,
+					addressId:1,
+					cartId:[
+							{
+								"shopId":1,
+								"goodsId":[1]
+							},
+							{
+								"shopId":2,
+								"goodsId":[4,5]
+							}
+						]
+				}
+			}).then((data)=>{
+				
+				this.shoplist = data.data.Result;
+				var arr = this.shoplist.map((item,index)=>{
+					return Object.keys(item).toString();
+				})
+				this.shopname = arr;
+			})
+		},
+		 beforeMount(){
+            this.count()
+		},
+		watch:{
+			shoplist(newval,oldval){
+				this.count()
 			}
 		}
 	}
@@ -97,6 +176,9 @@
 		background: #f6f6f6;
 		font-weight: bold;
 		.head{
+			position: fixed;
+			top: 0;
+			z-index: 99;
 			height: .88rem;
 			width: 100%;
 			display: flex;
@@ -106,7 +188,6 @@
 			font-size: .3rem;
 			font-weight:bold;
 			background-color: #fff;
-			border: 0.01rem solid #E9E9E9;
 			.img{
 				position: absolute;
 				left:.4rem;
@@ -125,6 +206,7 @@
 			font-size: .28rem;
 			color: #323232;
 			font-weight: bold;
+			margin-top: .88rem;
 			.message_top{
 				padding: 0 .4rem;
 				display: flex;
@@ -160,6 +242,7 @@
 			font-size: .28rem;
 			color: #181818;
 			font-weight:bold;
+			margin-bottom: .98rem;
 			ul{
 				background: #FFFFFF;
 				padding: 0 .4rem;
