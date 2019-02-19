@@ -1,16 +1,11 @@
 <template>
   <div class="details_img_j">
-    <div class="back_j">
+    <div class="back_j" @click="handleback()">
       <img src="../../../../../static/img/shop/goods_details_slices_j/jiantou_left@2x.png">
     </div>
     <div class="shoppingcar_j" @click="goShopCar()">
       <img src="../../../../../static/img/shop/goods_details_slices_j/gouwu@2x.png">
     </div>
-    <!-- <div class="img_num_j">
-      <span></span>
-      /
-      <span>5</span>
-    </div> -->
 
     <div class="swiper-container wrapper_img">
       <div class="img_j swiper-wrapper" @click="handleNone()">
@@ -21,13 +16,6 @@
       <div class="swiper-pagination s_button"></div>
     </div>
 
-    <!-- <div class="wrapper wrapper_img" ref="tabsWrapper">
-      <ul class="img_j content" @click="handleNone()">
-        <li v-for="(item,index) in goodsdetailsImg.goodsPicture">
-          <img :src="item.url">
-        </li>
-      </ul>
-    </div>-->
   </div>
 </template>
 <script>
@@ -45,9 +33,6 @@ export default {
   },
   updated() {
     this.$nextTick(() => {
-      // this.scroll = new BScroll(this.$refs.tabsWrapper,() => {
-      //   scrollX:true
-      // });
       this.mySwiper = new Swiper(".wrapper_img", {
         loop: true,
         autoplay: true,
@@ -74,6 +59,9 @@ export default {
     },
       goShopCar(){
         this.$router.push({name:'ShopCart'});
+      },
+      handleback(){
+        this.$router.go(-1)
       },
     ...Vuex.mapActions({
       handleDetails: "details/handleDetails"
@@ -135,7 +123,7 @@ export default {
     position: absolute;
     top: 0.54rem;
     left: 0.4rem;
-    z-index: 99;
+    z-index: 199;
     @extend %img;
   }
   .shoppingcar_j {

@@ -8,17 +8,18 @@
       户型
       <img src="../../../../../static/img/style_slices/style_slices_j/icon_fg_jt@2x.png" alt>
     </div>
-    <ul class="nav_l" v-show="flag1">
+    <ul class="nav_l" v-show="flag1" @mouseleave="handleHide1()">
       <li
         v-for="(item,index1) in style"
         @click="handleActivesty(index1)"
         v-bind="{class:activeIndex1==index1?'active':''}"
       >{{item}}</li>
     </ul>
-    <ul class="nav_r" v-show="flag2">
+    <ul class="nav_r" v-show="flag2" @mouseleave="handleHide2()">
       <li
         v-for="(item,index2) in Apartment"
         @click="handleActiveapa(index2)"
+        
         v-bind="{class:activeIndex2==index2?'active':''}"
       >{{item}}</li>
     </ul>
@@ -54,6 +55,12 @@ export default {
     handleR(e) {
       e.stopPropagation();
       this.flag2 = !this.flag2;
+    },
+    handleHide1(){
+      this.flag1 = false;
+    },
+    handleHide2(){
+      this.flag2 = false;
     }
   }
 };
