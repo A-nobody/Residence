@@ -5,21 +5,20 @@
                  +86
             </div>
             <div class="reg-center-right">
-               <input v-model="phoneVal" value="phoneVal" type="number" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码">
+               <input type="number" v-model="iphone"  oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码">
             </div>
         </div>
         <div class="reg-center d1">
                <div class="reg-center-right">
-                   <input v-model="KaptchaVal" type="text" maxlength="6" placeholder="请输入验证码">
+                   <input type="text" v-model="yzm" maxlength="6" placeholder="请输入验证码">
                </div>
-               <div class="reg-center-btn" @click="handleToreg()">
+               <div class="reg-center-btn" @click="handReg">
                    获取验证码
                </div>
         </div>
         <div class="reg-query">遇到问题?</div>
         <div class="reg-reg">
-            <!-- <router-link to="/login" @click="handleToLogin()">注册</router-link> -->
-            <div @click="handleToLogin()">注册</div>
+            <div @click="handRege">注册</div>
         </div>
         <div class="reg-warn">*{{this.phoneVal.slice(10)}}
             <router-link to="/login">通过账号密码登录</router-link>
@@ -28,46 +27,48 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios"
     export default {
-        data() {
+        data () {
             return {
-                phoneVal:"",
-                KaptchaVal:""
+                iphone:"",
+                code:'',
+                yzm:''
             }
         },
-        methods:{
-            handleToreg(){
-                console.log(this.phoneVal)
+        methods: {
+            handReg(){
+                console.log(this.iphone)
                 axios({
-                    // methods:"get",
-                    url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha?userPhone="+this.phoneVal,
+                    method:'post',
+                    url:"http://10.9.26.132:8080/getPhoneCaptcha",
                     // url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha",
-                    // params:{
-                    //     userPhone:this.phoneVal
-                    // }
-                })
-                .then((data) => {
+                    params:{
+                        userPhone:this.iphone
+                    }
+                }).then((data)=>{
                     console.log(data)
+                })
+            },
+            handRege(){
+                console.log(this.yzm)
+                console.log(this.iphone)
+                axios({
+                    method:'post',
+                    url:"http://10.9.26.132:8080//user/register",
+                    // url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha",
+                    params:{
+                        userPhone:this.iphone,
+                        kaptcha:this.yzm
+                    }
+                }).then((data)=>{
+                    if(this.code===0){
+                        this.$router.push({ path: '/login', query:{iphone:this.iphone,yzm:this.yzm} })
+                     }
                 })
                 
-            },
-            handleToLogin(){
-                console.log(this.KaptchaVal)
-                 axios({
-                    methods:"post",
-                    // url:"http://10.9.26.132:8080/getPhoneCaptcha?userPhone="+this.phoneVal,
-                    url:"http://47.93.27.243:8081/huiju-lr/user/register",
-                    params:{
-                        userPhone:this.phoneVal,
-                        Kaptcha:this.KaptchaVal
-                    }
-                })
-                .then((data) => {
-                    console.log(data)
-                })
             }
-        }
+        },
     }
 </script>
 
@@ -91,7 +92,7 @@ import axios from 'axios'
     background:rgba(127,208,163,1);
     border-radius:5px;
 }
-.reg-reg a{
+.reg-reg div{
     display: block;
     height: 100%;
     width: 100%;
