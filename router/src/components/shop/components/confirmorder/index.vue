@@ -15,11 +15,11 @@
 				</div>
 				<div class="message_bet">
 					<div class="message_con">
-						<span class="uname">叶良辰</span>
-						<span class="tel">1311111111</span>
+						<span class="uname">{{addresslist.addressName}}</span>
+						<span class="tel">{{addresslist.addressPhone}}</span>
 					</div>
 					<div class="address">
-						<span>北京市海淀区黄村镇幸福小区</span>
+						<span>{{addresslist.addressDetail}}</span>
 					</div>
 				</div>
 				<div class="message_ri" @click="goAddress()">
@@ -81,6 +81,7 @@
 				shopprice:[],//商品总价
 				sumprice:0,//付款总价
 				sumcount:0,//付款商品的数量
+				addresslist:[],//地址的列表
 			}
 		},
 		/* 过滤 */
@@ -100,6 +101,16 @@
 			},
 			/* 提交订单到收银台 */
 			handleTocheck(){
+				/* 清空购物车 */
+				this.$axios({
+					method:"post",
+					url:"/apig/shops/cart/clearUserCartDetail",
+					data:{
+						userId:1
+					}
+				}).then((data)=>{
+					console.log(data)
+				})
 				this.$router.push({name:'checkstand','query':{"sumprice":this.sumprice,"sumcount":this.sumcount}})
 			},
 			count(){
@@ -132,6 +143,26 @@
             }
 		},
 		created(){
+			/* this.$axios({
+				method:"post",
+				url:"http://10.9.41.243:8080/shops/addOrder",
+				data:{
+					userId:1,
+					addressId:1,
+					cartId:[
+							{
+								shopId:1,
+								goodsId:[1]
+							},
+							{
+								shopId:2,
+								goodsId:[4,5]
+							}
+						]
+				}
+			}).then((data)=>{
+				console.log(data);
+			})  */
 			this.$axios({
 				method:"post",
 				url:"api/mock/5c36e81c96e17359c184e2f8/huiju/shop/addOrder",
@@ -150,12 +181,23 @@
 						]
 				}
 			}).then((data)=>{
-				
+				console.log(data.data.Result)
 				this.shoplist = data.data.Result;
 				var arr = this.shoplist.map((item,index)=>{
 					return Object.keys(item).toString();
 				})
 				this.shopname = arr;
+			})
+			/* 用户收货地址 */
+			this.$axios({
+				method:"post",
+				url:"/apig/shops/userAddressList",
+				data:{
+					userId:1,
+					deliveryAddressId:1
+				}
+			}).then((data)=>{
+				this.addresslist = data.addressList[0];
 			})
 		},
 		 beforeMount(){

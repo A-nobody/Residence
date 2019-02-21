@@ -30,7 +30,7 @@
         <!--地址的三级联动-->
         <div class="content_z">
 						 <mt-picker :slots="myAddressSlots" @change="onMyAddressChange"></mt-picker>
-      			<p>{{myAddressProvince}} {{myAddressCity}} {{myAddresscounty}}</p>
+      		   <button @click="gostorage()">保存</button>
         </div>
     </div>
   </div>
@@ -181,7 +181,19 @@ export default {
           bottom: 0;
           background: #ffffff;
           border-radius:40px 40px 0 0;
+          padding: .3rem;
+          .picker .picker-items .picker-slot{
+            font-size: .32rem;
+          }
+          button{
+            width: 1rem;
+            height: .5rem;
+            font-size: .24rem;
+            display: block;
+            margin: 0 auto;
+          }
       }
   }
+  
 }
 </style>

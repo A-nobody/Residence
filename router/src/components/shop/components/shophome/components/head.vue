@@ -5,6 +5,7 @@
 		</div>
 		<div class="search">
 	      <img src="static/img/shop/homeg/searchg.png"/>
+				<input type="text" @change="handlekeyup($event)"/>
 	    </div>
 	</div>
 </template>
@@ -14,13 +15,17 @@ export default {
 	methods: {
 		handleBack(){
 			this.$router.go(-1)
+		},
+		handlekeyup(e){
+			var str = e.target.value;
+			this.$store.commit('Shop/changesearchstr',str);
 		}
-	}
+	},
 }
 </script>
 
 
-<style scoped>
+<style scoped lang="scss">
 	#shhead_g{
 		height: .88rem;
 		background: #fff;
@@ -40,6 +45,17 @@ export default {
 		background: #F6F6F6;
 		border-radius:.28rem;
 		margin-left: .52rem;
+		position: relative;
+		input{
+			width: 80%;
+			height: 100%;
+			border: 0;
+			background: #F6F6F6;
+			outline: none;
+			text-indent: .1rem;
+			font-size: .24rem;
+			position:absolute;
+		}
 	}
 	#shhead_g .search img{
 		display: inline-block;

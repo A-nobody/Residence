@@ -1,6 +1,38 @@
 import axios from "axios";
 export default {
 	handlehotlist({commit,state}){
+			if(state.hotpageIndex<=3){
+			axios({
+					method:"post",
+					url:"/apig/shops/goodsList/"+state.shopId,
+					data:{
+						nowPage:state.hotpageIndex,
+						sort:"goodsCommentNum",
+						pageSize:6,
+					}
+				})
+				.then((data)=>{
+					commit("handlehotlist",data.goodsList)
+				})
+		}
+	},
+	handlealllist({commit,state}){
+		if(state.allpageIndex<=3){
+		   axios({
+				   method:"post",
+				   url:"/apig/shops/goodsList/"+state.shopId,
+				   data:{
+					nowPage:state.allpageIndex,
+					sort:"",
+					pageSize:6,
+				   }
+			   })
+			   .then((data)=>{
+				   commit("handlealllist",data.goodsList)
+			   })
+		   }
+   },
+	 /* handlehotlist({commit,state}){
 		 if(state.hotpageIndex<=10){
 			axios({
 					method:"post",
@@ -16,8 +48,8 @@ export default {
 					commit("handlehotlist",data.data)
 				})
 		}
-	},
-	handlealllist({commit,state}){
+	},  */
+	/*  handlealllist({commit,state}){
 		 if(state.allpageIndex<=10){
 			axios({
 					method:"post",
@@ -33,7 +65,7 @@ export default {
 					commit("handlealllist",data.data)
 				})
 			}
-	},
+	},  */
 	handlealllistagain({dispatch}){
 		dispatch("handlealllist");
 	},

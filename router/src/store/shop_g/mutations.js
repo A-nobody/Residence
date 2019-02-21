@@ -9,4 +9,7 @@ export default {
 		state.alllist = [...state.alllist,...rows];
 		state.allpageIndex++;
 	},
+	changesearchstr(state,params){
+		state.searchstr = params;
+	},
 }

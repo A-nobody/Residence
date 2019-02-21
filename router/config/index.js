@@ -13,6 +13,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
+      "/apig": {
+        target: "http://47.93.27.243/huiju",
+        changeOrigin: true,
+        pathRewrite: {
+          "^/apig": ""
+        },
+      },
       "/apiw": {
         target: "https://www.easy-mock.com",
         changeOrigin: true,

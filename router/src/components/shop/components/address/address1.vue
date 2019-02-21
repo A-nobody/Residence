@@ -4,7 +4,7 @@
             <div class="hh">
             <button class = "b1"></button>
             <h2>我的收货地址</h2>
-            <h3>添加新的地址</h3>
+            <h3 @click="handlegoadd()">添加新的地址</h3>
             </div>
         </header>
         <section class = "s">
@@ -38,7 +38,11 @@
 
 <script>
 export default {
-    
+    methods:{
+        handlegoadd(){
+            this.$router.push({"name":"addaddress"});
+        }
+    }
 }
 </script>
 

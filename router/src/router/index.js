@@ -24,12 +24,13 @@ import Checkstand from '@/components/shop/components/checkstand'
 import Detail from '@/components/Renovation/components/mustlookskip/details'
 import Experience from '@/components/Renovation/components/expericedetail'
 /* 确认订单 */
-import Confirm from '@/components/shop/components/confirmorder'
+// import Confirm from '@/components/shop/components/confirmorder'
 /* 查看商品图片 */
 import Viewphoto from '@/components/shop/components/viewphoto_g'
-/* 收货地址*/
-import Address from '@/components/shop/components/address'
-
+/* 添加收货地址*/
+import AddAddress from '@/components/shop/components/address/address'
+/* 收货地址 */
+import Address from "@/components/shop/components/address/address1"
 
 
 import Register from '@/components/register'
@@ -322,10 +323,12 @@ const router = new Router({
         requireAuth:true
       }
     },
+
+    /* 确认订单 */
     {
       path: '/shop/confirm',
       name: 'confirm',
-      component: Confirm,
+      component: resolve=>require(['@/components/shop/components/confirmorder'],resolve),
       meta: {
         //tab栏
         flag: false,
@@ -354,6 +357,15 @@ const router = new Router({
         flag: false,
         //路由守卫
         requireAuth: true
+      }
+    },
+    {
+      path:'/shop/addaddress',
+      name:'addaddress',
+      component:AddAddress,
+      meta:{
+        flag:false,
+        requireAuth:true
       }
     },
     {

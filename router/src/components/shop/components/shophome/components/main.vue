@@ -9,7 +9,7 @@
 					<ul>
 						<li v-for="(item,index) in hotlist">
 							<div class="img" @click="handleClick()">
-								<img v-lazy="item.goodsPicture"/>
+								<img v-lazy="'http://47.93.27.243:85/'+item.goodsPicture"/>
 							</div>
 							<div class="main_bot">
 								<p class="con"><span>{{item.goodsTitle}}</span></p>
