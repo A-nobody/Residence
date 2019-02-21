@@ -3,7 +3,7 @@
         <component :is="com_h"></component>
         <div class="reg-query">遇到问题?</div>
         <div class="reg-reg">
-            <router-link to="/welcome">登录</router-link>
+            <div @click="log">登录</div>
         </div>
         <div class="reg-warn">
             <router-link to="/register">注册绘居账号</router-link>
@@ -15,20 +15,49 @@
 <script>
 import Active_com from "./reglog.vue"
 import Active_com1 from "./logreg.vue"
+import axios from "axios"
     export default {
         data () {
             return {
-                com_h:"Active_com"
+                com_h:"Active_com",
+                iphone:'',
+                yzm:"",
             }
         },
         created () {
           this.observer.$on('phone-h',(data)=>{
               this.com_h = data;
           }) 
+          this.observer.$on('phone-g',(data)=>{
+              this.iphone=data.iphone,
+              this.yzm=data.yzm
+          }) 
         },
         components: {
             Active_com,
             Active_com1
+        },
+        methods: {
+            log(){
+                console.log(this.iphone)
+                console.log(this.yzm)
+                axios({
+                    method:'post',
+                    url:"http://10.9.41.228:8080/user/login",
+                    // url:"http://47.93.27.243:8081/huiju-lr/user/login",
+                    params:{
+                        loginMode:2,
+                        userPhone:this.iphone,
+                        captcha:this.yzm
+                    }
+                }).then((data)=>{
+                    console.log(data)
+                    if(data.code===0){
+                        this.$router.push('/welcome')
+                    }
+                })
+            },
+
         }
     }
 </script>
@@ -56,7 +85,7 @@ import Active_com1 from "./logreg.vue"
     border-radius:5px;
     font-size:.3rem;
 }
-.reg-reg a{
+.reg-reg div{
     display: block;
     height: 100%;
     width: 100%;
