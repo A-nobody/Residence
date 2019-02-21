@@ -2,7 +2,7 @@
   <div class="details_color_j" v-show="flag">
     <div class="color_content">
       <div class="color_img">
-         <img :src='goodsdetailsImg.goodsCover'>
+         <img :src='goodsdetailsImg[0]'>
       </div>
       <p>
         <span>￥{{goodscolor.goodsDiscountPrice}}</span>

@@ -2,8 +2,7 @@
 	<div class="wrapper bedbox" ref="bedbox">
 		<ul class="content">
 			<li v-for="(item,index) in goodsdetailsImg">
-				<img :src="item.goodsCover"/>
-				
+				<img :src="item"/>				
 			</li>
 		</ul>
 	</div>

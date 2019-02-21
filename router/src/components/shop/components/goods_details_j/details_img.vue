@@ -10,7 +10,7 @@
     <div class="swiper-container wrapper_img">
       <div class="img_j swiper-wrapper" @click="handleNone()">
         <div class="swiper-slide slide_j" v-for="(item,index) in goodsdetailsImg">
-          <img :src="item.goodsCover"/>
+          <img :src="item"/>
         </div>
       </div>
       <div class="swiper-pagination s_button"></div>
