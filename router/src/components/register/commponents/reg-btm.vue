@@ -52,7 +52,7 @@
     height: 100%;
     width: 100%
 }
-.reg-font{
+/* .reg-font{
     
-}
+} */
 </style>

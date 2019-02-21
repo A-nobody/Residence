@@ -5,31 +5,69 @@
                  +86
             </div>
             <div class="reg-center-right">
-               <input type="number" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码">
+               <input v-model="phoneVal" value="phoneVal" type="number" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码">
             </div>
         </div>
         <div class="reg-center d1">
                <div class="reg-center-right">
-                   <input type="text" maxlength="6" placeholder="请输入验证码">
+                   <input v-model="KaptchaVal" type="text" maxlength="6" placeholder="请输入验证码">
                </div>
-               <div class="reg-center-btn">
+               <div class="reg-center-btn" @click="handleToreg()">
                    获取验证码
                </div>
         </div>
         <div class="reg-query">遇到问题?</div>
         <div class="reg-reg">
-            <router-link to="/login">注册</router-link>
+            <!-- <router-link to="/login" @click="handleToLogin()">注册</router-link> -->
+            <div @click="handleToLogin()">注册</div>
         </div>
-        <div class="reg-warn">
+        <div class="reg-warn">*{{this.phoneVal.slice(10)}}
             <router-link to="/login">通过账号密码登录</router-link>
         </div>
       
     </div>
 </template>
-
 <script>
+import axios from 'axios'
     export default {
-        
+        data() {
+            return {
+                phoneVal:"",
+                KaptchaVal:""
+            }
+        },
+        methods:{
+            handleToreg(){
+                console.log(this.phoneVal)
+                axios({
+                    // methods:"get",
+                    url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha?userPhone="+this.phoneVal,
+                    // url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha",
+                    // params:{
+                    //     userPhone:this.phoneVal
+                    // }
+                })
+                .then((data) => {
+                    console.log(data)
+                })
+                
+            },
+            handleToLogin(){
+                console.log(this.KaptchaVal)
+                 axios({
+                    methods:"post",
+                    // url:"http://10.9.26.132:8080/getPhoneCaptcha?userPhone="+this.phoneVal,
+                    url:"http://47.93.27.243:8081/huiju-lr/user/register",
+                    params:{
+                        userPhone:this.phoneVal,
+                        Kaptcha:this.KaptchaVal
+                    }
+                })
+                .then((data) => {
+                    console.log(data)
+                })
+            }
+        }
     }
 </script>
 

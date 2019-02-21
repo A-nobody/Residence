@@ -8,7 +8,7 @@ export default {
       
         state.goodsParameter.push(params.goodsBrand);
         state.goodsParameter.push(params.goodsModel);
-        state.goodsParameter.push(params.goodsStyle);
+        state.goodsParameter.push(params.goodsTypeName);
         state.goodsParameter.push(params.goodsStock);
        
     }

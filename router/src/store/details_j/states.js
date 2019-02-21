@@ -1,9 +1,10 @@
 export default {
-    goodsdetailsImg:[],
-    content:[],
-    goodscolor:[],
+    goodsdetailsImg: [],
+    content: [],
+    goodscolor: [],
     goodsParameter: [],
-    starImg:[],
-    starNum:"",
-    server:[]
+    starImg: [],
+    starNum: "",
+    server: [],
+
 }

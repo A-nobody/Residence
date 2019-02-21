@@ -12,7 +12,7 @@
     <div class="content_price_details">
         <span>快递:￥{{content.goodsFreight}}</span>
         <span>发货时间:72小时</span>
-        <span>发货地:{{content.shopAddress}}</span>
+        <span>发货地:{{content.shopsAddress}}</span>
     </div>
   </div>
 </template>
