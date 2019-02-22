@@ -35,8 +35,8 @@ import axios from 'axios'
                 console.log(this.iphone)
                 axios({
                     method:'post',
-                    url:"http://10.9.41.228:8080/getPhoneCaptcha",
-                    // url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha",
+                    // url:"http://10.9.26.132:8080/getPhoneCaptcha",
+                    url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha",
                     params:{
                         userPhone:this.iphone
                     }
@@ -49,8 +49,8 @@ import axios from 'axios'
                 console.log(this.iphone)
                 axios({
                     method:'post',
-                    url:"http://10.9.41.228:8080//user/register",
-                    // url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha",
+                    // url:"http://10.9.26.132:8080/user/register",
+                    url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha",
                     params:{
                         userPhone:this.iphone,
                         kaptcha:this.yzm

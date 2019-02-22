@@ -5,11 +5,12 @@
 			<About/>
 			<Tab/>
 		</div>
-		<div class="wrapper mainwrapper" ref="maing">
-			<div class="content maingcon">
-				<Main/>
+		<keep-alive>
+			<div class="main">
+				<router-view/>
 			</div>
-		</div>
+		</keep-alive>
+		
 	</div>
 </template>
 
@@ -17,19 +18,12 @@
 	import Head from "./components/head.vue";
 	import About from "./components/about.vue";
 	import Tab from "./components/tab.vue";
-	import Main from "./components/main.vue";
 	
-	import BScroll from 'better-scroll'
 	export default{
 		components:{
 			Head,
 			About,
-			Tab,
-			Main
-		},
-		mounted(){
-			this.scroll = new BScroll(this.$refs.maing);
-			this.scroll.refresh();
+			Tab
 		}
 	}
 </script>
@@ -40,6 +34,7 @@
 		width: 100%;
 		height: 100%;
 		color: #323232;
+		font-weight: bold;
 	}
 	.shopstatic_g{
 		position: fixed;
@@ -48,9 +43,8 @@
 		z-index: 5;
 		background: #F6F6F6;
 	}
-	.mainwrapper{
+	.main{
 		height: 72%;
 		margin-top: 3.74rem;
 	}
-	
 </style>

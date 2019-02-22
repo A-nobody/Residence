@@ -4,11 +4,24 @@
     <div class="bottomMenu">
       <div class="bottomMenuIn">
         <div class="content">
-          <p v-for="(item,index) in content[typeNum]">{{item}}</p>
+          <!-- 性别 -->
+          <div id="sex" v-show="typeNum==0?true:false">
+            <mt-picker :slots="SexSlots" @change="onSexChange"></mt-picker>
+          </div>
+          <!-- 地址 -->
+          <mt-picker
+            v-show="typeNum==1?true:false"
+            :slots="myAddressSlots"
+            @change="onMyAddressChange"
+          />
+          <!-- 生日 -->
+          <div class="date" v-show="typeNum==2?true:false">
+            <mt-picker :slots="BirthdaySlots" @change="onBirthdayChange"></mt-picker>
+          </div>
         </div>
         <div class="confirm">
-          <p>取消</p>
-          <p>确定</p>
+          <p @click="maskHide()">取消</p>
+          <p @click="handleConfirm()">确定</p>
         </div>
       </div>
     </div>
@@ -17,21 +30,142 @@
 
 <script>
 import Vuex from "vuex";
+import Vue from "vue";
+import { Picker } from "mint-ui";
+import myaddress from "../pca.json";
+Vue.component(Picker.name, Picker);
+
 export default {
   data() {
     return {
-      content: [["男", "女"], ["北京", "上海", "广州"], [2019, 1, 1]]
+      SexSlots:[
+        {
+          flex: 1,
+          values: ['男','女'],
+          className: 'slot1',
+          textAlign: 'center'
+        }
+      ],
+      sex:'',
+      BirthdaySlots: [
+        {
+          flex: 1,
+          values: ['2001','2000','1999','1998','1997','1996','1995','1994','1993','1992','1991','1990','1989','1988','1987','1986','1985','1984','1983','1982','1981','1980'],
+          className: 'slot1',
+          textAlign: 'center'
+        }, {
+          divider: true,
+          content: '-',
+          className: 'slot2'
+        }, {
+          flex: 1,
+          values: ['1', '2', '3', '4', '5', '6','7','8','9','10','11','12'],
+          className: 'slot3',
+          textAlign: 'center'
+        },{
+          divider: true,
+          content: '-',
+          className: 'slot4'
+        }, {
+          flex: 1,
+          values: ['1', '2', '3', '4', '5', '6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'],
+          className: 'slot5',
+          textAlign: 'center'
+        }
+      ],
+      birthday:'',
+      myAddressSlots: [
+        {
+          flex: 1, //对应 slot CSS 的 flex 值
+          defaultIndex: 1, //对应 slot 初始选中值，需传入其在 values 数组中的序号，默认为 0
+          values: Object.keys(myaddress), //省份数组
+          className: "slot1", //对应 slot 的类名
+          textAlign: "center" //对应 slot 的对齐方式
+        },
+        {
+          divider: true, //对应 slot 是否为分隔符
+          content: "-", //分隔符 slot 的显示文本
+          className: "slot2"
+        },
+        {
+          flex: 1,
+          values: [],
+          className: "slot3",
+          textAlign: "center"
+        },
+        {
+          divider: true,
+          content: "-",
+          className: "slot4"
+        },
+        {
+          flex: 1,
+          values: [],
+          className: "slot5",
+          textAlign: "center"
+        }
+      ],
+      myAddressProvince: "省",
+      myAddressCity: "市",
+      myAddresscounty: "区/县"
     };
-  },
-  methods: {
-    ...Vuex.mapMutations({
-      maskHide: "mine/maskHide"
-    })
   },
   computed: {
     ...Vuex.mapState({
       typeNum: state => state.mine.typeNum
     })
+  },
+  methods: {
+    ...Vuex.mapMutations({
+      maskHide: "mine/maskHide",
+      getAddress: "mine/getAddress",
+      getBirthday: "mine/getBirthday",
+      setSex: "mine/setSex"
+    }),
+    onSexChange(picker, values){
+      if([values[0]]){
+        picker.setSlotValues(values[0]);
+        this.sex = values[0];
+      }
+    },
+    onBirthdayChange(picker, values) {
+      if ([values[0]]) {
+        picker.setSlotValues(Object.keys([values[0]]));
+        picker.setSlotValues([values[0]][values[1]]);
+        this.birthday = values[0]+'.'+values[1]+'.'+values[2];
+      }
+    },
+    onMyAddressChange(picker, values) {
+      if (myaddress[values[0]]) {
+        //这个判断类似于v-if的效果（可以不加，但是vue会报错，很不爽）
+        picker.setSlotValues(1, Object.keys(myaddress[values[0]])); // Object.keys()会返回一个数组，当前省的数组
+        picker.setSlotValues(2, myaddress[values[0]][values[1]]); // 区/县数据就是一个数组
+        //获取省
+        this.myAddressProvince = values[0];
+        //获取市
+        this.myAddressCity = values[1];
+        //获取县
+        this.myAddresscounty = values[2];
+        /*setSlotValues(index, values)：设定给定 slot 的备选值数组*/
+      }
+    },
+    handleConfirm() {
+      if (this.typeNum == 1) {
+        this.getAddress(this.myAddresscounty);
+      } else if (this.typeNum == 2) {
+        this.getBirthday(this.birthday);
+      } else if (this.typeNum == 0){
+        this.setSex(this.sex);
+      }
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      //vue里面全部加载好了再执行的函数 （类似于setTimeout）
+      this.myAddressSlots[0].defaultIndex = 0;
+      // 这里的值需要和 data里面 defaultIndex 的值不一样才能够初始化
+      //因为我没有看过源码（我猜测是因为数据没有改变，不会触发更新）
+    });
   }
 };
 </script>
@@ -62,21 +196,22 @@ export default {
   height: 100%;
   margin: 0 auto;
 }
-.information .bottomMenuIn .content > p {
-  width: 100%;
-  height: 0.8rem;
+.information .bottomMenuIn .content {
+  padding: 0.8rem 0;
+  height: 80%;
+}
+.information .bottomMenuIn .content .picker-item {
   font-size: 0.3rem;
-  color: #a8a8a8;
-  line-height: 0.8rem;
-  text-align: center;
-  border-bottom: 0.01rem solid #cacaca;
+}
+.information .bottomMenuIn .content .picker-selected {
+  font-size: 0.3rem;
+  color: #44dddb;
 }
 .information .bottomMenuIn .confirm {
   width: 100%;
   height: 0.5rem;
   border-top: 0.01rem solid #cacaca;
   display: flex;
-  margin-top: 0.8rem;
   color: #a8a8a8;
   font-size: 0.3rem;
 }
@@ -90,5 +225,15 @@ export default {
 .information .bottomMenuIn .confirm > p:last-child {
   color: #44dddb;
   border-left: 0.01rem solid #cacaca;
+}
+#sex > p {
+  height: 0.8rem;
+  font-size: 0.4rem;
+  text-align: center;
+  line-height: 0.8rem;
+  border-bottom: 0.01rem solid #cacaca;
+}
+#sex > p > a {
+  color: #a8a8a8;
 }
 </style>

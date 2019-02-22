@@ -2,23 +2,38 @@
     <div class="synopsis">
         <div class="top">
             <div class="topInside">
-                <span @click="synoHide()">取消</span><h3>个人简介</h3><span>完成</span>
+                <span @click="synoHide()">取消</span><h3>个人简介</h3><span @click='synoChange()'>完成</span>
             </div>
         </div>
         <div class="main">
-            <textarea class="userTxt"></textarea>
+            <textarea class="userTxt" v-model="syno" value="syno" autofocus></textarea>
         </div>
-        <div class="bottom"><span>10/40</span></div>
+        <div class="bottom"><span>0/40</span></div>
     </div>
 </template>
 
 <script>
 import Vuex from 'vuex'
 export default {
+    data(){
+        return{
+            syno:''
+        }
+    },
     methods:{
         ...Vuex.mapMutations({
-            synoHide:'mine/synoHide'
-        })
+            synoHide:'mine/synoHide',
+            setSyno: 'mine/setSyno'
+        }),
+        synoChange(){
+            var msg = "确定要修改个人简介吗";
+            if (confirm(msg)==true){
+                this.setSyno("已设置")
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 }
 </script>

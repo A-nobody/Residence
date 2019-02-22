@@ -5,13 +5,13 @@
             <h2>开启绘居之旅</h2>
         </div>
         <div class="or">
-            <router-link to ="/style">打算装修</router-link>
+            <router-link to ="/style" @click.native="sendData(1)">打算装修</router-link>
         </div>
         <div class="or">
-            <router-link to ="/renovation">装修ing</router-link>
+            <router-link to ="/renovation" @click.native="sendData(2)">装修ing</router-link>
         </div>
         <div class="or">
-            <router-link to ="/home">随便看看</router-link>
+            <router-link to ="/home" @click.native="sendData(3)">随便看看</router-link>
         </div>
         <div>
             <div>
@@ -22,8 +22,20 @@
 </template>
 
 <script>
+ import axios from "axios"
     export default {
-        
+        methods: {
+            sendData(index){
+                console.log(index)
+                axios({
+                    method:"post",
+                    url:"http://10.9.26.132:8080/user/updataUserDetail",
+                    params:{
+                        userLiveStatr:index
+                    }
+                })
+            }
+        }
     }
 </script>
 

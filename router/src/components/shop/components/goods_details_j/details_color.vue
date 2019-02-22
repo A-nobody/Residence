@@ -2,36 +2,40 @@
   <div class="details_color_j" v-show="flag">
     <div class="color_content">
       <div class="color_img">
-        <!-- <img src="" alt=""> -->
+         <img :src='goodsdetailsImg[0]'>
       </div>
       <p>
-        <span>￥2790</span>
+        <span>￥{{goodscolor.goodsDiscountPrice}}</span>
       </p>
       <p>
         <span>库存充足</span>
       </p>
       <p>
-        <span>已选：红色</span>
+        <span v-text="`已选: ${goodscolor.goodsColorList[index2].skuValue}`"> </span>
       </p>
     </div>
     <div class="color_choose">
       <p>颜色</p>
       <p>
-        <button class="choose_active">红色</button>
-        <button>白色</button>
+        <button
+          v-for="(item,index) in goodscolor.goodsColorList"
+          v-bind="{class:activeIndex==index?'choose_active':''}"
+          @click="handleActivecolor(index)"
+        >{{item.skuValue}}</button>
       </p>
     </div>
     <div class="color_num">
-      <p>数量</p>
-      <p>
-        <button>-</button>
-        <input type="text" value="1">
-        <button>+</button>
-      </p>
+      <p class="sign_num">数量</p>
+      <div class="sign">
+        <button class="reduce" @click="handleReduce()">-</button>
+        <input class="change" type="text" value="num" v-model="num">
+        <button class="add" @click="handleAdd()">+</button>
+      </div>
     </div>
     <div class="color_tostore">
-      <div class="toshoppingcar"></div>
+      <div class="toshoppingcar" @click="handleToast()"></div>
       <img
+        @click="handleTobuy()"
         class="tobuy"
         src="../../../../../static/img/shop/goods_details_slices_j/goumai@2x.png"
         alt
@@ -40,23 +44,76 @@
   </div>
 </template>
 <script>
+import Vuex from "vuex";
+import { Toast } from "mint-ui";
 export default {
   created() {
-    this.Observer.$on('handleSend',params=>{
-      this.flag=params;
-    })
-    this.Observer.$on('handleSendcolor',params=>{
-      this.flag=params;
-    })
+    this.observer.$on("handleSend", params => {
+      this.flag = params;
+    });
+    this.observer.$on("handleSendcolor", params => {
+      this.flag = params;
+    });
+    this.observer.$on("handleTocar", params => {
+      this.flag = params;
+    });
   },
   data() {
     return {
-      flag:false
-    }
+      flag: false,
+      num: sessionStorage.getItem("goodsNumber")?sessionStorage.getItem('goodsNumber'):1,
+      activeIndex: 0,
+      index2: 0
+    };
   },
-}
+  computed: {
+    ...Vuex.mapState({
+      goodscolor: state => state.details.goodscolor,
+      goodsdetailsImg: state => state.details.goodsdetailsImg
+    })
+  },
+  methods: {
+    handleActivecolor(index) {
+      this.activeIndex = index;
+      this.index2 = index;
+    },
+    handleToast() {
+       sessionStorage.setItem("goodsId", 1);
+      sessionStorage.setItem("goodsColor", "红色");
+      sessionStorage.setItem("goodsNumber", this.num);
+      Toast({
+        
+        message: "加入购物车成功",
+        duration: 3000,
+        className: "toasts_de"
+      });
+    },
+    handleTobuy() {
+      
+      sessionStorage.setItem("goodsId", 1);
+      sessionStorage.setItem("goodsColor", "红色");
+      sessionStorage.setItem("goodsNumber", this.num);
+      this.$router.push({ name: "confirm" });
+    },
+    handleReduce() {
+      if (this.num == 1) {
+        this.num = 1;
+      } else {
+        this.num--;
+      }
+    },
+    handleAdd() {
+      this.num++;
+    }
+  }
+};
 </script>
 <style lang="scss" scoped>
+.mint-toast .mint-toast {
+    // width: 2.8rem !important;
+    // height: 2.6rem !important;
+    font-size: .74rem !important;
+  }
 .details_color_j {
   position: fixed;
   top: 1.8rem;
@@ -66,6 +123,7 @@ export default {
   height: 11.54rem;
   background: rgba(255, 255, 255, 1);
   border-radius: 0.2rem 0.2rem 0 0;
+  
   .color_content {
     margin: 0 0.4rem;
     height: 2.6rem;
@@ -80,6 +138,10 @@ export default {
       position: absolute;
       left: 0;
       top: 0.2rem;
+      img{
+        width:100%;
+        height:100%;
+      }
     }
     p:nth-of-type(1) {
       position: absolute;
@@ -114,7 +176,7 @@ export default {
     }
   }
   .color_choose {
-    height: 2.09rem;
+    height: 3.09rem;
     width: 100%;
     margin: 0 0.4rem;
     border-bottom: 0.01rem solid #e5e5e5;
@@ -134,6 +196,7 @@ export default {
         background: rgba(229, 229, 229, 1);
         border: none;
         margin-right: 0.4rem;
+        margin-bottom: 0.4rem;
         float: left;
         font-size: 0.28rem;
         font-family: PingFang-SC-Regular;
@@ -151,7 +214,7 @@ export default {
     height: 1.1rem;
     width: 100%;
     position: relative;
-    p:nth-child(1) {
+    p {
       width: 0.8rem;
       height: 0.31rem;
       font-size: 0.32rem;
@@ -161,43 +224,61 @@ export default {
       line-height: 0.7rem;
       margin: 0.4rem;
     }
-    p:nth-child(2) {
+    .sign {
       width: 1.9rem;
       height: 0.6rem;
 
-      button,
       input {
         width: 0.58rem;
         height: 0.58rem;
         background: #e5e5e5;
         border: none;
         border-radius: 0.1rem;
-        font-size: 0.4rem;
-      }
-      input {
-        background: rgb(241, 241, 241);
-      }
-      button:nth-child(1) {
-        position: absolute;
-        top: 0.2rem;
-        left: 4.83rem;
-      }
-      input {
-        position: absolute;
-        top: 0.2rem;
-        left: 5.53rem;
+        line-height: 0.58rem;
+        font-size: 0.3rem;
         text-align: center;
       }
-      button:nth-of-type(2) {
+      .reduce {
+        width: 0.58rem;
+        height: 0.58rem;
         position: absolute;
-        top: 0.2rem;
-        left: 6.23rem;
+        top: 0.15rem;
+        left: 4.83rem;
+        background: rgb(241, 241, 241);
+        border-radius: 0.1rem;
+        line-height: 0.58rem;
+        font-size: 0.22rem;
+        text-align: center;
+        border: none;
+      }
+      .change {
+        width: 0.68rem;
+        height: 0.58rem;
+        background: rgb(241, 241, 241);
+        position: absolute;
+        top: 0.15rem;
+        left: 5.53rem;
+
+        text-align: center;
+      }
+      .add {
+        width: 0.58rem;
+        height: 0.58rem;
+        position: absolute;
+        top: 0.15rem;
+        background: rgb(241, 241, 241);
+        left: 6.33rem;
+        text-align: center;
+        border-radius: 0.1rem;
+        line-height: 0.38rem;
+        font-size: 0.22rem;
+        border: none;
       }
     }
   }
   .color_tostore {
     width: 100%;
-    height: 4.9rem;
+    height: 3.9rem;
     position: relative;
     img {
       position: absolute;
@@ -217,4 +298,12 @@ export default {
   }
 }
 </style>
+<style lang="scss"> 
+.toasts_de .mint-toast-text{
+  // width:6.9rem !important;
+  // height:2rem !important;
+   font-size: .44rem !important;
+}
+</style>
+
 

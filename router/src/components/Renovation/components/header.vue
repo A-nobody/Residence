@@ -2,6 +2,7 @@
     <div class="box_n">
         <!-- 灰色背景块 -->
         <div class="top_n">
+             <i class="iconfont" v-html="righticon"></i>
             <!-- 标题-装修 -->
            <p class="title_n">{{title}}</p>
            <!-- 蓝色背景块 -->
@@ -20,20 +21,32 @@
                </div>
            </div>
            <!-- 蓝色背景块 -->
-
-           <!-- 装修流程，避坑指南 -->
-           <div class="process_n">
-                <div class="process_left">
-
-                </div>
-                <div class="process_right">
-
-                </div>
-           </div>
-
         </div>
         <!-- 灰色背景块 -->
+
+         <!-- 装修流程，避坑指南 -->
+           <div class="process_n">
+              <router-link :to="{name:'process'}">
+                <div class="process_left">
+                    <dl>
+                        <dt><img :src="imgfirst"></dt>
+                        <dd><p>{{imgtitleleft}}</p></dd>
+                        <dd><span>{{bottomtitleleft}}</span></dd>
+                    </dl>
+                </div>
+              </router-link>
+              <!-- <router-link :to="{name:'process'}"> -->
+                <div class="process_right">
+                    <dl>
+                        <dt><img :src="imgtwo"></dt>
+                        <dd><p>{{imgtitleright}}</p></dd>
+                        <dd><span>{{bottomtitleright}}</span></dd>
+                    </dl>
+                </div>
+              <!-- </router-link> -->
+           </div>
     </div>
+    <!-- 顶部结束 -->
 </template>
 
 <script>
@@ -46,7 +59,13 @@ export default {
             process:"0/117",
             viewtask:"查看任务",
             renovation:"我的装修信息",
-            icon:"&#xe646;"
+            imgfirst:"../../../../static/img/renovation/szt@2x.png",
+            imgtitleleft:"装修流程",
+            bottomtitleleft:"三分钟把握要点",
+            imgtwo:"../../../../static/img/renovation/zxl@2x.png",
+            imgtitleright:"避坑指南",
+            bottomtitleright:"过来人血泪经验",
+            righticon:"&#xe626;"
         }
     }
 }
@@ -59,6 +78,23 @@ export default {
        height: 3.5rem;
        background: #777777;
        padding: .32rem 0.4rem 0 .4rem;
+       position: relative;
+   }
+   .lefticon{
+       width: .18rem;
+       height:.30rem;
+       position: absolute;
+       top: .4rem;
+       left: .39rem;
+       z-index: 5;
+   }
+   .top_n i{
+        font-size: .48rem;
+        color: #fff;
+        position: absolute;
+        top: .3rem;
+        right: .39rem;
+        z-index: 5;
    }
    /* 标题---装修栏 */
    .title_n{
@@ -125,7 +161,13 @@ export default {
    .process_n{
        width: 100%;
        height: 1.36rem;
-       margin-top:0.4rem;
+       margin: 1.05rem 0 0 0;
+       padding: 0 .35rem 0 .35rem;
+   }
+   .process_n a{
+       display: inline-block;
+       float: left;
+       margin-right: .02rem;
    }
    .process_left,.process_right{
       width:3.34rem;
@@ -134,9 +176,47 @@ export default {
       background:#EEF5F6;
       border-radius: .06rem;
    }
-   .process_left{
-       margin-right:.02rem;
+
+/* 装修流程样式 */
+   .process_left>dl>dt,
+   .process_right>dl>dt{
+       float: left;
+       margin: 0 .08rem 0 0;
+   }
+   /* 左边图片样式 */
+   .process_left>dl>dt>img{
+       width: .56rem;
+       height: .43rem;
+       margin: .43rem 0 0 .38rem;
+   }
+   /* 右边图片样式 */
+   .process_right>dl>dt>img{
+       width: .36rem;
+       height: .44rem;
+       margin: .43rem 0 0 .47rem;
+   }
+   .process_left>dl>dd,
+   .process_right>dl>dd{
+       float: left;
    }
 
+   .process_left>dl>dd>p,
+   .process_right>dl>dd>p{
+      font-size: .3rem;
+      color: #242424;
+      margin:.35rem 0 .15rem .34rem;
+   }
 
+   .process_left>dl>dd>span,
+   .process_right>dl>dd>span{
+      font-size: .24rem;
+      color:#828181;
+   }
+   .process_left>dl>dd>span{
+       margin: 0 0 0 .34rem;
+   }
+   .process_right>dl>dd>span,
+   .process_right>dl>dd>p{
+       margin-left: .40rem;
+   }
 </style>
