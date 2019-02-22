@@ -33,7 +33,6 @@ export default {
     },
     handleSetComment({commit}){
         axios({
-            // url:"/apiw/mock/5c3481b05ee07b0e226214fa/api/home",
             method:"post",
             url:"http://47.93.27.243/huiju/getEssayMoment",
             data:{
@@ -67,7 +66,7 @@ export default {
         })
         .then((data)=>{
            commit("Cs",data)
-           console.log(data)
+        //    console.log(data.goods)
         })
     }
 }

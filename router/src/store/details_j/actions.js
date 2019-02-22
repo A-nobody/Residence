@@ -10,7 +10,7 @@ export default {
             }
         })
             .then((data) => {
-                console.log(data.goods)
+                // console.log(data.goods)
 
                 commit("handledetailsData", data.goods)
             })
