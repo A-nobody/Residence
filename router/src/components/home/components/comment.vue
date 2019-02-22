@@ -14,17 +14,17 @@
                     <div class="comment_user">
                         <section :style="{backgroundImage: 'url(' + item.userlmage + ')'}"></section>
                         <div>
-                            <p>{{item.userName}}</p>
-                            <i>{{item.articleDate}}</i>
+                            <p>{{item.sysUserDetail.userNick}}</p>
+                            <i>{{item.createTime}}</i>
                         </div>
                     </div>
                     <div class="comment_up">
                         <i class="iconfont" v-html="comment_up"></i>
-                        <span>{{item.articleNum}}</span>
+                        <span>{{item.goodNum}}</span>
                     </div>
                 </section>
                 <p class="comment_text">
-                   {{item.article}}
+                   {{item.commentContent}}
                 </p>
             </div>
         </section>
@@ -47,11 +47,12 @@ export default {
     },
     computed:{
         ...Vuex.mapState({
-            commits:state=>state.home.commits
+            commits:state=>state.home.comment
         })
     },
     created(){
-        this.$store.dispatch("home/handleSetCommit")
+        this.$store.dispatch("home/handleSetComment")
+         this.$store.dispatch("home/Cs")
     },
     methods:{
         handlecommentSF(){

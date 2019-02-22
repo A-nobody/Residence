@@ -15,7 +15,7 @@
             <h2 class="de_title">评论</h2>
             <div class="comment_navs">
                 <section class="commentator_img">
-
+                    <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=659071980,1632459771&fm=27&gp=0.jpg" alt="">
                 </section>
                 <section class="commentator_info">
                     <p class="commentator_name">乔巴克鲁克</p>
@@ -26,7 +26,7 @@
             </div>
                 <div class="comment_navs">
                 <section class="commentator_img">
-
+                    <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3890185672,1933578877&fm=27&gp=0.jpg" alt="">
                 </section>
                 <section class="commentator_info">
                     <p class="commentator_name">乔巴克鲁克</p>
@@ -42,10 +42,21 @@
 </template>
 <script>
 export default {
+   props:{
+        acticle_main:Object,
+        action_comment:Object
+   },
    data(){
        return{
-           commentator_up:"&#xe607;"
+           commentator_up:"&#xe607;",
+           acticle_m:""
        }
+   },
+   created(){
+       
+   },
+   mounted(){
+       
    }
 }
 </script>
@@ -128,6 +139,10 @@ export default {
     .commentator_img{
         width: 10%;
         height: .7rem;
+    }
+    .commentator_img>img{
+        width: 0.67rem;
+        height: 0.7rem;
     }
     .commentator_info{
         width: 80%;

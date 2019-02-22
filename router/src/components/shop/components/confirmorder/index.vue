@@ -150,7 +150,7 @@
 						]
 				}
 			}).then((data)=>{
-				
+				console.log(data)
 				this.shoplist = data.data.Result;
 				var arr = this.shoplist.map((item,index)=>{
 					return Object.keys(item).toString();

@@ -4,7 +4,7 @@
         <section class="want_commoditys">
             <div class="commodity_w">
                 <section class="commodity_w_img">
-
+                    <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3962805517,413692801&fm=27&gp=0.jpg" alt="">
                 </section>
                 <section class="commodity_w_info">
                     <p class="commodity_w_title">
@@ -24,7 +24,7 @@
             </div>
              <div class="commodity_w">
                 <section class="commodity_w_img">
-
+                    <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1101417620,1555767446&fm=27&gp=0.jpg" alt="">
                 </section>
                 <section class="commodity_w_info">
                     <p class="commodity_w_title">
@@ -80,6 +80,10 @@ export default {
         margin-bottom:.3rem;
     }
     .commodity_w_img{
+        width: 2rem;
+        height: 2rem;
+    }
+    .commodity_w_img>img{
         width: 2rem;
         height: 2rem;
     }

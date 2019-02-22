@@ -1,25 +1,25 @@
 <template slot-scope>
     <div id="articleW" class="w100">
-        <div class="article_w w100" v-for="(item,index) in homeNavs":keys="index">
+        <div class="article_w w100" v-for="(item,index) in homeNavs.releaseEssayResoult.list":keys="index">
             <section class="user_info w100">
                 <div>
-                    <img  class="user_img" src="/static/img/mine/banner.png" alt="" @click="jumpDynamic()" ref="user_img">
-                    <p class="user_name"  @click="jumpDynamic()" ref="user_name">qweqs</p>
+                    <img  class="user_img" :src="homeNavs.photoPicture" alt="" @click="jumpDynamic()" ref="user_img">
+                    <p class="user_name"  @click="jumpDynamic()" ref="user_name">{{item.essayMain}}</p>
                 </div>
                 <section class="follow">已关注</section>
             </section>
             <div class="article_img w100">
-                <img :src="item.uimg" alt="">
+                <img :src="item.picpath" alt="">
             </div>
             <p class="article_title w100" @click="jumpArticle()">
-                堕落天使-莫甘娜是《英雄联盟》系列中的英雄之一。莫甘娜拥有被动技
+                {{item.essayTitle}}
             </p>
             <section class="article_info w100">
                 <button class="forward_w w30  iconfont" v-html="forward_w"></button>
                 <div>
-                    <span><button class="comment_w w30 iconfont" v-html="comment_w" @click="jumpComment()"></button> <i>{{item.sCommentNumber}}</i></span>
-                    <span><button class="collection_w w30  iconfont" v-html="collection_w" @click="jumpColl()"></button> <i>{{item.sCollectionNumber}}</i></span>
-                    <span><button class="up_w w30  iconfont" v-html="up_w"></button> <i>{{item.sUpNumber}}</i></span>
+                    <span><button class="comment_w w30 iconfont" v-html="comment_w" @click="jumpComment()"></button> <i>{{item.essayCollectionNum}}</i></span>
+                    <span><button class="collection_w w30  iconfont" v-html="collection_w" @click="jumpColl()"></button> <i>{{item.flagCollection}}</i></span>
+                    <span><button class="up_w w30  iconfont" v-html="up_w"></button> <i>{{item.essayGoodNum}}</i></span>
                 </div>
             </section>
         </div>
@@ -105,7 +105,7 @@ export default {
         position: relative;
     }
     .user_info>div{
-        width: 2.1rem;
+        width: 5.1rem;
         height: .7rem;
         display: flex;
         justify-content: space-between;
@@ -116,8 +116,11 @@ export default {
         border-radius: 50%;
     }
     .user_info>div>.user_name{
-        width: 1.1rem;
+        width: 4.1rem;
         font:bolder .3rem/.6rem PingFang-SC-Heavy;
+        white-space:nowrap;
+        text-overflow:ellipsis; 
+        overflow:hidden;
     }
     .user_info>.follow{
         width: 1.16rem;
