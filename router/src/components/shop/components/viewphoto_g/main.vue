@@ -2,11 +2,7 @@
 	<div class="wrapper bedbox" ref="bedbox">
 		<ul class="content">
 			<li v-for="(item,index) in goodsdetailsImg">
-<<<<<<< HEAD
 				<img v-lazy="item"/>				
-=======
-				<img :src="item"/>				
->>>>>>> heng
 			</li>
 		</ul>
 	</div>
@@ -38,7 +34,7 @@
 				goodsdetailsImg: state => state.details.goodsdetailsImg
 			})
 		},
-		updated(){
+		mounted(){
 			this.scroll = new Bscroll(this.$refs.bedbox,{
 				scrollX : true,
 				/* snap: false 是为了获取到当前滚动的页数*/
