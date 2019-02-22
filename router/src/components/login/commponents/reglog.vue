@@ -5,14 +5,16 @@
                  +86
             </div>
             <div class="reg-center-right">
-               <input type="number" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码">
+               <input type="number" v-model="iphone"  oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码">
             </div>
         </div>
         <div class="reg-center d1">
                <div class="reg-center-right">
-                   <input type="text" maxlength="6" placeholder="请输入验证码">
+                    <input type="text" v-model="yzm" maxlength="6" @blur="cha" placeholder="请输入验证码">
                </div>
-               <div class="reg-center-btn">
+
+
+               <div class="reg-center-btn"  @click="handReg">
                    获取验证码
                </div>
         </div>
@@ -20,8 +22,54 @@
 </template>
 
 <script>
+import axios from 'axios'
     export default {
-        
+          data () {
+            return {
+                iphone:"",
+                yzm:''
+            }
+        },
+         methods: {
+            handReg(){
+                console.log(this.iphone)
+                axios({
+                    method:'post',
+                    url:"http://10.9.41.228:8080/getPhoneCaptcha",
+                    // url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha",
+                    params:{
+                        userPhone:this.iphone
+                    }
+                }).then((data)=>{
+                    console.log(data)
+                })
+            },
+            handRege(){
+                console.log(this.yzm)
+                console.log(this.iphone)
+                axios({
+                    method:'post',
+                    url:"http://10.9.41.228:8080//user/register",
+                    // url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha",
+                    params:{
+                        userPhone:this.iphone,
+                        kaptcha:this.yzm
+                    }
+                }).then((data)=>{
+                    if(this.code===0){
+                        this.$router.push({ path: '/login', query:{iphone:this.iphone,yzm:this.yzm} })
+                     }
+                })
+                
+            },
+            cha(){
+                var obj = {
+                    iphone:this.iphone,
+                    yzm:this.yzm
+                }
+                this.observer.$emit('phone-g',obj)
+            }
+        },
     }
 </script>
 

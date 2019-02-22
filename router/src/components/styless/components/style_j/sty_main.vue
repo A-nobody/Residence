@@ -29,20 +29,26 @@ export default {
         {
           src:
             "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
-          style: "简约时尚主义",
+          style: "欧美经典时尚主义",
           apartment: "一居室"
         },
         {
           src:
             "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
+          style: "东方典雅主义",
+          apartment: "二居室"
         },
         {
           src:
             "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
-          style: "简约时尚主义",
+          style: "东方典雅主义",
           apartment: "一居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_04@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
         },
         {
           src:
@@ -52,86 +58,156 @@ export default {
         },
         {
           src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
+          style: "东方典雅主义",
+          apartment: "一居室"
+        },
+          {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+       
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
+          style: "东方典雅主义",
+          apartment: "一居室"
+        },
+          {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+        
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
+          style: "东方典雅主义",
+          apartment: "一居室"
+        },
+          {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+        
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
+          style: "东方典雅主义",
+          apartment: "一居室"
+        },
+          {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+        
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
+          style: "东方典雅主义",
+          apartment: "一居室"
+        },
+          {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
+          style: "东方典雅主义",
+          apartment: "一居室"
+        },
+          {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
+          style: "欧美经典主义",
+          apartment: "一居室"
+        },
+          {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
+          style: "东方典雅主义",
+          apartment: "二居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
+          style: "简约时尚主义",
+          apartment: "一居室"
+        },
+        {
+          src:
+            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
+          style: "欧美经典主义",
+          apartment: "二居室"
+        },
+        {
+          src:
             "../.././../../../static/img/style_slices/style_slices_j/tp_04@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-        {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-        {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-        {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-          {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-        {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-        {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-          {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-        {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-        {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-          {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_01@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-        {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_02@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-        {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_03@2x.png",
-          style: "简约时尚主义",
-          apartment: "一居室"
-        },
-        {
-          src:
-            "../.././../../../static/img/style_slices/style_slices_j/tp_04@2x.png",
-          style: "简约时尚主义",
+          style: "东方典雅主义",
           apartment: "一居室"
         },
       ]

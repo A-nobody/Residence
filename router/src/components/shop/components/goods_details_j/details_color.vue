@@ -2,7 +2,7 @@
   <div class="details_color_j" v-show="flag">
     <div class="color_content">
       <div class="color_img">
-        <!-- <img :src=""> -->
+         <img :src='goodsdetailsImg[0]'>
       </div>
       <p>
         <span>￥{{goodscolor.goodsDiscountPrice}}</span>
@@ -11,7 +11,7 @@
         <span>库存充足</span>
       </p>
       <p>
-        <span>已选: {{goodscolor.goodsColorList[index2]}}</span>
+        <span v-text="`已选: ${goodscolor.goodsColorList[index2].skuValue}`"> </span>
       </p>
     </div>
     <div class="color_choose">
@@ -21,14 +21,14 @@
           v-for="(item,index) in goodscolor.goodsColorList"
           v-bind="{class:activeIndex==index?'choose_active':''}"
           @click="handleActivecolor(index)"
-        >{{item}}</button>
+        >{{item.skuValue}}</button>
       </p>
     </div>
     <div class="color_num">
       <p class="sign_num">数量</p>
       <div class="sign">
         <button class="reduce" @click="handleReduce()">-</button>
-        <input class="change" type="text" value="1" v-model="num">
+        <input class="change" type="text" value="num" v-model="num">
         <button class="add" @click="handleAdd()">+</button>
       </div>
     </div>
@@ -54,13 +54,6 @@ export default {
     this.observer.$on("handleSendcolor", params => {
       this.flag = params;
     });
-
-    this.observer.$on("handleSend", params => {
-      this.flag = params;
-    });
-    this.observer.$on("handleSendcolor", params => {
-      this.flag = params;
-    });
     this.observer.$on("handleTocar", params => {
       this.flag = params;
     });
@@ -68,14 +61,15 @@ export default {
   data() {
     return {
       flag: false,
-      num: 1,
+      num: sessionStorage.getItem("goodsNumber")?sessionStorage.getItem('goodsNumber'):1,
       activeIndex: 0,
       index2: 0
     };
   },
   computed: {
     ...Vuex.mapState({
-      goodscolor: state => state.details.goodscolor
+      goodscolor: state => state.details.goodscolor,
+      goodsdetailsImg: state => state.details.goodsdetailsImg
     })
   },
   methods: {
@@ -84,13 +78,21 @@ export default {
       this.index2 = index;
     },
     handleToast() {
+       sessionStorage.setItem("goodsId", 1);
+      sessionStorage.setItem("goodsColor", "红色");
+      sessionStorage.setItem("goodsNumber", this.num);
       Toast({
+        
         message: "加入购物车成功",
         duration: 3000,
         className: "toasts_de"
       });
     },
     handleTobuy() {
+      
+      sessionStorage.setItem("goodsId", 1);
+      sessionStorage.setItem("goodsColor", "红色");
+      sessionStorage.setItem("goodsNumber", this.num);
       this.$router.push({ name: "confirm" });
     },
     handleReduce() {
@@ -136,6 +138,10 @@ export default {
       position: absolute;
       left: 0;
       top: 0.2rem;
+      img{
+        width:100%;
+        height:100%;
+      }
     }
     p:nth-of-type(1) {
       position: absolute;

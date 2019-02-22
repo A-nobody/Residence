@@ -1,8 +1,8 @@
 <template>
 	<div class="wrapper bedbox" ref="bedbox">
 		<ul class="content">
-			<li v-for="(item,index) in imgs">
-				<img v-lazy="item.url"/>
+			<li v-for="(item,index) in goodsdetailsImg">
+				<img :src="item"/>				
 			</li>
 		</ul>
 	</div>
@@ -14,23 +14,24 @@
 	export default{
 		data(){
 			return{
-				imgs:[]
+				// imgs:[]
 			}
 		},
 		created(){
-			this.$axios({
-				method:"post",
-				url:"/apiw/mock/5c36e81c96e17359c184e2f8/huiju/shop/goods/goodsDetail",
-				data:{
-					goodsId:this.goodsId
-				}
-			}).then((data)=>{
-				this.imgs = data.data.listproinfo[0].goodsPicture;
-			})
+			// this.$axios({
+			// 	method:"post",
+			// 	url:"/apiw/mock/5c36e81c96e17359c184e2f8/huiju/shop/goods/goodsDetail",
+			// 	data:{
+			// 		goodsId:this.goodsId
+			// 	}
+			// }).then((data)=>{
+			// 	this.imgs = data.data.listproinfo[0].goodsPicture;
+			// })
 		},
 		computed:{
 			...Vuex.mapState({
-				goodsId:state=>state.Shop.goodsId
+				// goodsId:state=>state.Shop.goodsId
+				goodsdetailsImg: state => state.details.goodsdetailsImg
 			})
 		},
 		updated(){

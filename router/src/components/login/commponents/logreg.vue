@@ -5,7 +5,7 @@
                  +86
             </div>
             <div class="reg-center-right">
-               <input type="number" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码">
+               <input type="number" v-model="num" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码">
             </div>
         </div>
         <div class="reg-center ">
@@ -22,7 +22,12 @@
 
 <script>
     export default {
-        
+        data () {
+            return {
+                num:'',
+                yzm:''
+            }
+        }
     }
 </script>
 
