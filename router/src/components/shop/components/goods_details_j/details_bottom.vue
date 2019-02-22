@@ -28,7 +28,7 @@ export default {
     handleStore() {
       sessionStorage.setItem("shopsId", 1);
       sessionStorage.setItem("pageIndex", 1);
-      sessionStorage.setItem("limit", 8);
+      sessionStorage.setItem("limit", 6);
       this.$router.push({ name: "shophome" });
     },
     handletoBuy() {

@@ -8,7 +8,7 @@
 				<div class="main_con">
 					<ul>
 						<li v-for="(item,index) in hotlist">
-							<div class="img" @click="handleClick()">
+							<div class="img" @click="handleClick(item.goodsId)">
 								<img v-lazy="'http://47.93.27.243:85/'+item.goodsPicture"/>
 							</div>
 							<div class="main_bot">
@@ -62,7 +62,8 @@
 			this.scroll.refresh();
 		},
 		methods:{
-			handleClick(){
+			handleClick(id){
+				sessionStorage.setItem("shopsId", id);
 				this.$router.push({name:"Shopdetails"})
 			}
 		}

@@ -17,14 +17,15 @@
 	export default{
 		data(){
 			return{
-				data:[]
+				data:[],
+				shopsId: sessionStorage.getItem("shopsId")?sessionStorage.getItem('shopsId'):1,
 			}
 		},
 		created(){
 		this.index = this.$route.query.id;
 			this.$axios({
 				method:"post",
-				url:"/apig/shops/1",
+				url:"/apig/shops/"+this.shopsId,
 				}).then((data)=>{
 					this.data = data;
 			})
