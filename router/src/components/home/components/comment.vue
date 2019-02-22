@@ -12,7 +12,7 @@
             <div class="comment_one" v-for="(item,index) in commits">
                 <section>
                     <div class="comment_user">
-                        <section :style="{backgroundImage: 'url(' + item.userlmage + ')'}"></section>
+                        <section :style="{backgroundImage: 'url(' + item.sysUserDetail.photo + ')'}"></section>
                         <div>
                             <p>{{item.sysUserDetail.userNick}}</p>
                             <i>{{item.createTime}}</i>
