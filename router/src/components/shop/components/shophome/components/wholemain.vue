@@ -3,8 +3,13 @@
 		<div class="content main_con">
 			<ul>
 				<li v-for="(item,index) in alllist">
+<<<<<<< HEAD
 					<div class="img" @click="handleClick(item.goodsId)">
 						<img v-lazy="'http://47.93.27.243:85/'+item.goodsPicture" />
+=======
+					<div class="img" @click="handleClick()">
+						<img v-lazy="item.goodsPicture" />
+>>>>>>> heng
 					</div>
 					<div class="main_bot">
 						<p class="con"><span>{{item.goodsTitle}}</span></p>
@@ -55,8 +60,12 @@
 			this.scroll.refresh();
 		},
 		methods:{
+<<<<<<< HEAD
 			handleClick(id){
 				sessionStorage.setItem("shopsId",id);
+=======
+			handleClick(){
+>>>>>>> heng
 				this.$router.push({name:"Shopdetails"});
 			}
 		}

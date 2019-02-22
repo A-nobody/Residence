@@ -43,15 +43,14 @@ import axios from "axios"
                 console.log(this.yzm)
                 axios({
                     method:'post',
-                    url:"http://10.9.41.228:8080/user/login",
-                    // url:"http://47.93.27.243:8081/huiju-lr/user/login",
+                    // url:"http://10.9.26.132:8080/user/login",
+                    url:"http://47.93.27.243:8081/huiju-lr/user/login",
                     params:{
                         loginMode:2,
                         userPhone:this.iphone,
                         captcha:this.yzm
                     }
                 }).then((data)=>{
-                    console.log(data)
                     if(data.code===0){
                         this.$router.push('/welcome')
                     }

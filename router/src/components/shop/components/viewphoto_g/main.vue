@@ -2,7 +2,11 @@
 	<div class="wrapper bedbox" ref="bedbox">
 		<ul class="content">
 			<li v-for="(item,index) in goodsdetailsImg">
+<<<<<<< HEAD
 				<img v-lazy="item"/>				
+=======
+				<img :src="item"/>				
+>>>>>>> heng
 			</li>
 		</ul>
 	</div>

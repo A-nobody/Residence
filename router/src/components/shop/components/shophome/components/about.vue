@@ -1,5 +1,6 @@
 <template>
 	<div id="about_g">
+<<<<<<< HEAD
 		 <div class="about_logo">
 			<img v-lazy="data.shopsLogo"/>
 		</div>
@@ -8,6 +9,16 @@
 			<div class="star">
 				<span class="star_item" v-for="(star,index) in starScore">{{star}}</span>
    				<span class="star_level">{{data.shops.shopsLevel|level}}</span>
+=======
+		<div class="about_logo">
+			<img :src="data.shopLogo" />
+		</div>
+		<div class="about_ri">
+			<p><span>{{data.shopName}}</span></p>
+			<div class="star">
+				<span class="star_item" v-for="(star,index) in starScore">{{star}}</span>
+   				<span class="star_level">{{data.star|level}}</span>
+>>>>>>> heng
 			</div>
 		</div>
 	</div>
@@ -17,12 +28,17 @@
 	export default{
 		data(){
 			return{
+<<<<<<< HEAD
 				data:[],
 				shopsId: sessionStorage.getItem("shopsId")?sessionStorage.getItem('shopsId'):1,
+=======
+				data:[]
+>>>>>>> heng
 			}
 		},
 		created(){
 		this.index = this.$route.query.id;
+<<<<<<< HEAD
 			this.$axios({
 				method:"post",
 				url:"/apig/shops/"+this.shopsId,
@@ -38,6 +54,17 @@
 				}).then((data)=>{
 					this.data = data.data.data[0];
 			}) */
+=======
+		this.$axios({
+			method:"post",
+			url:"/apiw/mock/5c36e81c96e17359c184e2f8/huiju/shop/shopid",
+			data:{
+				id:4
+			}
+			}).then((data)=>{
+				this.data = data.data.data[0];
+			})
+>>>>>>> heng
 		},
 		filters:{
 			level(val){
@@ -47,7 +74,11 @@
 		computed:{
 			starScore(){
 				let stars = []; /*定义一个空数组来存储类名*/
+<<<<<<< HEAD
 				let score = Math.floor((this.data.shops.shopsLevel)*2)/2    
+=======
+				let score = Math.floor((this.data.star)*2)/2    
+>>>>>>> heng
 				/*把评分转成整数或整数+0.5（4.7转成4.5 4.2转成4.0）*/
 				let wholeScore = Math.floor(score)/*取整数分数（显示全星）*/
 			

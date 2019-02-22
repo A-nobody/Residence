@@ -21,6 +21,8 @@ import 'mint-ui/lib/style.css'
 Vue.use(Mint);
 
 import axios from "axios";
+// 携带信息
+axios.defaults.withCredentials=true
 import "./lib"
 Vue.prototype.$axios = axios;
 
