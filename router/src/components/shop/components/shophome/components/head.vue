@@ -15,26 +15,17 @@ export default {
 	methods: {
 		handleBack(){
 			this.$router.go(-1)
-<<<<<<< HEAD
 		},
 		handlekeyup(e){
 			var str = e.target.value;
 			this.$store.commit('Shop/changesearchstr',str);
 		}
 	},
-=======
-		}
-	}
->>>>>>> heng
 }
 </script>
 
 
-<<<<<<< HEAD
 <style scoped lang="scss">
-=======
-<style scoped>
->>>>>>> heng
 	#shhead_g{
 		height: .88rem;
 		background: #fff;

@@ -20,7 +20,7 @@
         <div class="reg-reg">
             <div @click="handRege">注册</div>
         </div>
-        <div class="reg-warn">*{{this.phoneVal.slice(10)}}
+        <div class="reg-warn">
             <router-link to="/login">通过账号密码登录</router-link>
         </div>
       

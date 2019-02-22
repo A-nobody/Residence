@@ -78,11 +78,7 @@ export default {
       this.index2 = index;
     },
     handleToast() {
-<<<<<<< HEAD
       sessionStorage.setItem("goodsId", 1);
-=======
-       sessionStorage.setItem("goodsId", 1);
->>>>>>> heng
       sessionStorage.setItem("goodsColor", "红色");
       sessionStorage.setItem("goodsNumber", this.num);
       Toast({
