@@ -4,11 +4,11 @@
         <div class="renovation_look">
             <p class="look_title">装修必看</p>
             <ul>
-                <li v-for="(item,index) in mustlook"  @click="handledata(item)" >
-                <router-link :to="{name:'details'}">
+                <li v-for="(item,index) in mainpage"  @click="handledata(item)" v-if="index<10" >
+                <router-link :to="{name:'details',params:{id:index}}">
                    
-                        <p>{{item.looktitle}}</p>
-                        <img :src="item.lookimg">
+                        <p>{{item.essayTitle}}</p>
+                        <img :src="item.picpath" class="imgmain">
 
                     </router-link> 
                 </li>
@@ -18,10 +18,10 @@
         <div class="space">
            <p class="look_title">空间</p>
            <ul>
-              <li v-for="(item,index) in space"  @click="handledata(item)">
+              <li v-for="(item,index) in mainpage"  @click="handledata(item)" v-if="index>9&&index<14">
                    <router-link :to="{name:'details'}">
-                        <p>{{item.looktitle}}</p>
-                        <img :src="item.lookimg">
+                        <p>{{item.essayTitle}}</p>
+                        <img :src="item.picpath">
                   </router-link> 
               </li>
            </ul>
@@ -31,10 +31,10 @@
 
            <p class="look_title">大家都在看</p>
           <ul>
-              <li v-for="(item,index) in alllook"  @click="handledata(item)">
+              <li v-for="(item,index) in mainpage"  @click="handledata(item)" v-if="index>13&&index<18">
                    <router-link :to="{name:'details'}">
-                        <p>{{item.looktitle}}</p>
-                        <img :src="item.lookimg">
+                        <p>{{item.essayTitle}}</p>
+                        <img :src="item.picpath">
                   </router-link> 
               </li>
           </ul>
@@ -43,114 +43,31 @@
 </template>
 
 <script>
+import Vuex from "vuex";
 export default{
+    
+    created(){
+        this.$store.dispatch("IndexRenovation/textActions")
+    },
+    computed:{
+         ...Vuex.mapState({
+         mainpage:state=>state.IndexRenovation.mainpage
+         })
+          
+     },
+    
     methods:{
         handledata(item){
             setTimeout(() => {
             this.observer.$emit("detail",item);
             this.observer.$off('datail'); 
-            }, 200);
+            }, 200); 
             
         }
     },
     data(){
         return {
-       mustlook:[
-                {
-        "id": 1,
-        "looktitle": "预算",
-        "lookimg": "../../../../static/img/renovation/budget@2x.png"
-        },
-        {
-        "id": 2,
-        "looktitle": "材料选择",
-        "lookimg": "../../../../static/img/renovation/material@2x.png"
-        },
-        {
-        "id": 3,
-        "looktitle": "水电防水",
-        "lookimg": "../../../../static/img/renovation/water@2x.png"
-        },
-        {
-        "id": 4,
-        "looktitle": "地面",
-        "lookimg": "../../../../static/img/renovation/floor@2x.png"
-        },
-        {
-        "id": 5,
-        "looktitle": "厨卫工程",
-        "lookimg": "../../../../static/img/renovation/cookie@2x.png"
-        },
-        {
-        "id": 6,
-        "looktitle": "软装家具",
-        "lookimg": "../../../../static/img/renovation/sofa@2x.png"
-        },
-        {
-        "id": 7,
-        "looktitle": "家用电器",
-        "lookimg": "../../../../static/img/renovation/electric@2x.png"
-        },
-        {
-        "id": 8,
-        "looktitle": "配色指南",
-        "lookimg": "../../../../static/img/renovation/paint@2x.png"
-        },
-        {
-        "id": 9,
-        "looktitle": "动线布局",
-        "lookimg": "../../../../static/img/renovation/byicon-buju@2x.png"
-        },
-        {
-        "id": 10,
-        "looktitle": "灯具",
-        "lookimg": "../../../../static/img/renovation/lamps@2x.png"
-        }
-         ],
- "space": [
-    {
-      "id": 11,
-      "looktitle": "客厅",
-      "lookimg": "../../../../static/img/renovation/house@2x.png"
-    },
-    {
-      "id": 12,
-      "looktitle": "卧室",
-      "lookimg": "../../../../static/img/renovation/bedrom@2x.png"
-    },
-    {
-      "id": 13,
-      "looktitle": "卫生间",
-      "lookimg": "../../../../static/img/renovation/bash@2x.png"
-    },
-    {
-      "id": 14,
-      "looktitle": "厨房",
-      "lookimg": "../../../../static/img/renovation/knif@2x.png"
-    }
-  ],
-  "alllook": [
-    {
-      "id": 15,
-      "looktitle": "衣柜",
-      "lookimg": "../../../../static/img/renovation/clothes@2x.png"
-    },
-    {
-      "id": 16,
-      "looktitle": "电视背景墙",
-      "lookimg": "../../../../static/img/renovation/wall@2x.png"
-    },
-    {
-      "id": 17,
-      "looktitle": "橱柜",
-      "lookimg": "../../../../static/img/renovation/gui@2x.png"
-    },
-    {
-      "id": 18,
-      "looktitle": "衣帽间",
-      "lookimg": "../../../../static/img/renovation/hat@2x.png"
-    }
-  ]
+
         }
     }
     
@@ -192,25 +109,12 @@ export default{
        font-size: .18rem;
        margin: .18rem 0 0 .18rem;
    }
-   .renovation_look ul li img{
-       height: .74rem;
-       margin:.23rem 0 0 .48rem;
+   .imgmain{
+       width:.73rem;
+       height:.9rem;
+       margin: .2rem .38rem 0 .38rem;
    }
-    /* 图片位置设置 */
-   .renovation_look ul li:nth-of-type(2) img,
-   .renovation_look ul li:nth-of-type(5) img,
-   .renovation_look ul li:nth-of-type(6) img,
-   .renovation_look ul li:nth-of-type(7) img,
-    .renovation_look ul li:nth-of-type(9) img{
-       margin-left:.38rem; 
-   }
-   .renovation_look ul li:nth-of-type(3) img,
-   .renovation_look ul li:nth-of-type(4) img{
-       margin-left:.34rem; 
-   }
-   .renovation_look ul li:nth-of-type(8) img{
-      margin-left: .27rem;
-   }
+
    /* 空间 */
    .space,
    .alllook{
@@ -240,19 +144,9 @@ export default{
    }
    .space>ul>li>a>img,
    .alllook>ul>li>a>img{
-       height:.75rem;
+       width: .73rem;
+       height:.9rem;
        margin-left:.37rem ;
    }
-   .alllook li:nth-of-type(1) img{
-       margin-left: .4rem;
-   }
-   .alllook li:nth-of-type(2) img{
-       margin-left: .23rem;
-   }
-   .alllook li:nth-of-type(3) img{
-       margin-left: .55rem;
-   }
-   .alllook li:nth-of-type(4) img{
-       margin-left: .43rem;
-   }
+
 </style>

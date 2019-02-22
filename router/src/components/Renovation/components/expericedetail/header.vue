@@ -1,28 +1,31 @@
 <template>
      <div class="experienceheader">
-        <div class="data" v-for="(item,index) in experience" v-if="index==id">
+        <div class="data">
+         <div>
          <div class="bgd">
-             <img :src="item.img" class="photo">
+             <img src="http://img5.imgtn.bdimg.com/it/u=2938004998,3625459091&fm=26&gp=0.jpg" class="photo">
              <i class="iconfont righticon" v-html="righticon" @click="handleToggle()"></i>
            
              <i class="iconfont lefticon" v-html="lefticon" @click="handleBack()"></i>
-             
          </div>  
          <div class="article">
-             <p>{{item.title}}</p>
-             <span>{{item.text}}</span>
+             <p>{{experience.releaseEssay.essayTitle}}</p>
+             <span>{{experience.releaseEssay.essayMain}}</span>
          </div>
        </div>
+        </div>
      </div>    
 </template>
 
 
 <script>
 import Vuex from "vuex";
+
+
 export default {
      data(){
          return {
-       id:1,
+       id:"",
        lefticon:"&#xe64a;",
        img:"../../../../../static/img/renovation/mater@2x.png",
        righticon:"&#xe647;",
@@ -30,23 +33,26 @@ export default {
          }
      },
      created(){
-         this.$store.dispatch("IndexRenovation/expericelistActions")
+        this.id=this.$route.params.id;
+        //  this.$store.dispatch("IndexRenovation/textActionsArticle",this.id)
+        //  this.$store.dispatch("IndexRenovation/textActions")
      },
      computed:{
          ...Vuex.mapState({
-         experience:state=>state.IndexRenovation.experience
+          experience:state=>state.IndexRenovation.experience
          })
      },
      methods:{
          handleBack(){
-             this.$router.history.go(-1)
+             this.$router.go(-1);
          },
          handleToggle(){
              this.flag=!this.flag;
              this.$emit("toggle",this.flag)
-         }
+         },
      }
 }
+
 </script>
 
 <style scoped>

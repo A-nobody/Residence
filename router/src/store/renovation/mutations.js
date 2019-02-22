@@ -1,4 +1,7 @@
 export default{
+    mainpageMutations(state,params){
+       state.mainpage=params;
+    },
     // 详情页标题数据获取
     detailtitleMutations(state,params){
         state.detailtitle=params;
@@ -10,5 +13,6 @@ export default{
     // 详情页面专家经验
     expericelistMutations(state,params){
         state.experience=params;
+        // console.log(params);
     }
 }

@@ -1,23 +1,60 @@
 import axios from "axios";
 import qs from "qs";
 
-// 请求的拦截
-// axios.interceptors.request.use((config)=>{
-//     //当发送方式为post时
-//      if(config.method=="post"){
-//         config.data=qs.stringify(config.data);
-//      }
-//      return config;
-//   })
-
-// //   响应拦截，只返回需要用到的数据
-//   axios.interceptors.response.use((res)=>{
-//     if(res.status){   
-//        return res.data; 
-//     }
-// })
 
 export default{
+
+    // 主页面
+    textActions({commit}){
+       axios({
+           method:"post",
+           url:"http://47.93.27.243/huiju/findReleaseByPage"  ,
+           data:{
+            userId:1,
+            pageSize:18,
+            nowPage:1
+         },
+        })
+        .then((data)=>{
+            commit("mainpageMutations",data.releaseEssayResoult.list);
+            // console.log(data)
+         })
+    },
+    textActionsArticle({commit},val){
+        axios({
+            method:"post",
+            
+            url:"http://47.93.27.243/huiju/findByReleaseId"  ,
+            data:{
+             userId:1,
+             releaseId:val,
+          },
+         })
+         .then((data)=>{
+            commit("expericelistMutations",data)
+           // console.log(data.releaseEssay)
+          })
+         
+     },
+    mainpageActions({commit}){
+       axios({
+           method:"post",
+           url:"http://10.9.41.243:8080/findReleaseByPage",
+           data:{
+            userId:1,
+            pageSize:18,
+            nowPage:1
+         },
+       })
+       .then((data)=>{
+           commit("mainpageMutations",data);
+        //    console.log(data)
+       },()=>{
+           console.log("err")
+       })
+    },
+
+
        
     // 详情页面标题的数据
     detailtitleActions({commit}){
