@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home'
+import Searchhom from '@/components/home/components/searchjump'
 import UserData from '@/components/mine/userData.vue'
 import Cart from '@/components/mine/cart.vue'
 import Favorite from '@/components/mine/favorite.vue'
@@ -309,7 +310,7 @@ const router = new Router({
 
 
     {  
-      path:"/renovation/details",
+      path:"/renovation/details/:id",
       component:Detail,
       name:"details",
       meta:{
@@ -318,7 +319,7 @@ const router = new Router({
       }
     },
     {
-      path:"/renovation/details/expericence",
+      path:"/renovation/details/expericence/:id",
       component:Experience,
       name:"expericence",
       meta:{
@@ -338,6 +339,15 @@ const router = new Router({
 
     /* 确认订单 */
     {
+      path:"/renovation/search",
+      component:Searchhom,
+      name:'Searchhom',
+      meta:{
+        flag:false,
+        requireAuth:true,
+      }
+    },
+    {
       path: '/shop/confirm',
       name: 'confirm',
       component: resolve=>require(['@/components/shop/components/confirmorder'],resolve),
@@ -346,7 +356,6 @@ const router = new Router({
         flag: false,
         //路由守卫
         requireAuth: true
-
       }
     },
     {

@@ -1,22 +1,6 @@
 <template>
-     <div class="article_details">
-         <!-- 横向ul滚动  -->
-         <div class="professor wrapper" ref="listexperice">
-             <ul class="content">
-                
-                 <li v-for="(item,index) in professor">
-                     <router-link class="weisb" :to="{name:'expericence'}">
-                     <img :src="item.img">
-                     <p>{{item.title}}</p>
-                     <img :src="item.headimg" class="headsmall">
-                     <span>{{item.specialname}}</span>
-                      </router-link>
-                 </li>
-                
-             </ul>
-         </div>
-         <!-- 横向ul滚动结束 -->
-     </div>
+<div></div>
+     
 </template>
 
 <script>
@@ -31,14 +15,7 @@ export default {
     created(){
         this.$store.dispatch("IndexRenovation/expericeActions")
     },
-    updated(){
-         if(!this.scroll){
-            this.scroll = new BScroll(this.$refs.listexperice,{
-                scrollX:true,
-                click:true
-            });
-        }
-    }
+    
 }
 </script>
 

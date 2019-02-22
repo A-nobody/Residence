@@ -9,6 +9,7 @@ import observer from './common/js/observer'
 import './common/css/animate.min.css'
 import MintUi from 'mint-ui'
 import 'mint-ui//lib/style.css'
+import './components/Renovation/mock/mock.js'
 Vue.use(MintUi);
 
 

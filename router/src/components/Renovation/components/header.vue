@@ -2,7 +2,7 @@
     <div class="box_n">
         <!-- 灰色背景块 -->
         <div class="top_n">
-             <i class="iconfont" v-html="righticon"></i>
+             <i class="iconfont" v-html="righticon" @click="search()"></i>
             <!-- 标题-装修 -->
            <p class="title_n">{{title}}</p>
            <!-- 蓝色背景块 -->
@@ -37,7 +37,7 @@
               </router-link>
               <!-- <router-link :to="{name:'process'}"> -->
                 <div class="process_right">
-                    <dl>
+                    <dl  @click="skiphome()">
                         <dt><img :src="imgtwo"></dt>
                         <dd><p>{{imgtitleright}}</p></dd>
                         <dd><span>{{bottomtitleright}}</span></dd>
@@ -66,6 +66,15 @@ export default {
             imgtitleright:"避坑指南",
             bottomtitleright:"过来人血泪经验",
             righticon:"&#xe626;"
+        }
+    },
+    methods:{
+        skiphome(){
+            console.log(1)
+            this.$router.history.push("/home/message")
+        },
+        search(){
+            this.$router.history.push("/renovation/search")
         }
     }
 }

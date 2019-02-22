@@ -1,8 +1,9 @@
 <template>
     <div>
-      <div class="mockdata"  v-for="(item,index) in detailtitle" v-if="index==id">
-        <div class="header_details">
-            <img :src="item.img" class="maskbgd"/>
+      <div class="mockdata">
+         <div class="header_details">
+            <img src="http://img3.imgtn.bdimg.com/it/u=2424242699,3463634534&fm=26&gp=0.jpg" class="maskbgd"/>
+             <p>{{experience.releaseEssay.essayTitle}}</p>
             <div class="mask">
                 
             </div> 
@@ -12,16 +13,75 @@
              </router-link>
 
                 <i class="iconfont righticon" v-html="righticon" @click="handleToggle"></i>
-                <p>{{title}}</p>
+            
         </div>
         <div class="article">
             <span>
-               {{item.text}}
+               {{experience.releaseEssay.essayMain}}
             </span>    
         </div>
     </div>
         <div class="title_professor">
             <p>专家经验</p>
+            <div class="article_details">
+         <!-- 横向ul滚动  -->
+         <div class="professor wrapper" ref="listexperice">
+             <ul class="content">
+                
+                 <li>
+                     <router-link class="weisb" :to="{name:'expericence'}">
+                     <img :src="experience.goods.goodsPicture2">
+                     <p>{{experience.releaseEssay.essayMain}}</p>
+                     
+                     <!-- <img :src="item.headimg" class="headsmall"> -->
+                     <!-- <span>{{item.specialname}}</span> -->
+                     
+                      </router-link>
+                 </li>
+                 <li>
+                     <router-link class="weisb" :to="{name:'expericence'}">
+                     <img :src="experience.goods.goodsPicture3">
+                     <p>{{experience.releaseEssay.essayMain}}</p>
+                     
+                     <!-- <img :src="item.headimg" class="headsmall"> -->
+                     <!-- <span>{{item.specialname}}</span> -->
+                     
+                      </router-link>
+                 </li> 
+                 <li>
+                     <router-link class="weisb" :to="{name:'expericence'}">
+                     <img :src="experience.goods.goodsPicture4">
+                     <p>{{experience.releaseEssay.essayMain}}</p>
+                     
+                     <!-- <img :src="item.headimg" class="headsmall"> -->
+                     <!-- <span>{{item.specialname}}</span> -->
+                     
+                      </router-link>
+                 </li>
+                 <li>
+                     <router-link class="weisb" :to="{name:'expericence'}">
+                     <img :src="experience.goods.goodsPicture5">
+                     <p>{{experience.releaseEssay.essayMain}}</p>
+                     
+                     <!-- <img :src="item.headimg" class="headsmall"> -->
+                     <!-- <span>{{item.specialname}}</span> -->
+                     
+                      </router-link>
+                 </li>  
+                 <li>
+                     <router-link class="weisb" :to="{name:'expericence'}">
+                     <img :src="experience.goods.goodsPicture6">
+                     <p>{{experience.releaseEssay.essayMain}}</p>
+                     
+                     <!-- <img :src="item.headimg" class="headsmall"> -->
+                     <!-- <span>{{item.specialname}}</span> -->
+                     
+                      </router-link>
+                 </li>       
+             </ul>
+         </div>
+         <!-- 横向ul滚动结束 -->
+     </div>
         </div>
     </div>
 </template>
@@ -29,17 +89,19 @@
 <script>
 import Vuex from "vuex"
 import Vue from "vue"
-
-
+import BScroll from "better-scroll";
 export default {
+
      data(){
        return {
        id:"",
        title:"",
+       arr:[],
        lefticon:"&#xe64a;",
        righticon:"&#xe647;",
        flag:false,
        img:"../../../../../static/img/renovation/mater@2x.png",
+       details:[]
        }
    },
    methods:{
@@ -48,21 +110,30 @@ export default {
         this.$emit("toggle",this.flag)
        }
    },
-   created(){
-      
-      this.$store.dispatch("IndexRenovation/detailtitleActions");
+   created(){  
+       this.id=this.$route.params.id+1;   
+      this.$store.dispatch("IndexRenovation/textActionsArticle",this.id);
       this.observer.$on("detail",(val)=>{
-      this.title=val.looktitle;
-      this.id=val.id;
-      this.observer.$off("detail")
-    })   
+      this.title=val.title;
+      this.arr.push(val)
+      this.details=val.details;
+      this.observer.$off("detail");
+    }) 
    },
    computed:{
-       ...Vuex.mapState({
-           detailtitle:state=>state.IndexRenovation.detailtitle
-
-       })
-   }
+         ...Vuex.mapState({
+        experience:state=>state.IndexRenovation.experience
+         })
+          
+     },
+   updated(){
+         if(!this.scroll){
+            this.scroll = new BScroll(this.$refs.listexperice,{
+                scrollX:true,
+                click:true
+            });
+        }
+    }
 }
 </script>
 
@@ -100,6 +171,7 @@ export default {
        color: #000;
        float: left;
        font-weight: bold;
+       margin-bottom: .3rem;
    }
    .header_details{
        position: relative;
@@ -156,4 +228,57 @@ export default {
        line-height: .8rem;
        margin-bottom: .2rem;
    }
+    .professor{
+       width: auto;
+       height: 4.2rem;
+   }
+   .professor>ul{
+        height: 4.2rem;
+        display: flex;
+        width: max-content;
+   }
+   .professor>ul>li{
+       width:4.6rem;
+       height:4.2rem;
+       float: left;
+       border-radius: .1rem;
+       margin-right: .25rem;
+   }
+   .professor>ul>li:nth-of-type(1){
+       margin-left: .2rem;
+   }
+   .professor>ul>li>img:nth-of-type(1){
+       width:4.58rem;
+       height: 2.54rem;
+   }
+   .professor>ul>li>a>p{
+       font-size:.28rem;
+       color:#000;
+       margin: .2rem .3rem 0 .3rem;
+       width: 4.6rem;
+   }
+   .professor>ul>li>a>span{
+       font-size: .22rem;
+       color:#4D4D4D;
+       float:left;
+       margin-top: .25rem;
+   }
+  .headsmall{
+      float:left;
+      width: .28rem;
+      height:.28rem;
+      vertical-align: middle;
+      margin: .23rem .04rem 0 .30rem;
+      border-radius: 50%;
+  }
+
+    .weisb{
+        display: inline-block;
+        width: 4.58rem;
+        height: 2.54rem;
+    }
+    .weisb img:first-child{
+        width: 100%;
+        height: 100%;
+    }
 </style>
