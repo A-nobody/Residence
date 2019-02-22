@@ -20,6 +20,7 @@
   </div>
 </template>
 <script>
+import axios from "axios"
 export default {
   methods: {
     handleServer() {
@@ -33,6 +34,18 @@ export default {
     },
     handletoBuy() {
       this.$router.push({ name: "confirm" });
+        axios({
+                    method:'post',
+                    url:"http://47.93.27.243/huiju/shops/now",
+                    // url:"http://47.93.27.243:8081/huiju-lr/getPhoneCaptcha",
+                    data:{
+                        userId:1,
+                        goodsId:1,
+                        goodsNum:this.num
+                    }
+                }).then((data)=>{
+                    console.log(data)
+                })
     },
     handleTocar() {
       this.observer.$emit("handleTocar", true);
