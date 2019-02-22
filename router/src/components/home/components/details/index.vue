@@ -8,7 +8,8 @@
         </section>
         <div class="wrapper" ref="detailsW">
             <div class="content">
-                <details-com/>
+                <details-com 
+                />
                 <want-com/>
             </div>
         </div>
@@ -21,12 +22,13 @@ import detailsW from "./components/detailsW";
 import wanttobody from "./components/wanttobay";
 import discussW from "./components/discussW"
 import BScroll from "better-scroll";
+import Vuex from "vuex";
 export default{
     data(){
         return{
             details_bg:"/static/img/home_slices/tp_dtxq_05@2x.png",
             return_wd:"&#xe64a;",
-            forwrading_d:"&#xe647;"
+            forwrading_d:"&#xe647;",
         }
     },
     methods:{
@@ -39,14 +41,23 @@ export default{
         "want-com":wanttobody,
         "discussW-com":discussW
     },
+    computed:{
+        ...Vuex.mapState({
+            articles:state=>state.home.articles
+        })
+    },
+    created(){
+        this.$store.dispatch("home/handleSetArticle")
+        
+    },
     mounted(){
         if(!this.scroll){
             this.scroll = new BScroll(this.$refs.detailsW,{
                 pullUpLoad:true,
                 click:true
             })
-            console.log(this.scroll);
         }
+        console.log(this.articles)
     }
 }
 </script>

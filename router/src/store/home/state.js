@@ -1,4 +1,7 @@
 export default {
    homeNavs:"",
-   commits:""
+   commits:"",
+   comment:"",
+   articles:"",
+   cs:""
 }

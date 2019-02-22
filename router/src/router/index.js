@@ -44,6 +44,7 @@ import details_w from '@/components/home/components/details'
 import message_w from '@/components/home/components/message'
 import system1_l from '@/components/home/components/system1'
 import system2_l from '@/components/home/components/system2'
+import ReleaseW from '@/components/releasesW'
 Vue.use(Router)
 
 const router = new Router({
@@ -158,6 +159,17 @@ const router = new Router({
       meta: {
         //tab栏
         flag: true,
+        //路由守卫
+        requireAuth: true
+      }
+    },
+    {
+      path: '/releaseW',
+      name: 'releaseW',
+      component: ReleaseW,
+      meta: {
+        //tab栏
+        flag: false,
         //路由守卫
         requireAuth: true
       }

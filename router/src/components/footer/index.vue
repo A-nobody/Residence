@@ -31,7 +31,7 @@ export default {
                     icon:"&#xe619;"
                 },
                 {
-                    name:"release",
+                    name:"releaseW",
                     title:'发布',
                     url:"/img/home_slices/ZX_8_fb@2x.png",
                     curl:"/img/home_slices/ZX_8_fb@2x.png",
